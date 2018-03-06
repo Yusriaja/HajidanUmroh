@@ -40,7 +40,7 @@ public class ListAdapterSubMenu extends RecyclerView.Adapter<ListAdapterSubMenu.
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
         final SubMenuContent content = dataContent.get(position);
-        holder.textView.setText(content.getStrContent());
+        holder.textView.setText(content.getStr_());
         holder.cardView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

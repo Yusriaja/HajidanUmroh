@@ -5,27 +5,37 @@ package com.d4it_b.hajidanumroh.model;
  */
 
 public class SubMenuContent {
-    private int id;
-    private String strContent;
+   private int idSubMenu;
+   private int idTableUtama;
+   private String str_;
 
-    public SubMenuContent(int id, String strContent) {
-        this.id = id;
-        this.strContent = strContent;
+    public SubMenuContent(int idSubMenu, int idTableUtama, String str_) {
+        this.idSubMenu = idSubMenu;
+        this.idTableUtama = idTableUtama;
+        this.str_ = str_;
     }
 
-    public int getId() {
-        return id;
+    public int getIdSubMenu() {
+        return idSubMenu;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public void setIdSubMenu(int idSubMenu) {
+        this.idSubMenu = idSubMenu;
     }
 
-    public String getStrContent() {
-        return strContent;
+    public int getIdTableUtama() {
+        return idTableUtama;
     }
 
-    public void setStrContent(String strContent) {
-        this.strContent = strContent;
+    public void setIdTableUtama(int idTableUtama) {
+        this.idTableUtama = idTableUtama;
+    }
+
+    public String getStr_() {
+        return str_;
+    }
+
+    public void setStr_(String str_) {
+        this.str_ = str_;
     }
 }
