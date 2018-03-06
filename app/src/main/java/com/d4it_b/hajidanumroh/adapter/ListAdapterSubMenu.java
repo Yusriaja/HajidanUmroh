@@ -8,7 +8,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.d4it_b.hajidanumroh.R;
-import com.d4it_b.hajidanumroh.model.haji.Haji;
+import com.d4it_b.hajidanumroh.model.SubMenuContent;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -17,41 +17,41 @@ import java.util.List;
  * Created by M N D on 23/02/2018.
  */
 
-public class ListAdapterHaji extends RecyclerView.Adapter<ListAdapterHaji.ViewHolder>{
-    List<Haji> dataHaji= new ArrayList<>();
+public class ListAdapterSubMenu extends RecyclerView.Adapter<ListAdapterSubMenu.ViewHolder>{
+    List<SubMenuContent> dataContent= new ArrayList<>();
 
-    ListenerHaji listenerHaji;
+    ContentListener contentListener;
 
 
-    public ListAdapterHaji(ListenerHaji listener) {
-        this.listenerHaji = listener;
+    public ListAdapterSubMenu(ContentListener listener) {
+        this.contentListener = listener;
     }
 
-    public void setData(ArrayList<Haji> data){
-        dataHaji=data;
+    public void setData(ArrayList<SubMenuContent> data){
+        dataContent=data;
         notifyDataSetChanged();
     }
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.adapter_haji, parent, false);
+        View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.adapter_content, parent, false);
         return new ViewHolder(v);
     }
 
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
-        final Haji haji = dataHaji.get(position);
-        holder.textView.setText(haji.getString_haji());
+        final SubMenuContent content = dataContent.get(position);
+        holder.textView.setText(content.getStrContent());
         holder.cardView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                listenerHaji.viewItem(haji);
+                contentListener.viewItem(content);
             }
         });
     }
 
     @Override
     public int getItemCount() {
-        return dataHaji.size();
+        return dataContent.size();
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
@@ -61,11 +61,11 @@ public class ListAdapterHaji extends RecyclerView.Adapter<ListAdapterHaji.ViewHo
 
             super(itemView);
             cardView = (CardView)itemView.findViewById(R.id.card_view);
-            textView = (TextView)itemView.findViewById(R.id.text_haji);
+            textView = (TextView)itemView.findViewById(R.id.text_content);
         }
     }
 
-    public interface ListenerHaji {
-        void viewItem(Haji haji);
+    public interface ContentListener {
+        void viewItem(SubMenuContent content);
     }
 }

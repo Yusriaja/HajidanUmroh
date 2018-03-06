@@ -11,33 +11,29 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.widget.Toast;
 
-import com.d4it_b.hajidanumroh.fragment.FragmentDAM;
-import com.d4it_b.hajidanumroh.fragment.FragmentDoa;
-import com.d4it_b.hajidanumroh.fragment.FragmentHaji;
-import com.d4it_b.hajidanumroh.fragment.FragmentSholat;
-import com.d4it_b.hajidanumroh.fragment.FragmentUmroh;
-import com.d4it_b.hajidanumroh.model.haji.Haji;
+import com.d4it_b.hajidanumroh.fragment.FragmentSubMenu;
+import com.d4it_b.hajidanumroh.model.SubMenuContent;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class PanduanActivity extends AppCompatActivity implements FragmentHaji.Detail{
+public class MainAct extends AppCompatActivity implements FragmentSubMenu.Detail{
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_panduan);
+        setContentView(R.layout.act_main);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
         ViewPager viewPager = (ViewPager) findViewById(R.id.viewpager);
         ViewPagerAdapter adapter = new ViewPagerAdapter(getSupportFragmentManager());
         setupViewPager(viewPager);
-//        adapter.addFragment(new FragmentDoa(), "Doa");
-//        adapter.addFragment(new FragmentUmroh(), "Umroh");
-//        adapter.addFragment(new FragmentHaji(), "Haji");
-//        adapter.addFragment(new FragmentSholat(), "Sholat");
-//        adapter.addFragment(new FragmentDAM(), "DAM");
+//        adapter.addFragment(new FragmentSubMenu(), "Doa");
+//        adapter.addFragment(new FragmentSubMenu(), "Umroh");
+//        adapter.addFragment(new FragmentSubMenu(), "Hajii");
+//        adapter.addFragment(new FragmentSubMenu(), "Sholat");
+//        adapter.addFragment(new FragmentSubMenu(), "DAM");
 //        viewPager.setAdapter(adapter);
 
         TabLayout tabLayout = (TabLayout) findViewById(R.id.tabs);
@@ -47,37 +43,37 @@ public class PanduanActivity extends AppCompatActivity implements FragmentHaji.D
     private void setupViewPager(ViewPager viewPager){
         ViewPagerAdapter adapter = new ViewPagerAdapter(getSupportFragmentManager());
 
-        FragmentHaji fragmentHaji = new FragmentHaji();
+        FragmentSubMenu fragmentHaji = new FragmentSubMenu();
         fragmentHaji.setDetail(this);
         adapter.addFragment(fragmentHaji, "HAJI");
 
-        FragmentSholat fragmentSholat = new FragmentSholat();
+        FragmentSubMenu fragmentSholat = new FragmentSubMenu();
 //        fragmentHaji.setDetail(this);
         adapter.addFragment(fragmentSholat, "Sholat");
-
-        FragmentUmroh fragmentUmroh = new FragmentUmroh();
+//
+        FragmentSubMenu fragmentUmroh = new FragmentSubMenu();
 //        fragmentHaji.setDetail(this);
         adapter.addFragment(fragmentUmroh, "Umroh");
 
-        FragmentDoa fragmentDoa = new FragmentDoa();
+        FragmentSubMenu fragmentDoa = new FragmentSubMenu();
 //        fragmentHaji.setDetail(this);
         adapter.addFragment(fragmentDoa, "DOA");
 
-        FragmentDAM fragmentDAM = new FragmentDAM();
+        FragmentSubMenu fragmentDAM = new FragmentSubMenu();
 //        fragmentHaji.setDetail(this);
         adapter.addFragment(fragmentDAM, "DAM");
         viewPager.setAdapter(adapter);
     }
 
     @Override
-    public void detail(Haji haji) {
-        Intent intent = new Intent(PanduanActivity.this, DetailHajiActivity.class);
+    public void detail(SubMenuContent content) {
+        Intent intent = new Intent(MainAct.this, DetailHajiActivity.class);
         Bundle bundle = new Bundle();
 
-        bundle.putInt("IdDetailHaji", haji.getId_haji());
+        bundle.putInt("IdDetailHaji", content.getId());
         intent.putExtras(bundle);
         startActivity(intent);
-        Toast.makeText(getApplicationContext(), haji.getId_haji() + " , "+ haji.getString_haji(), Toast.LENGTH_SHORT).show();
+        Toast.makeText(getApplicationContext(), content.getId() + " , "+ content.getStrContent(), Toast.LENGTH_SHORT).show();
     }
 
     class ViewPagerAdapter extends FragmentPagerAdapter {

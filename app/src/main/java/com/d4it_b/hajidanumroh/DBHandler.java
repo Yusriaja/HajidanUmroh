@@ -7,8 +7,8 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
 
-import com.d4it_b.hajidanumroh.model.haji.DetailHaji;
-import com.d4it_b.hajidanumroh.model.haji.Haji;
+import com.d4it_b.hajidanumroh.model.DetailContent;
+import com.d4it_b.hajidanumroh.model.SubMenuContent;
 
 import java.util.ArrayList;
 
@@ -34,6 +34,7 @@ public class DBHandler extends SQLiteOpenHelper {
 
 //    field table haji
     private static final String KEY_ID_HAJI ="id_haji";
+    private static final String KEY_ID_UMROH ="id_umroh";
     private static final String KEY_STRING_HAJI ="string_haji";
 
 //    field table detail haji
@@ -55,37 +56,46 @@ public class DBHandler extends SQLiteOpenHelper {
                 + KEY_STRING_DETAIL_HAJI + " TEXT "+" ) ");
     }
 
-    public void addAllDetailHaji(ArrayList<DetailHaji> detailHajis){
-        for (DetailHaji detailHaji : detailHajis){
-            addDetaiHaji(detailHaji);
+    public void addAllDetail(ArrayList<DetailContent> detailContents, String tabelName){
+        for (DetailContent detailContent : detailContents){
+            if(tabelName.equals("tb_haji"))
+                addDetaiHaji(detailContent);
+            else if(tabelName.equals("tb_umroh")){}
+                //save to umroh
+            else if(tabelName.equals("tb_sholat")){}
+            //save to sholat
+            else if(tabelName.equals("tb_dam")){}
+            //save to dam
+            else if(tabelName.equals("tb_doa")){}
+            //save to doa
         }
     }
 
-    private void addDetaiHaji(DetailHaji detailHaji) {
+    private void addDetaiHaji(DetailContent detailContent) {
         SQLiteDatabase db = this.getWritableDatabase();
 
         ContentValues values = new ContentValues();
 
-        values.put(KEY_ID_DETAIL_HAJI, detailHaji.getId_detail_haji());
-        values.put(KEY_ID_HAJI, detailHaji.getId_haji());
-        values.put(KEY_STRING_DETAIL_HAJI, detailHaji.getString_detail_haji());
+        values.put(KEY_ID_DETAIL_HAJI, detailContent.getId_detail_haji());
+        values.put(KEY_ID_HAJI, detailContent.getId_haji());
+        values.put(KEY_STRING_DETAIL_HAJI, detailContent.getString_detail_haji());
 
         db.insert(NAMA_TABEL_DETAIL_HAJI,null,values);
     }
 
-    public void addAllHaji(ArrayList<Haji> hajis){
-        for (Haji haji : hajis){
-            addHaji(haji);
+    public void addAllHaji(ArrayList<SubMenuContent> contents){
+        for (SubMenuContent content : contents){
+            addHaji(content);
         }
     }
 
-    private void addHaji(Haji haji) {
+    private void addHaji(SubMenuContent haji) {
         SQLiteDatabase db = this.getWritableDatabase();
 
         ContentValues values = new ContentValues();
 
-        values.put(KEY_ID_HAJI, haji.getId_haji());
-        values.put(KEY_STRING_HAJI, haji.getString_haji());
+        values.put(KEY_ID_HAJI, haji.getId());
+        values.put(KEY_STRING_HAJI, haji.getStrContent());
 
         Log.i("Masuk", "addHaji: "+ db.insert(NAMA_TABEL_HAJI,null,values));;
     }
@@ -100,29 +110,30 @@ public class DBHandler extends SQLiteOpenHelper {
         return count==0;
     }
 
-    public DetailHaji getDetailHaji(int idDetailHaji){
+    public DetailContent getDetailHaji(int idDetailHaji){
 
         SQLiteDatabase db = this.getReadableDatabase();
 
         Cursor res = db.rawQuery("select * from " + NAMA_TABEL_DETAIL_HAJI+ " WHERE " + KEY_ID_DETAIL_HAJI + " = " + idDetailHaji, null);
 
-        DetailHaji detailHaji=new DetailHaji(res.getInt(0), res.getString(1), res.getInt(2));
+        DetailContent detailHaji=new DetailContent(res.getInt(0), res.getString(1), res.getInt(2));
         return detailHaji;
     }
-    public ArrayList<Haji> getAllHaji(){
-        ArrayList<Haji> hajis = new ArrayList<>();
+    public ArrayList<SubMenuContent> getAll(String tableName){
+        ArrayList<SubMenuContent> contents = new ArrayList<>();
         SQLiteDatabase db = this.getReadableDatabase();
 
-        Cursor res = db.rawQuery("select * from " + NAMA_TABEL_HAJI+ " ORDER BY " + KEY_ID_HAJI + " ASC ", null);
+        String query = "select * from " + tableName+ " ORDER BY " + KEY_ID_HAJI + " ASC ";
+        Cursor res = db.rawQuery(query, null);
         res.moveToFirst();
 
         while (!res.isAfterLast()){
-            hajis.add(new Haji(res.getInt(0), res.getString(1)));
+            contents.add(new SubMenuContent(res.getInt(0), res.getString(1)));
             res.moveToNext();
         }
         res.close();
         db.close();
-        return hajis;
+        return contents;
     }
     @Override
     public void onUpgrade(SQLiteDatabase db, int i, int i1) {

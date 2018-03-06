@@ -1,15 +1,15 @@
-package com.d4it_b.hajidanumroh.model.haji;
+package com.d4it_b.hajidanumroh.model;
 
 /**
  * Created by M N D on 23/02/2018.
  */
 
-public class DetailHaji {
+public class DetailContent {
     private int id_detail_haji;
     private String string_detail_haji;
     private int id_haji;
 
-    public DetailHaji(int id_detail_haji, String string_detail_haji, int id_haji) {
+    public DetailContent(int id_detail_haji, String string_detail_haji, int id_haji) {
         this.id_detail_haji = id_detail_haji;
         this.string_detail_haji = string_detail_haji;
         this.id_haji = id_haji;

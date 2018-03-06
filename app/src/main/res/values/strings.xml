@@ -1,6 +1,7 @@
 <resources>
     <string name="app_name">HajidanUmroh</string>
     <string name="title_activity_panduan">PanduanActivity</string>
+    <string name="title_act_main">AN-NUR KARAH AGUNG Haji &amp; Umrah</string>
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>

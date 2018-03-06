@@ -4,23 +4,23 @@ import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
-import com.d4it_b.hajidanumroh.model.haji.DetailHaji;
-import com.d4it_b.hajidanumroh.model.haji.Haji;
+import com.d4it_b.hajidanumroh.model.SubMenuContent;
+import com.d4it_b.hajidanumroh.model.DetailContent;
 
 import java.util.ArrayList;
 
 public class SplashScreenActivity extends AppCompatActivity {
 
-    public int idHaji = 1;
+    public int idHaji = 0;
     public int counIdHaji = 1;
     public int idDetailHaji = 1;
     public DBHandler dbHandler;
-    ArrayList<Haji> dataHaji;
-    ArrayList<DetailHaji> dataDetailHaji;
+    ArrayList<SubMenuContent> dataHaji;
+    ArrayList<DetailContent> dataDetailHaji;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_splash_screen);
+        setContentView(R.layout.act_splash_screen);
 
         dbHandler=new DBHandler(this);
         dataHaji = new ArrayList<>();
@@ -29,27 +29,27 @@ public class SplashScreenActivity extends AppCompatActivity {
         Thread thread = new Thread(){
             public void run(){
                 try{
-                    dataHaji.add(new Haji(idHaji++, "Data Haji "+idHaji));
-                    dataHaji.add(new Haji(idHaji++, "Data Haji "+idHaji));
-                    dataHaji.add(new Haji(idHaji++, "Data Haji "+idHaji));
-                    dataHaji.add(new Haji(idHaji++, "Data Haji "+idHaji));
-                    dataHaji.add(new Haji(idHaji++, "Data Haji "+idHaji));
+                    dataHaji.add(new SubMenuContent(idHaji++, "Data Haji "+idHaji));
+                    dataHaji.add(new SubMenuContent(idHaji++, "Data Haji "+idHaji));
+                    dataHaji.add(new SubMenuContent(idHaji++, "Data Haji "+idHaji));
+                    dataHaji.add(new SubMenuContent(idHaji++, "Data Haji "+idHaji));
+                    dataHaji.add(new SubMenuContent(idHaji++, "Data Haji "+idHaji));
 
-                    dataDetailHaji.add(new DetailHaji(idDetailHaji++, "DetailHaji" + counIdHaji, counIdHaji++ ));
-                    dataDetailHaji.add(new DetailHaji(idDetailHaji++, "DetailHaji" + counIdHaji, counIdHaji++ ));
-                    dataDetailHaji.add(new DetailHaji(idDetailHaji++, "DetailHaji" + counIdHaji, counIdHaji++ ));
-                    dataDetailHaji.add(new DetailHaji(idDetailHaji++, "DetailHaji" + counIdHaji, counIdHaji++ ));
-                    dataDetailHaji.add(new DetailHaji(idDetailHaji++, "DetailHaji" + counIdHaji, counIdHaji++ ));
+                    dataDetailHaji.add(new DetailContent(idDetailHaji++, "DetailHaji" + counIdHaji, counIdHaji++ ));
+                    dataDetailHaji.add(new DetailContent(idDetailHaji++, "DetailHaji" + counIdHaji, counIdHaji++ ));
+                    dataDetailHaji.add(new DetailContent(idDetailHaji++, "DetailHaji" + counIdHaji, counIdHaji++ ));
+                    dataDetailHaji.add(new DetailContent(idDetailHaji++, "DetailHaji" + counIdHaji, counIdHaji++ ));
+                    dataDetailHaji.add(new DetailContent(idDetailHaji++, "DetailHaji" + counIdHaji, counIdHaji++ ));
 
 //                    if (dbHandler.isHajiEmpty()){
                         dbHandler.addAllHaji(dataHaji);
-                        dbHandler.addAllDetailHaji(dataDetailHaji);
+                        dbHandler.addAllDetail(dataDetailHaji,"tb_haji");
 //                    }
                     sleep(4000);
                 }catch (InterruptedException e){
                     e.printStackTrace();
                 }finally {
-                    startActivity(new Intent(SplashScreenActivity.this, MainActivity.class));
+                    startActivity(new Intent(SplashScreenActivity.this, MainAct.class));
                     finish();
                 }
             }

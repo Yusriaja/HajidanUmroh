@@ -9,10 +9,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MainActivity"></activity>
         <activity
-            android:name=".PanduanActivity"
-            android:label="@string/title_activity_panduan"
+            android:name=".MainAct"
+            android:label="@string/title_act_main"
             android:theme="@style/AppTheme" />
         <activity android:name=".SplashScreenActivity">
             <intent-filter>
@@ -25,6 +24,10 @@
             android:name=".DetailHajiActivity"
             android:label="@string/title_activity_detail_haji"
             android:theme="@style/AppTheme"></activity>
+
+        <meta-data
+            android:name="preloaded_fonts"
+            android:resource="@array/preloaded_fonts" />
     </application>
 
 </manifest>
