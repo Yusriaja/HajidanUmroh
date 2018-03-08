@@ -5,6 +5,7 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.util.Log;
 
 import com.d4it_b.hajidanumroh.model.DetailContent;
 import com.d4it_b.hajidanumroh.model.IsiDetailContent;
@@ -36,13 +37,14 @@ public class DBHandler extends SQLiteOpenHelper {
 //    field-field tb_detail_content
     private static final String KEY_ID_DETAIL_CONTENT = "id_detail_content";
     private static final String KEY_TEXT_DETAIL_CONTENT = "str_detail_content";
+    private static final String KEY_ISSET_ISI = "is_iset_isi";
 
 //    field-field tb_isi_detail_content
     private static final String KEY_ID_ISI_DETAIL = "id_isi_detail_content";
     private static final String KEY_TEXT_ISI = "str_isi_detail";
 
     public DBHandler(Context context) {
-        super(context, "db_haji_umroh", null, 5);
+        super(context, "db_haji_umroh", null, 6);
     }
 
     @Override
@@ -63,8 +65,9 @@ public class DBHandler extends SQLiteOpenHelper {
         db.execSQL("CREATE TABLE " + NAMA_TABLE_DETAIL_CONTENT + " ( "
                 + KEY_ID_DETAIL_CONTENT + " INTEGER PRIMARY KEY, "
                 + KEY_ID_SUB_MENU + " INTEGER, "
-                + KEY_TEXT_DETAIL_CONTENT + " TEXT "
-                + " ) "
+                + KEY_TEXT_DETAIL_CONTENT + " TEXT, "
+                + KEY_ISSET_ISI + " INTEGER "+
+                " ) "
         );
 
         db.execSQL("CREATE TABLE " + NAMA_TABLE_ISI_DETAIL_CONTENT + " ( "
@@ -119,6 +122,7 @@ public class DBHandler extends SQLiteOpenHelper {
         values.put(KEY_ID_DETAIL_CONTENT, detailContent.getIdDetailContent());
         values.put(KEY_ID_SUB_MENU, detailContent.getIdSubMenuContent());
         values.put(KEY_TEXT_DETAIL_CONTENT, detailContent.getStrDetailConten());
+        values.put(KEY_ISSET_ISI, detailContent.getIsSetIsi());
 
         db.insert(NAMA_TABLE_DETAIL_CONTENT, null, values);
     }
@@ -169,12 +173,12 @@ public class DBHandler extends SQLiteOpenHelper {
         List<DetailContent> detailContents = new ArrayList<>();
         SQLiteDatabase db = this.getReadableDatabase();
 
-        String query = "SELECT * FROM "+ NAMA_TABLE_DETAIL_CONTENT+ " WHERE " + KEY_ID_SUB_MENU+ " = " + idSubMenu+ " ORDER BY " + KEY_ID_DETAIL_CONTENT+ " ASC";
+        String query = "SELECT * FROM "+ NAMA_TABLE_DETAIL_CONTENT+ " WHERE " + KEY_ID_SUB_MENU+ " = " + idSubMenu+ " AND "+ KEY_ISSET_ISI + " = 1" +" ORDER BY " + KEY_ID_DETAIL_CONTENT+ " ASC";
         Cursor res = db.rawQuery(query , null);
         res.moveToFirst();
 
         while (!res.isAfterLast()){
-            detailContents.add(new DetailContent(res.getInt(0), res.getString(2),  res.getInt(1)));
+            detailContents.add(new DetailContent(res.getInt(0), res.getString(2),  res.getInt(1), res.getInt(3)));
             res.moveToNext();
         }
 
@@ -183,6 +187,7 @@ public class DBHandler extends SQLiteOpenHelper {
 
         return detailContents;
     }
+//    =====================================================
 
 //    mengambil isi-isi dari detailContent
     public List<IsiDetailContent> getAllIsiDetail(int idDetail){
@@ -203,83 +208,67 @@ public class DBHandler extends SQLiteOpenHelper {
 
         return isiDetailContents;
     }
-//    public void addAllDetail(ArrayList<DetailContent> detailContents, String tabelName){
-//        for (DetailContent detailContent : detailContents){
-//            if(tabelName.equals("tb_haji"))
-//                addDetailHaji(detailContent);
-//            else if(tabelName.equals("tb_umroh")){}
-//                //save to umroh
-//            else if(tabelName.equals("tb_sholat")){}
-//            //save to sholat
-//            else if(tabelName.equals("tb_dam")){}
-//            //save to dam
-//            else if(tabelName.equals("tb_doa")){}
-//            //save to doa
-//        }
-//    }
-//
-//    private void addDetailHaji(DetailContent detailContent) {
-//        SQLiteDatabase db = this.getWritableDatabase();
-//
-//        ContentValues values = new ContentValues();
-//
-//        values.put(KEY_ID_DETAIL_HAJI, detailContent.getIdDetailContent());
-//        values.put(KEY_ID_HAJI, detailContent.getIdSubMenuContent());
-//        values.put(KEY_STRING_DETAIL_HAJI, detailContent.getStrDetailConten());
-//
-//        db.insert(NAMA_TABEL_DETAIL_HAJI,null,values);
-//    }
-//
-//    public void addAllHaji(ArrayList<SubMenuContent> contents){
-//        for (SubMenuContent content : contents){
-//            addHaji(content);
-//        }
-//    }
+//==========================================================
 
-//    private void addHaji(SubMenuContent haji) {
-//        SQLiteDatabase db = this.getWritableDatabase();
-//
-//        ContentValues values = new ContentValues();
-//
-//        values.put(KEY_ID_HAJI, haji.getId());
-//        values.put(KEY_STRING_HAJI, haji.getStrContent());
-//
-//        Log.i("Masuk", "addHaji: "+ db.insert(NAMA_TABEL_HAJI,null,values));;
-//    }
+//    Mengambil Text dari Detail Content
+    public ArrayList<String> getTextDetailContent(int idSubMenu){
+        ArrayList<String> content = new ArrayList<>();
+        SQLiteDatabase db = this.getReadableDatabase();
 
-//    public List<SubMenuContent> getAll(String tableName){
-//        ArrayList<SubMenuContent> contents = new ArrayList<>();
-//        SQLiteDatabase db = this.getReadableDatabase();
-//
-//        String query = "select * from " + tableName+ " ORDER BY " + KEY_ID_HAJI + " ASC ";
-//        Cursor res = db.rawQuery(query, null);
-//        res.moveToFirst();
-//
-//        while (!res.isAfterLast()){
-//            contents.add(new SubMenuContent(res.getInt(0), res.getString(1)));
-//            res.moveToNext();
-//        }
-//        res.close();
-//        db.close();
-//        return contents;
-//    }
+        String query = "SELECT * FROM " + NAMA_TABLE_DETAIL_CONTENT + " WHERE " + KEY_ID_SUB_MENU + " = " + idSubMenu;
+        Cursor res = db.rawQuery(query , null);
+        res.moveToFirst();
 
-//    public List<DetailContent> getDetailContent(int idSubMenu, String tableName){
-//        List<DetailContent> contents = new ArrayList<>();
-//        SQLiteDatabase db = this.getReadableDatabase();
-//
-//        String query = "select * from " + tableName+ " WHERE "+ KEY_ID_HAJI + " = "+ idSubMenu;
-//        Log.i("Hasil", "getDetailContent: " + query);
-//        Cursor res = db.rawQuery(query, null);
-//        res.moveToFirst();
-//        while (!res.isAfterLast()){
-//            contents.add(new DetailContent(res.getInt(0), res.getString(2), res.getInt(1)));
-//            res.moveToNext();
-//        }
-//        res.close();
-//        db.close();
-//        return contents;
-//    }
+        while (!res.isAfterLast()){
+            content.add(res.getString(2));
+            res.moveToNext();
+        }
+
+        res.close();
+        db.close();
+
+        return  content;
+    }
+//    =====================================================
+
+//    Mengambil Text dari table Isi Detail Content
+    public ArrayList<String> getTextIsiDetailContent(int idDetailContent){
+        ArrayList<String> content = new ArrayList<>();
+        SQLiteDatabase db = this.getReadableDatabase();
+
+        String query = "SELECT * FROM " + NAMA_TABLE_ISI_DETAIL_CONTENT + " WHERE " + KEY_ID_DETAIL_CONTENT + " = " + idDetailContent;
+        Cursor res = db.rawQuery(query , null);
+        res.moveToFirst();
+        Log.i("Res", "getTextIsiDetailContent: "+ res.getColumnCount());
+
+        while (!res.isAfterLast()){
+            content.add(res.getString(2));
+            res.moveToNext();
+        }
+        res.close();
+        db.close();
+        return  content;
+    }
+
+    public String getTitleAct (int idTable, String namaTable){
+        String string = null;
+        SQLiteDatabase db = this.getReadableDatabase();
+
+        String query = null;
+        if (namaTable.equals(NAMA_TABLE_UTAMA)){
+            query = "SELECT "+ KEY_TEXT_TABLE_UTAMA +" FROM " + NAMA_TABLE_UTAMA + " WHERE " + KEY_ID_TABLE_UTAMA + " = " + idTable;
+        }else{
+            query = "SELECT "+ KEY_TEXT_SUB_MENU +" FROM " + NAMA_TABLE_SUBMENU + " WHERE " + KEY_ID_SUB_MENU + " = " + idTable;
+        }
+
+        Cursor res = db.rawQuery(query , null);
+        res.moveToFirst();
+
+        string =  res.getString(0);
+        res.close();
+        db.close();
+        return string;
+    }
     @Override
     public void onUpgrade(SQLiteDatabase db, int i, int i1) {
         db.execSQL("DROP TABLE IF EXISTS " + NAMA_TABLE_UTAMA);

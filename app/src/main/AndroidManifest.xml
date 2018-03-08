@@ -22,7 +22,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".DetailHajiActivity"
+            android:name=".DetailActivity"
             android:label="@string/title_activity_detail_haji"
             android:theme="@style/AppTheme"></activity>
 

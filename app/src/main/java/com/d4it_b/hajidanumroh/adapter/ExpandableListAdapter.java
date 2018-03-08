@@ -10,6 +10,7 @@ import android.widget.TextView;
 
 import com.d4it_b.hajidanumroh.R;
 import com.d4it_b.hajidanumroh.model.DetailContent;
+import com.d4it_b.hajidanumroh.model.SubMenuContent;
 
 import java.util.HashMap;
 import java.util.List;
@@ -20,18 +21,23 @@ import java.util.List;
 
 public class ExpandableListAdapter extends BaseExpandableListAdapter {
     private Context _context;
-    private List<String> _listDataHeader; // header titles
+    private List<SubMenuContent> _listDataHeader; // header titles
     // child data in format of header title, child title
-    private HashMap<String, List<DetailContent>> _listDataChild;
+    private HashMap<SubMenuContent, List<DetailContent>> _listDataChild;
 
     public ExpandableListAdapter(Context context) {
         this._context = context;
     }
 
-    public void setData( List<String> listDataHeader,HashMap<String, List<DetailContent>> listChildData){
+    public void setData( List<SubMenuContent> listDataHeader,HashMap<SubMenuContent, List<DetailContent>> listChildData){
         this._listDataHeader = listDataHeader;
         this._listDataChild = listChildData;
         notifyDataSetChanged();
+    }
+
+    public int getIdChild (int groupPosition, int childPosititon){
+        return this._listDataChild.get(this._listDataHeader.get(groupPosition))
+                .get(childPosititon).getIdDetailContent();
     }
 
     @Override
@@ -60,7 +66,7 @@ public class ExpandableListAdapter extends BaseExpandableListAdapter {
         TextView txtListChild = (TextView) convertView
                 .findViewById(R.id.lbl_list_child);
 
-        txtListChild.setText(childText);
+        txtListChild.setText(childPosition+ ". " +childText);
         return convertView;
     }
 
@@ -70,9 +76,13 @@ public class ExpandableListAdapter extends BaseExpandableListAdapter {
                 .size();
     }
 
+
+    public int getIdGroup(int groupPsotion){
+        return this._listDataHeader.get(groupPsotion).getIdSubMenu();
+    }
     @Override
     public Object getGroup(int groupPosition) {
-        return this._listDataHeader.get(groupPosition);
+        return this._listDataHeader.get(groupPosition).getStr_();
     }
 
     @Override

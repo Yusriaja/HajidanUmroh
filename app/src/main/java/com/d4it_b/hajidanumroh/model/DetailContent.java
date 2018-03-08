@@ -8,11 +8,21 @@ public class DetailContent {
     private int idDetailContent;
     private String strDetailConten;
     private int idSubMenuContent;
+    private int isSetIsi; // 0 jika tidak ada dan 1 jika ada
 
-    public DetailContent(int idDetailContent, String strDetailConten, int idSubMenuContent) {
+    public DetailContent(int idDetailContent, String strDetailConten, int idSubMenuContent, int isSetIsi) {
         this.idDetailContent = idDetailContent;
         this.strDetailConten = strDetailConten;
         this.idSubMenuContent = idSubMenuContent;
+        this.isSetIsi = isSetIsi;
+    }
+
+    public int getIsSetIsi() {
+        return isSetIsi;
+    }
+
+    public void setIsSetIsi(int isSetIsi) {
+        this.isSetIsi = isSetIsi;
     }
 
     public int getIdDetailContent() {

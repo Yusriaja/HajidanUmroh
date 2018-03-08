@@ -7,9 +7,10 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ExpandableListView;
+import android.widget.Toast;
 
 import com.d4it_b.hajidanumroh.DBHandler;
-import com.d4it_b.hajidanumroh.DetailHajiActivity;
+import com.d4it_b.hajidanumroh.DetailActivity;
 import com.d4it_b.hajidanumroh.R;
 import com.d4it_b.hajidanumroh.adapter.ExpandableListAdapter;
 import com.d4it_b.hajidanumroh.model.DetailContent;
@@ -32,8 +33,8 @@ public class FragmentSubMenu extends Fragment{
     public int indexMain;
 
     List<SubMenuContent> subMenuContents;
-    List<String> listDataHeader;
-    HashMap<String, List<DetailContent>> listDataChild;
+    List<SubMenuContent> listDataHeader;
+    HashMap<SubMenuContent, List<DetailContent>> listDataChild;
     ExpandableListAdapter listAdapter;
     ExpandableListView expListView;
 
@@ -57,8 +58,8 @@ public class FragmentSubMenu extends Fragment{
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_sub_menu, container, false);
         expListView = (ExpandableListView) view.findViewById(R.id.lvExp);
-        listDataChild = new HashMap<String, List<DetailContent>>();
-        listDataHeader = new ArrayList<String>();
+        listDataChild = new HashMap<SubMenuContent, List<DetailContent>>();
+        listDataHeader = new ArrayList<SubMenuContent>();
         subMenuContents = new ArrayList<>();
         listAdapter = new ExpandableListAdapter(getActivity());
 
@@ -68,19 +69,46 @@ public class FragmentSubMenu extends Fragment{
         for (SubMenuContent subMenuContent : subMenuContents){
             List<DetailContent> detailContents = new ArrayList<>();
             detailContents = dbHandler.getAllDetailContent(subMenuContent.getIdSubMenu());
-            listDataHeader.add(subMenuContent.getStr_());
-            listDataChild.put(subMenuContent.getStr_(), detailContents);
+            listDataHeader.add(subMenuContent);
+            listDataChild.put(subMenuContent, detailContents);
         }
+
 
         listAdapter.setData(listDataHeader, listDataChild);
         expListView.setAdapter(listAdapter);
 
+//        click group
+        expListView.setOnGroupClickListener(new ExpandableListView.OnGroupClickListener() {
+            @Override
+            public boolean onGroupClick(ExpandableListView parent, View v, int groupPosition, long id) {
+                if(listAdapter.getChildrenCount(groupPosition) == 0){
+                    Toast.makeText(getActivity(),
+                            " "+ listAdapter.getIdGroup(groupPosition),
+                            Toast.LENGTH_SHORT).show();
+                    Intent intent = new Intent(getActivity(), DetailActivity.class);
+                    intent.putExtra("id", listAdapter.getIdGroup(groupPosition));
+                    intent.putExtra("isSetIsi", 0);
+                    intent.putExtra("idTitle", indexMain);
+                    intent.putExtra("title", listAdapter.getGroup(groupPosition).toString());
+                    startActivity(intent);
+                }
+                return false;
+            }
+        });
 
+//        click child
         expListView.setOnChildClickListener(new ExpandableListView.OnChildClickListener() {
             @Override
-            public boolean onChildClick(ExpandableListView expandableListView, View view, int i, int i1, long l) {
+            public boolean onChildClick(ExpandableListView expandableListView, View view, int groupPosition, int childPosition, long l) {
+                Toast.makeText(getActivity(),
+                        " " + listAdapter.getIdChild(groupPosition, childPosition),
+                        Toast.LENGTH_SHORT).show();
 
-                Intent intent = new Intent(getActivity(), DetailHajiActivity.class);
+                Intent intent = new Intent(getActivity(), DetailActivity.class);
+                intent.putExtra("id", listAdapter.getIdChild(groupPosition, childPosition));
+                intent.putExtra("isSetIsi", 1);
+                intent.putExtra("idTitle", listAdapter.getIdGroup(groupPosition));
+                intent.putExtra("title", listAdapter.getChild(groupPosition,childPosition).toString());
                 startActivity(intent);
                 return false;
             }

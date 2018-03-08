@@ -1,6 +1,6 @@
 package com.d4it_b.hajidanumroh.adapter;
 
-import android.support.v7.widget.CardView;
+import android.content.Context;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -17,17 +17,17 @@ import java.util.List;
  * Created by M N D on 23/02/2018.
  */
 
-public class ListAdapterSubMenu extends RecyclerView.Adapter<ListAdapterSubMenu.ViewHolder>{
-    List<SubMenuContent> dataContent= new ArrayList<>();
+public class AdapterDetail extends RecyclerView.Adapter<AdapterDetail.ViewHolder>{
+    List<String> dataContent= new ArrayList<>();
 
     ContentListener contentListener;
+    Context context;
 
-
-    public ListAdapterSubMenu(ContentListener listener) {
-        this.contentListener = listener;
+    public AdapterDetail(Context context) {
+        this.context =  context;
     }
 
-    public void setData(ArrayList<SubMenuContent> data){
+    public void setData(List<String> data){
         dataContent=data;
         notifyDataSetChanged();
     }
@@ -39,14 +39,8 @@ public class ListAdapterSubMenu extends RecyclerView.Adapter<ListAdapterSubMenu.
 
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
-        final SubMenuContent content = dataContent.get(position);
-        holder.textView.setText(content.getStr_());
-        holder.cardView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                contentListener.viewItem(content);
-            }
-        });
+        final String content = dataContent.get(position);
+        holder.textView.setText(content);
     }
 
     @Override
@@ -55,12 +49,9 @@ public class ListAdapterSubMenu extends RecyclerView.Adapter<ListAdapterSubMenu.
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
-        CardView cardView;
         TextView textView;
         public ViewHolder(View itemView) {
-
             super(itemView);
-            cardView = (CardView)itemView.findViewById(R.id.card_view);
             textView = (TextView)itemView.findViewById(R.id.text_content);
         }
     }
