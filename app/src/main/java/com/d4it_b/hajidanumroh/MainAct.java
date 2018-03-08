@@ -1,5 +1,6 @@
 package com.d4it_b.hajidanumroh;
 
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
@@ -8,6 +9,7 @@ import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.widget.TextView;
 
 import com.d4it_b.hajidanumroh.fragment.FragmentSubMenu;
 
@@ -35,6 +37,13 @@ public class MainAct extends AppCompatActivity{
 
         TabLayout tabLayout = (TabLayout) findViewById(R.id.tabs);
         tabLayout.setupWithViewPager(viewPager);
+
+        TextView text = (TextView) findViewById(R.id.activityLabel);
+        Typeface tf = Typeface.createFromAsset(getAssets(), "fonts/Honej.ttf");
+        text.setTypeface(tf);
+
+
+
     }
 
     private void setupViewPager(ViewPager viewPager){
