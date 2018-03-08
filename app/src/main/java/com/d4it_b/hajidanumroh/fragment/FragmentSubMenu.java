@@ -82,11 +82,8 @@ public class FragmentSubMenu extends Fragment{
             @Override
             public boolean onGroupClick(ExpandableListView parent, View v, int groupPosition, long id) {
                 if(listAdapter.getChildrenCount(groupPosition) == 0){
-                    Toast.makeText(getActivity(),
-                            " "+ listAdapter.getIdGroup(groupPosition),
-                            Toast.LENGTH_SHORT).show();
                     Intent intent = new Intent(getActivity(), DetailActivity.class);
-                    intent.putExtra("id", listAdapter.getIdGroup(groupPosition));
+                    intent.putExtra("data",dbHandler.getTextDetailContent(listAdapter.getIdGroup(groupPosition)));
                     intent.putExtra("isSetIsi", 0);
                     intent.putExtra("idTitle", indexMain);
                     intent.putExtra("title", listAdapter.getGroup(groupPosition).toString());
@@ -100,16 +97,16 @@ public class FragmentSubMenu extends Fragment{
         expListView.setOnChildClickListener(new ExpandableListView.OnChildClickListener() {
             @Override
             public boolean onChildClick(ExpandableListView expandableListView, View view, int groupPosition, int childPosition, long l) {
-                Toast.makeText(getActivity(),
-                        " " + listAdapter.getIdChild(groupPosition, childPosition),
-                        Toast.LENGTH_SHORT).show();
-
                 Intent intent = new Intent(getActivity(), DetailActivity.class);
-                intent.putExtra("id", listAdapter.getIdChild(groupPosition, childPosition));
-                intent.putExtra("isSetIsi", 1);
-                intent.putExtra("idTitle", listAdapter.getIdGroup(groupPosition));
-                intent.putExtra("title", listAdapter.getChild(groupPosition,childPosition).toString());
-                startActivity(intent);
+                if(dbHandler.getTextIsiDetailContent(listAdapter.getIdChild(groupPosition, childPosition)).size()!=0){
+                    intent.putExtra("data", dbHandler.getTextIsiDetailContent(listAdapter.getIdChild(groupPosition, childPosition)));
+                    intent.putExtra("isSetIsi", 1);
+                    intent.putExtra("idTitle", listAdapter.getIdGroup(groupPosition));
+                    intent.putExtra("title", listAdapter.getChild(groupPosition,childPosition).toString());
+                    startActivity(intent);
+                }else{
+                    Toast.makeText(getActivity(), "Sorry", Toast.LENGTH_SHORT).show();
+                }
                 return false;
             }
         });

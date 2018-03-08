@@ -18,7 +18,7 @@ public class DetailActivity extends AppCompatActivity {
     private RecyclerView mRecyclerView;
     private TextView textView, labelActivity;
     private AdapterDetail adapterDetail;
-    private ArrayList<String> listDetail;
+    private ArrayList<String> listData;
 
     private RecyclerView.LayoutManager mLayoutManager;
 
@@ -41,7 +41,7 @@ public class DetailActivity extends AppCompatActivity {
 
         dbHandler = new DBHandler(this);
 
-        listDetail = new ArrayList<>();
+        listData= new ArrayList<>();
 
         mLayoutManager = new LinearLayoutManager(this);
         mRecyclerView.setLayoutManager(mLayoutManager);
@@ -53,13 +53,12 @@ public class DetailActivity extends AppCompatActivity {
 
         if (getIntent().getIntExtra("isSetIsi", 0) != 0){
             labelActivity.setText(dbHandler.getTitleAct(getIntent().getIntExtra("idTitle", 0), "tb_sub_menu"));
-            listDetail = dbHandler.getTextIsiDetailContent(getIntent().getIntExtra("id", 0));
-            adapterDetail.setData(listDetail);
         }else{
             labelActivity.setText(dbHandler.getTitleAct(getIntent().getIntExtra("idTitle", 0), "tb_utama"));
-            listDetail = dbHandler.getTextDetailContent(getIntent().getIntExtra("id", 0));
-            adapterDetail.setData(listDetail);
         }
+
+        listData = (ArrayList<String>) getIntent().getSerializableExtra("data");
+        adapterDetail.setData(listData);
         mRecyclerView.setAdapter(adapterDetail);
     }
 
