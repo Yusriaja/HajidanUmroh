@@ -44,7 +44,7 @@ public class DBHandler extends SQLiteOpenHelper {
     private static final String KEY_TEXT_ISI = "str_isi_detail";
 
     public DBHandler(Context context) {
-        super(context, "db_haji_umroh", null, 15);
+        super(context, "db_haji_umroh", null, 21);
     }
 
     @Override

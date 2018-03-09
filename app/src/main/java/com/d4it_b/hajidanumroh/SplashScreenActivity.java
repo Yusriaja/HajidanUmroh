@@ -194,12 +194,16 @@ public class SplashScreenActivity extends AppCompatActivity {
 //                    =================================================================================================================================
 //                    Sub menu sholat
                     subMenuContents.add(new SubMenuContent(idSubMenu, 3, "Shalat Sunnah Lis-Safar"));
-                        detailContents.add(new DetailContent(idDetailContent++, "Shalat Sunnah lis-Safar adalah shalat yang sunnah dilakukan bagi setiap orang yang mau bepergian, baik dekat atau jauh.\n" +
-                                "Niat Shalat Sunnah Lis-Safar :\n" +
-                                "اُصَلِّى سُنَّةً لِلسَّفَرِ رَكْغَتَيْنِ ِللهِ تَعَـالَى : اَللهُ اَكْبَرُ\n" +
-                                "USHALLII SUNNATAN LIS-SAFARI RAKATAINI LILLAAHI TAAALAA\n" +
-                                "Artinya:\n" +
-                                "Saya niat shalat sunnah bepergian dua rakaat karena Allah\n", idSubMenu++, 0));
+                        detailContents.add(new DetailContent(idDetailContent, "Pengertian Sunnah Lis-Safar", idSubMenu, 1));
+                            isiDetailContents.add(new IsiDetailContent(idIsiDetail++, idDetailContent++, "\tShalat Sunnah lis-Safar adalah shalat yang sunnah dilakukan bagi setiap orang yang mau bepergian, baik dekat atau jauh.\n"));
+
+                        detailContents.add(new DetailContent(idDetailContent, "Niat Sunnah Lis-Safar", idSubMenu++, 1));
+                            isiDetailContents.add(new IsiDetailContent(idIsiDetail++, idDetailContent++, "Niat Shalat Sunnah Lis-Safar :\n" +
+                                    "\" +\n" +
+                                    "                                \"اُصَلِّى سُنَّةً لِلسَّفَرِ رَكْغَتَيْنِ ِللهِ تَعَـالَى : اَللهُ اَكْبَرُ\\n\" +\n" +
+                                    "                                \"USHALLII SUNNATAN LIS-SAFARI RAKATAINI LILLAAHI TAAALAA\\n\" +\n" +
+                                    "                                \"Artinya:\\n\" +\n" +
+                                    "                                \"Saya niat shalat sunnah bepergian dua rakaat karena Allah"));
 
                     subMenuContents.add(new SubMenuContent(idSubMenu, 3, "Shalat Jama"));
                         detailContents.add(new DetailContent(idDetailContent, "Penjelasan Shalat Jama", idSubMenu, 1));
@@ -236,27 +240,29 @@ public class SplashScreenActivity extends AppCompatActivity {
                                     "Saya niat men-jama takhir shalat Maghrib ke shalat Isya karena Allah.\n"));
 
                     subMenuContents.add(new SubMenuContent(idSubMenu, 3, "Shalat Qoshar"));
-                        detailContents.add(new DetailContent(idDetailContent, "\tQashar secara etimologi adalah pendek. Sedangkan qashar secara terminologi adalah memperpendek shalat, dari empat rakaat menjadi dua rakaat. Shalat-shalat yang boleh di qashar adalah shalat Dhuhur, Ashar dan Isya. \n" +
-                                "Syarat-syarat qashar ada empat:\n" +
-                                "\t1.\tHarus dalam perjalanan jauh yang bukan tujuan kemaksiatan\n" +
-                                "\t2.\tHarus shalat yang empat rakaat (Dhuhur, Ashar dan Isya)\n" +
-                                "\t3.\tHarus niat qashar\n" +
-                                "\t4.\tTidak bermakmum kepada orang yang menyempurnakan shalatnya empat rakaat.\n" +
-                                "Niat Qashar\n" +
-                                "اُصَليِّ فَرْضَ الظُّهْرِ رَكْعَتَيْنِ مُسْتَقْبِلَ اْلقِبْلَةِ اَدَاءًقَصْرًا اِمَامًا/مَأْمُوْمًا لِلَّهِ تَعَالَى: اَللهُ اَكْبَرُ\n" +
-                                "USHALLII FARDLAD DHUHRI RAKATAINI MUSTAQBILAL QIBLATI ADAA-AN QASHRAN IMAAMAN/MAMUUMAN LIL-LAAHI TAAALAA\n" +
-                                "Artinya:\n" +
-                                "Saya niat shalat fardlu Dhuhur dua rakaat, menghadap kiblat, tepat waktu dan di-qashar karena Allah \n" +
-                                "\n" +
-                                "اُصَليِّ فَرْضَ العَصْرِ رَكْعَتَيْنِ مُسْتَقْبِلَ اْلقِبْلَةِ اَدَاءً قَصْرً اِمَامًا/مَأْمُوْمًا لِلَّهِ تَعَالَى: اَللهُ اَكْبَرُ\n" +
-                                "USHALLII FARDLAL ASHRI RAKATAINI MUSTAQBILAL QIBLATI ADAA-AN QASHRAN IMAAMAN/MAMUUMAN LIL-LAAHI TAAALAA\n" +
-                                "Artinya:\n" +
-                                "Saya niat shalat fardlu Ashar dua rakaat, menghadap kiblat, tepat waktu dan diqashar karena Allah \n" +
-                                " \n" +
-                                "اُصَليِّ فَرْضَ الْعِشَاءِ ركْعَتَيْنِ مُسْتَقْبِلَ اْلقِبْلَةِ اَدَاءً قَصْرً اِمَامًا/مَأْمُوْمًا لِلَّهِ تَعَالَى: اَللهُ اَكْبَرُ\n" +
-                                "USHALLII FARDLAL ISYAAI RAKATAINI MUSTAQBILAL QIBLATI ADAA-AN QASHRAN IMAAMAN/MAMUUMAN LIL-LAAHI TAAALAA\n" +
-                                "Artinya:\n" +
-                                "Saya niat shalat fardlu Isya dua rakaat, menghadap kiblat, tepat waktu dan diqashar karena Allah.\n", idSubMenu++, 0));
+                        detailContents.add(new DetailContent(idDetailContent, "Pengertian Shalat Qoshar", idSubMenu, 1));
+                            isiDetailContents.add(new IsiDetailContent(idIsiDetail++, idDetailContent++, "\tQashar secara etimologi adalah pendek. Sedangkan qashar secara terminologi adalah memperpendek shalat, dari empat rakaat menjadi dua rakaat. Shalat-shalat yang boleh di qashar adalah shalat Dhuhur, Ashar dan Isya. \n"+
+                                    "Syarat-syarat qashar ada empat:\n" +
+                                    "\t1.\tHarus dalam perjalanan jauh yang bukan tujuan kemaksiatan\n" +
+                                    "\t2.\tHarus shalat yang empat rakaat (Dhuhur, Ashar dan Isya)\n" +
+                                    "\t3.\tHarus niat qashar\n" +
+                                    "\t4.\tTidak bermakmum kepada orang yang menyempurnakan shalatnya empat rakaat.\n"));
+
+                        detailContents.add(new DetailContent(idDetailContent, "Niat Sunnah Lis-Safar", idSubMenu++, 1));
+                            isiDetailContents.add(new IsiDetailContent(idIsiDetail++, idDetailContent++, "اُصَليِّ فَرْضَ الظُّهْرِ رَكْعَتَيْنِ مُسْتَقْبِلَ اْلقِبْلَةِ اَدَاءًقَصْرًا اِمَامًا/مَأْمُوْمًا لِلَّهِ تَعَالَى: اَللهُ اَكْبَرُ\n" +
+                                    "USHALLII FARDLAD DHUHRI RAKATAINI MUSTAQBILAL QIBLATI ADAA-AN QASHRAN IMAAMAN/MAMUUMAN LIL-LAAHI TAAALAA\n" +
+                                    "Artinya:\n" +
+                                    "Saya niat shalat fardlu Dhuhur dua rakaat, menghadap kiblat, tepat waktu dan di-qashar karena Allah \n" +
+                                    "\n" +
+                                    "اُصَليِّ فَرْضَ العَصْرِ رَكْعَتَيْنِ مُسْتَقْبِلَ اْلقِبْلَةِ اَدَاءً قَصْرً اِمَامًا/مَأْمُوْمًا لِلَّهِ تَعَالَى: اَللهُ اَكْبَرُ\n" +
+                                    "USHALLII FARDLAL ASHRI RAKATAINI MUSTAQBILAL QIBLATI ADAA-AN QASHRAN IMAAMAN/MAMUUMAN LIL-LAAHI TAAALAA\n" +
+                                    "Artinya:\n" +
+                                    "Saya niat shalat fardlu Ashar dua rakaat, menghadap kiblat, tepat waktu dan diqashar karena Allah \n" +
+                                    " \n" +
+                                    "اُصَليِّ فَرْضَ الْعِشَاءِ ركْعَتَيْنِ مُسْتَقْبِلَ اْلقِبْلَةِ اَدَاءً قَصْرً اِمَامًا/مَأْمُوْمًا لِلَّهِ تَعَالَى: اَللهُ اَكْبَرُ\n" +
+                                    "USHALLII FARDLAL ISYAAI RAKATAINI MUSTAQBILAL QIBLATI ADAA-AN QASHRAN IMAAMAN/MAMUUMAN LIL-LAAHI TAAALAA\n" +
+                                    "Artinya:\n" +
+                                    "Saya niat shalat fardlu Isya dua rakaat, menghadap kiblat, tepat waktu dan diqashar karena Allah.\n"));
 
                     subMenuContents.add(new SubMenuContent(idSubMenu, 3, "Shalat Jama Qoshar"));
                         detailContents.add(new DetailContent(idDetailContent, "Pengertian Shala Jama' Qoshar", idSubMenu, 1));
@@ -386,7 +392,7 @@ public class SplashScreenActivity extends AppCompatActivity {
                                     "Artinya:\n" +
                                     "Saya niat shalat sunnah sebelum Isya dua rakaat karena Allah\n"));
 
-                    detailContents.add(new DetailContent(idDetailContent, "7.\tDua Rakaat Setelah Isya", idSubMenu++, 1));
+                        detailContents.add(new DetailContent(idDetailContent, "7.\tDua Rakaat Setelah Isya", idSubMenu++, 1));
                             isiDetailContents.add(new IsiDetailContent(idIsiDetail++, idDetailContent++, "\tNiatnya:x\n" +
                                     "اُصَلِّى سُنَّةَالْعِشَاءِ بَعْدِيَّةًبَعْدِيَّةً رَكْعَتَيْنِ الله تَعَـالَى : اللهُ اَكْبَرْ\n" +
                                     "USHALLII SUNNATAL ISYAAI BADIYATAN RAKATAINI LIL-LAAHI TAAALAA\n" +
@@ -394,69 +400,214 @@ public class SplashScreenActivity extends AppCompatActivity {
                                     "Saya niat shalat sunnah setelah Isya dua rakaat karena Allah\n"));
 
                     subMenuContents.add(new SubMenuContent(idSubMenu, 3, "Shalat Sunnah Tahajjud"));
-                        detailContents.add(new DetailContent(idDetailContent, "Tahhajjud secara etimologi adalah bangun malam atau tidak tidur malam. Sedangkan Tahajjud dalam pengertian terminologisnya adalah shalat sunnah yang dilakukan di malam hari setelah bangun tidur, baik di awal, pertengahan maupun akhir malam. Jadi, shalat malam yang dilakukan sebelum tidur tidak dapat disebut dengan shalat Tahajjud, melainkan disebut shalat Qiyamul-lail.\n" +
-                                "Karena besarnya pahala dan keutamaan shalat tahajjud, umat Islam sangat dianjurkan untuk selalu melakukannya, meskipun hanya dua rakaat. Bahkan makruh meninggalkan shalat Tahajjud bagi orang yang sudah biasa melakukannya.\n" +
-                                "Dalam shalat Tahajjud tidak ada batas maksimum jumlah rakaatnya. Tetapi menurut sebagian ulama batas maksimum adalah dua belas rakaat, dan batas minimum dua rakaat.\n" +
-                                "Niat Shalat Sunnah Tahajjud\n" +
-                                "اُصَلِّى سُنَّةَ التَّهَجُّدِ بَعْدِيَّةً رَكْعَتَيْنِِا للهِ تَعَـالَى : اَللهُ اَكْبَرُ\n" +
-                                "USHALLII SUNNATAT TAHAJJUDI RAKATAINI LIL-LAAHI TAAALAA \n" +
-                                "Artinya:\n" +
-                                "Saya niat shalat sunnah Tahajjud dua rakaat karena Allah\n" +
-                                " \n" +
-                                "Pada rakaat pertama setelah membaca surat al-Fatihah, membaca surat Al-Kafiruun atau ayat-ayat sebagai berikut;\n" +
-                                "لله مَا فِي السَّمَوَاتِ وَمَا فِي الأرْضِ وَإِنْ تُبْدُوْا مَا فِي أَنْفُسِكُمْ أَوْ تُخْفُوهُ يُحَاسِبْكُمْ بِهِ اللهُ فَيَغْفِرُ لِمَنْ يَشَاءُ وَيُعَذِّبُ مَنْ يَشَاءُ وَالله عَلَى كُلِّ شَيْءٍ قَدِيرٌ . آمَنَ الرَّسُوْلُ بِمَا أُنْزِلَ إِلَيْهِ مِنْ رَبِّهِ وَالْمُؤْمِنُونَ كُلٌّ آمَنَ بِاللهِ وَمَلاَئِكَتِهِ وَكُتُبِهِ وَرُسُلِهِ لاَنُفَرِّقُ بَيْنَ أَحَدٍ مِنْ رُسُلِهِ وَقَالُوْا سَمِعْنَا وَأَطَعْنَا غُفْرَانَكَ رَبَّنَا وَإِلَيْكَ الْمَصِيْرُ . لاَ يُكَلِّفُ اللَّهُ نَفْسًا إِلاَّ وُسْعَهَا لَهَا مَا كَسَبَتْ وَعَلَيْهَا مَااكْتَسَبَتْ رَبَّنَا لاَ تُؤَاخِذْنَا إِنْ نَسِيْنَا أَوْ أَخْطَأْنَا رَبَّنَا وَلاَ تَحْمِلْ عَلَيْنَا إِصْرًا كَمَا حَمَلْتَهُ عَلَى الَّذِيْنَ مِنْ قَبْلِنَا رَبَّنَا وَلاَ تُحَمِّلْنَا مَا لاَ طَاقَةَ لَنَا بِهِ وَاعْفُ عَنَّا وَاغْفِرْ لَنَا وَارْحَمْنَا أَنْتَ مَوْلاَنَا فَانْصُرْنَا عَلَى الْقَوْمِ الْكَافِرِينَ.\n" +
-                                "Pada rakaat yang kedua setelah membaca al-Fatihah, membaca surat Al-Ikhlas atau ayat-ayat berikut ini;\n" +
-                                " شَهِدَ اللهُ أَنَّهُ لاَ إِلَهَ إِلاَّ هُوَ وَالْمَلاَئِكَةُ وَأُولُوْ الْعِلْمِ قَائِمًا بِالْقِسْطِ لاَ إِلَهَ إِلاَّ هُوَ الْعَزِيزُ الْحَكِيْمُ. إِنَّ الدِّيْنَ عِنْدَ اللهِ اْلإِسْلاَمُ، قُلِ اللَّهُمَّ مَالِكَ الْمُلْكِ تُؤْتِى الْمُلْكَ  مَنْ تَشَاءُ وَتَنْزِعُ الْمُلْكَ مِمَّنْ تَشَاءُ وَتُعِزُّ مَنْ تَشَاءُ وَتُذِلُّ مَنْ تَشَاءُ بِيَدِكَ الْخَيْرُ اِنَّكَ عَلَى كُلِّ شَيْئٍ قَدِيْرٌ. تُوْلِجُ اللَّيْلَ فِى النَّهَارِ وَتُوْلِجُ النَّهَارَ فِى اللَّيْلَ وَتُحْزِجُ الْحَيَّ مِنَ الْمَيِّتِ وَتُحْزِجُ الْمَيِّتَ مِنَ الْحَيِّ وَتَرْزُ قُ مَنْ تَشَاءُ بِغَيْرِ حِسَابِ.\n" +
-                                "Doa Shalat Sunnah Tahajjud\n" +
-                                "الدُّعَـاءُ:\n" +
-                                " اللَّهُمَّ لَكَ الْحَمْدُ، أَنْتَ قَيُّوْمُ السَّمَوَاتِ وَاْلأَرْضِ وَمَنْ فِيْهِنَّ، وَلَكَ الْحَمْدُ أَنْتَ نُوْرُ السَّمَوَاتِ وَاْلأَرْضِ وَمَنْ فِيهِنَّ، وَلَكَ الْحَمْدُ أَنْتَ مَلِكُ السَّمَوَاتِ وَاْلأَرْضِ وَمَنْ فِيهِنَّ، وَلَكَ الْحَمْدُ, أَنْتَ الْحَقُّ, وَوَعْدُكَ الْحَقُّ, وَلِقَاؤُكَ حَقٌّ, وَقَوْلُكَ حَقٌّ, وَالْجَنَّةُ حَقٌّ, وَالنَّارُ حَقٌّ, وَالنَّبِيُّوْنَ حَقٌّ وَمُحَمَّدٌ صَلَّى اللهُ عَلَيْهِ وَسَلَّمَ حَقٌّ، وَالسَّاعَةُ حَقٌّ, أَللَّهُمَّ لَكَ أَسْلَمْتُ، وَبِكَ آمَنْتُ، وَعَلَيْكَ تَوَكَّلْتُ، وَإِلَيْكَ أَنَبْتُ، وَبِكَ خَاصَمْتُ، وَإِلَيْكَ حَاكَمْتُ، فَاغْفِرْ لِيْ مَا قَدَّمْتُ وَمَا أَخَّرْتُ وَمَا أَسْرَرْتُ وَمَا أَعْلَنْتُ أَنْتَ الْمُقَدِّمُ وَأَنْتَ الْمُؤَخِّرُ لآَإِلَهَ إِلاَّ أَنْتَ وَلاَحَوْلَ وَلاَ قُوَّةَ اِلاَّ بِاللهِ، رَبِّ اَدْخِلْنِيْ مُدْخَلَ صِدْقٍ وَاَخْرِجْنِيْ مُخْرَجَ صِدْقٍ وَاجْعَلْ لِىْ مِنْ لَدُنْكَ سُلْطَا نًا نَصِيْرًا \n" +
-                                "Artinya:\n" +
-                                "Ya Allah, bagi-Mu puja dan puji. Engkaulah penjaga langit dan bumi serta isinya. Bagi-Mu pula puja puji, Engkaulah cahaya langit dan bumi serta isinya. Bagi-Mu pula puja dan puji, Engkaulah penguasa langit dan bumi serta isinya. Bagi-mu puja dan puji, Engkau Yang Maha Benar, janji-Mu benar, pertemuan dengan-Mu benar, firman-Mu benar, surga benar, neraka benar, para nabi benar, nabi Muhammad SAW. benar dan hari akhir benar. Ya Allah hanya kepada-Mu aku pasrah diri, kepada-Mu aku beriman, kepada-Mu aku pasrah diri, kepada-Mu aku kembali, karena-Mu aku bertikai dan kepada-Mu aku berhakim (meminta keputusan hukum), maka ampunilah dosa-dosaku yang dahulu dan yang kemudian, dosa-dosa yang tersembunyi dan yang terang-terangan. Engkau Maha Mendahulukan dan Maha Mengkemudiankan. Tidak ada Tuhan selain Engkau. Tidak ada daya dan kekuatan selain dengan pertolongan Allah. Wahai Tuhanku, masukkan aku di dalam tempat yang benar, keluarkan aku di tempat yang benar dan jadikan aku dari sisi-Mu sebagai pemimpin yang menolong.\n", idSubMenu, 0));
+                        detailContents.add(new DetailContent(idDetailContent, "Pengertian Shalat Sunnah Tahajjud", idSubMenu, 1));
+                            isiDetailContents.add(new IsiDetailContent(idIsiDetail++, idDetailContent++, "\tTahhajjud secara etimologi adalah bangun malam atau tidak tidur malam. Sedangkan Tahajjud dalam pengertian terminologisnya adalah shalat sunnah yang dilakukan di malam hari setelah bangun tidur, baik di awal, pertengahan maupun akhir malam. Jadi, shalat malam yang dilakukan sebelum tidur tidak dapat disebut dengan shalat Tahajjud, melainkan disebut shalat Qiyamul-lail.\n" +
+                                    "\tKarena besarnya pahala dan keutamaan shalat tahajjud, umat Islam sangat dianjurkan untuk selalu melakukannya, meskipun hanya dua rakaat. Bahkan makruh meninggalkan shalat Tahajjud bagi orang yang sudah biasa melakukannya.\n" +
+                                    "\tDalam shalat Tahajjud tidak ada batas maksimum jumlah rakaatnya. Tetapi menurut sebagian ulama batas maksimum adalah dua belas rakaat, dan batas minimum dua rakaat.\n"));
+
+                        detailContents.add(new DetailContent(idDetailContent, "Niat Shalat Sunnah Tahajjud", idSubMenu, 1));
+                            isiDetailContents.add(new IsiDetailContent(idIsiDetail++, idDetailContent++, "اُصَلِّى سُنَّةَ التَّهَجُّدِ بَعْدِيَّةً رَكْعَتَيْنِِا للهِ تَعَـالَى : اَللهُ اَكْبَرُ\n" +
+                                    "USHALLII SUNNATAT TAHAJJUDI RAKATAINI LIL-LAAHI TAAALAA \n" +
+                                    "Artinya:\n" +
+                                    "Saya niat shalat sunnah Tahajjud dua rakaat karena Allah\n" +
+                                    " \n" +
+                                    "Pada rakaat pertama setelah membaca surat al-Fatihah, membaca surat Al-Kafiruun atau ayat-ayat sebagai berikut;\n" +
+                                    "لله مَا فِي السَّمَوَاتِ وَمَا فِي الأرْضِ وَإِنْ تُبْدُوْا مَا فِي أَنْفُسِكُمْ أَوْ تُخْفُوهُ يُحَاسِبْكُمْ بِهِ اللهُ فَيَغْفِرُ لِمَنْ يَشَاءُ وَيُعَذِّبُ مَنْ يَشَاءُ وَالله عَلَى كُلِّ شَيْءٍ قَدِيرٌ . آمَنَ الرَّسُوْلُ بِمَا أُنْزِلَ إِلَيْهِ مِنْ رَبِّهِ وَالْمُؤْمِنُونَ كُلٌّ آمَنَ بِاللهِ وَمَلاَئِكَتِهِ وَكُتُبِهِ وَرُسُلِهِ لاَنُفَرِّقُ بَيْنَ أَحَدٍ مِنْ رُسُلِهِ وَقَالُوْا سَمِعْنَا وَأَطَعْنَا غُفْرَانَكَ رَبَّنَا وَإِلَيْكَ الْمَصِيْرُ . لاَ يُكَلِّفُ اللَّهُ نَفْسًا إِلاَّ وُسْعَهَا لَهَا مَا كَسَبَتْ وَعَلَيْهَا مَااكْتَسَبَتْ رَبَّنَا لاَ تُؤَاخِذْنَا إِنْ نَسِيْنَا أَوْ أَخْطَأْنَا رَبَّنَا وَلاَ تَحْمِلْ عَلَيْنَا إِصْرًا كَمَا حَمَلْتَهُ عَلَى الَّذِيْنَ مِنْ قَبْلِنَا رَبَّنَا وَلاَ تُحَمِّلْنَا مَا لاَ طَاقَةَ لَنَا بِهِ وَاعْفُ عَنَّا وَاغْفِرْ لَنَا وَارْحَمْنَا أَنْتَ مَوْلاَنَا فَانْصُرْنَا عَلَى الْقَوْمِ الْكَافِرِينَ.\n" +
+                                    "Pada rakaat yang kedua setelah membaca al-Fatihah, membaca surat Al-Ikhlas atau ayat-ayat berikut ini;\n" +
+                                    " شَهِدَ اللهُ أَنَّهُ لاَ إِلَهَ إِلاَّ هُوَ وَالْمَلاَئِكَةُ وَأُولُوْ الْعِلْمِ قَائِمًا بِالْقِسْطِ لاَ إِلَهَ إِلاَّ هُوَ الْعَزِيزُ الْحَكِيْمُ. إِنَّ الدِّيْنَ عِنْدَ اللهِ اْلإِسْلاَمُ، قُلِ اللَّهُمَّ مَالِكَ الْمُلْكِ تُؤْتِى الْمُلْكَ  مَنْ تَشَاءُ وَتَنْزِعُ الْمُلْكَ مِمَّنْ تَشَاءُ وَتُعِزُّ مَنْ تَشَاءُ وَتُذِلُّ مَنْ تَشَاءُ بِيَدِكَ الْخَيْرُ اِنَّكَ عَلَى كُلِّ شَيْئٍ قَدِيْرٌ. تُوْلِجُ اللَّيْلَ فِى النَّهَارِ وَتُوْلِجُ النَّهَارَ فِى اللَّيْلَ وَتُحْزِجُ الْحَيَّ مِنَ الْمَيِّتِ وَتُحْزِجُ الْمَيِّتَ مِنَ الْحَيِّ وَتَرْزُ قُ مَنْ تَشَاءُ بِغَيْرِ حِسَابِ.\n"));
+
+                        detailContents.add(new DetailContent(idDetailContent, "Doa Shalat Sunnah Tahajjud", idSubMenu++, 1));
+                            isiDetailContents.add(new IsiDetailContent(idIsiDetail++, idDetailContent++, "الدُّعَـاءُ:\n" +
+                                            " اللَّهُمَّ لَكَ الْحَمْدُ، أَنْتَ قَيُّوْمُ السَّمَوَاتِ وَاْلأَرْضِ وَمَنْ فِيْهِنَّ، وَلَكَ الْحَمْدُ أَنْتَ نُوْرُ السَّمَوَاتِ وَاْلأَرْضِ وَمَنْ فِيهِنَّ، وَلَكَ الْحَمْدُ أَنْتَ مَلِكُ السَّمَوَاتِ وَاْلأَرْضِ وَمَنْ فِيهِنَّ، وَلَكَ الْحَمْدُ, أَنْتَ الْحَقُّ, وَوَعْدُكَ الْحَقُّ, وَلِقَاؤُكَ حَقٌّ, وَقَوْلُكَ حَقٌّ, وَالْجَنَّةُ حَقٌّ, وَالنَّارُ حَقٌّ, وَالنَّبِيُّوْنَ حَقٌّ وَمُحَمَّدٌ صَلَّى اللهُ عَلَيْهِ وَسَلَّمَ حَقٌّ، وَالسَّاعَةُ حَقٌّ, أَللَّهُمَّ لَكَ أَسْلَمْتُ، وَبِكَ آمَنْتُ، وَعَلَيْكَ تَوَكَّلْتُ، وَإِلَيْكَ أَنَبْتُ، وَبِكَ خَاصَمْتُ، وَإِلَيْكَ حَاكَمْتُ، فَاغْفِرْ لِيْ مَا قَدَّمْتُ وَمَا أَخَّرْتُ وَمَا أَسْرَرْتُ وَمَا أَعْلَنْتُ أَنْتَ الْمُقَدِّمُ وَأَنْتَ الْمُؤَخِّرُ لآَإِلَهَ إِلاَّ أَنْتَ وَلاَحَوْلَ وَلاَ قُوَّةَ اِلاَّ بِاللهِ، رَبِّ اَدْخِلْنِيْ مُدْخَلَ صِدْقٍ وَاَخْرِجْنِيْ مُخْرَجَ صِدْقٍ وَاجْعَلْ لِىْ مِنْ لَدُنْكَ سُلْطَا نًا نَصِيْرًا \n" +
+                                            "Artinya:\n" +
+                                            "Ya Allah, bagi-Mu puja dan puji. Engkaulah penjaga langit dan bumi serta isinya. Bagi-Mu pula puja puji, Engkaulah cahaya langit dan bumi serta isinya. Bagi-Mu pula puja dan puji, Engkaulah penguasa langit dan bumi serta isinya. Bagi-mu puja dan puji, Engkau Yang Maha Benar, janji-Mu benar, pertemuan dengan-Mu benar, firman-Mu benar, surga benar, neraka benar, para nabi benar, nabi Muhammad SAW. benar dan hari akhir benar. Ya Allah hanya kepada-Mu aku pasrah diri, kepada-Mu aku beriman, kepada-Mu aku pasrah diri, kepada-Mu aku kembali, karena-Mu aku bertikai dan kepada-Mu aku berhakim (meminta keputusan hukum), maka ampunilah dosa-dosaku yang dahulu dan yang kemudian, dosa-dosa yang tersembunyi dan yang terang-terangan. Engkau Maha Mendahulukan dan Maha Mengkemudiankan. Tidak ada Tuhan selain Engkau. Tidak ada daya dan kekuatan selain dengan pertolongan Allah. Wahai Tuhanku, masukkan aku di dalam tempat yang benar, keluarkan aku di tempat yang benar dan jadikan aku dari sisi-Mu sebagai pemimpin yang menolong.\n"));
 
                     subMenuContents.add(new SubMenuContent(idSubMenu, 3, "Shalat Sunnah Tasbih "));
-                        detailContents.add(new DetailContent(idDetailContent, "Shalat Tasbih adalah shalat sunnah yang di dalamnya membaca:\n" +
-                                "سُبْحَانَ اللهِ وَالْحَمْدُ لِلَّهِ وَلاَ إِلَهَ إِلاَّ اللهُ وَاللهُ أَكْبَرُ\n" +
-                                "\n" +
-                                "SUBHAANAL-LAAHI WAL-HAMDULIL-LAAHI WA LAA ILAAHA ILLALLAAHU WAL-LAAHU AKBAR\n" +
-                                "\n" +
-                                "Dzikir tersebut dibaca sebanyak 300 X dalam empat rakaat, dengan rincian sebagai berikut: \n" +
-                                "Setelah membaca al-Fatihah & ayat al-Quran 15 kali \n" +
-                                "a.\tPada saat Ruku\t\t\t\t   10 kali\n" +
-                                "b.\tPada saat Itidal\t\t\t\t   10 kali\n" +
-                                "c.\tPada saat Sujud pertama\t\t\t   10 kali\n" +
-                                "d.\tPada saat duduk di antara kedua sujud\t   10 kali\n" +
-                                "c.\tPada saat sujud yang kedua\t\t\t   10 kali\n" +
-                                "d.\tPada saat duduk Istirahat\t\t\t   10 kali\n" +
-                                "Jumlah \t\t\t\t\t   75 kali\n" +
-                                "Dan selanjutnya pada rakaat berikutnya sampai empat rakaat. Sehingga jumlah keseluruhan tasbih yang dibaca sebanyak 300 kali.\n" +
-                                "Shalat Tasbih ini jika dilaksanakan pada malam hari maka dilakukan dua-dua, yakni setiap dua rakaat membaca tahiyyat dan salam. Jika dilakukan pada siang hari maka boleh dikumpulkan menjadi satu kali salam, juga boleh dilakukan dua dua rakaat sebagaimana pada malam hari.\n" +
-                                "Niatnya\n" +
-                                "1.\tNiat shatat Tasbih yang dua rakaat\n" +
-                                "أُصَلِّى سُنَّةَ التَّسْبِيحِ رَكْعَتَيْنِ لِلَّهِ تَعالىَ\n" +
-                                "USHALLII SUNNATAT TASBIIHI RAKATAINI LIL-LAAHI TAAALAA\n" +
-                                "Artinya:\n" +
-                                "Saya niat shalat Tasbih dua rakaat karena Allah.\n" +
-                                "\n" +
-                                "2.\tNiat shalat Tasbih yang empat rakaat\n" +
-                                "أُصَلِّى سُنَّةَ التَّسْبِيحِ أَرْبَعَ رَكَعَاتٍ لِلَّهِ تَعالىَ\n" +
-                                "USHALLII SUNNATAT TASBIIHI ARBAA RAKAAATIN LIL-LAAHI TAAALAA\n" +
-                                "Artinya:\n" +
-                                "Saya niat shalat Tasbih empat rakaat karena Allah.\n" +
-                                "\n" +
-                                "Jumlah Rakaat Shalat Tasbih :\n" +
-                                "Shalat Tasbih ini harus empat rakaat, tidak boleh kurang juga tidak boleh lebih, sebab tasbih yang harus dibaca sebanyak 300x, setiap rakaat 75x.\n" +
-                                "Doanya\n" +
-                                "a)\tDoa berikut ini dibaca setelah membaca tahiyat akhir sebelum salam.\n" +
-                                "اَللَّهُمَّ اِنِّيْ اَسْأَلُكَ تَوْفِيْقَ اَهْلِ الْهُدَى وَاَعْمَالَ اَهْلِ الْيَقِيْنِ وَمُنَاصَحَةَ اَهْلِ التَّوْبَةِ وَعَزْمِ اَهْلِ الصَّبْرِ وَجِدَّ اَهْلِ الْخَشْيَةِ وَطَلَبَ اَهْلِ الرَّغْبَةِ وَتَعَبُّدَ اَهْلِ الْوَرَعِ وَعِرْفَانَ اَهْلِ الْعِلْمِ حَتَّ اَخَافَكَ. اَللَّهُمَّ اِنِّيْ اَسْأَلَكَ مَخَافَةً تَحْجُزُ نِيْ عَنْ مَعَاصِيْكَ حَتَّى اَعْمَلَ بِطَاعَتِكَ عَمَلاً اَسْتَحِقُّ بِهِ رِضَاكَ وَحَتَّى اَنَا صِحَكَ فِى التَّوْبَةِ خَوْفًا مِنْكَ وَحَقَّ اَخْلِصَ لَكَ النَّضِيْحَةَ حُبًّا لَكَ وَحَتَّ اَتَوَكَّلَ عَلَيْكَ فِى اْلاُمُوْرِ كُلِّهَا حُسْنَ ظَنٍّ بِكَ سُبْحَانَكَ يَاخَالِقَ النُّوْرِ، رَبَّنَا اَتْمِمْ لَنَا نُوْرَنَا وَاغْفِرْلَنَا اِنَّكَ عَلَى كُلِّ شَيْئٍ قَدِيْرٌ بِرَحْمَتِكَ يَاأَرْحَمَ الرَّاحِمِيْنَ.\n" +
-                                "Artinya:\n" +
-                                "Ya Allah, sesungguhnya aku memohon kepada-Mu keberhasilan orang-orang yang mendapatkan petunjuk, amal ibadah orang-orang yang yakin (kepada-Mu), ketulusan orang-orang yang bertaubah, kemauan yang kuat orang-orang yang sabar, kesungguhan orang-orang yang takut (kepada-Mu), permohonan orang-orang yang cinta (kepada-Mu), ibadah orang-orang yang wara, pengetahuan orang-orang yang berilmu, sehingga aku merasa takut kepada-Mu. Ya Allah, sesungguhnya aku memohon kepada-Mu rasa takut yang dapat menghalangi aku dari kemaksiatan, sehingga aku beramal taat kepada-Mu dengan amal di mana aku berhak mendapatkan ridlo-Mu, dan sehingga aku tulus bertaubah kepada-Mu karena perasaan takut kepada-Mu, dan sehingga aku ikhlas karena-Mu dalam memberi nasehat karena cinta kepada-Mu, dan sehingga aku pasrah kepada-Mu dalam segala urusanku, karena berbaik sangka kepada-Mu, Maha Suci Engkau, wahai Dzat Pencipta cahaya. Wahai Tuhan kami sempurnakanlah cahaya kami, ampunilah (dosa-dosa) kami, sesungguhnya Engkau Maha Kuasa terhadap segala sesuatu, dengan rahmat-Mu wahai Yang Maha Pengasih.\n" +
-                                "\n" +
-                                "b)\tAdapun setelah salam berdoa sesuai dengan hajat yang diinginkan atau membaca sayyidul istighfar. \n" +
-                                "(سَيِّدُاْلاِسْتِتِعْفَارُ)\n" +
-                                "اَللَّهُمَّ اَنْتَ رَبِّيْ لاَاِلَهَ اِلاَّ اَنْتَ خَلَقْتَنِيْ وَاَنَا عَبْدُكَ وَ اَنَا عَلَى عَهْدِكَ وَوَ عْدِكَ مَااسْتَطَعْتُ، اَعُوْذُبِكَ مِنْ شَرِّمَاصَنَعْتُ، أَبُوْءُلَكَ بِنِعْمَتِكَ عََلَيَّ  وَاَبُوْءُ بِذَنْ بِيْ فَاغْفِرْلِيْ فَاِنَّهُ لاَيَغْفِرُ الذُّنُوْبَ اِلاَّاَنْتَ\n" +
-                                "ALLAAHUMMA ANTA RABBII LAA ILAAHA ILLAA ANTA KHALAQTANII WA ANA ABDUKA WA ANA ALAA AHDIKA WA WATDIKA MASTATHATU, AUUDZU BIKA MIN SYARRI MAA SHANATU ABUU-U LAKA BINITMATIKA ALAYYA WA ABUU-U BI DZANBII FAGHFIR LII FAINNAHUU LAA YAGHFIRUD DZUNUUBA ILLAA ANTA\n" +
-                                "Artinya:\n" +
-                                "Ya Allah, Engkau Tuhanku, tidak ada Tuhan selain Engkau yang menciptakanku, aku hamba-Mu dan aku selalu menepati janji-janji-Mu sesuai dengan kekuatanku, aku berlindung kepada-Mu dari jelek-jeleknya sesuatu yang aku lakukan, aku kembali kepada-Mu dengan membawa nimat-Mu dan aku kembali dengan membawa dosa maka mpunilah aku, sesungguhnya tidak ada yang dapat mengampuni dosa kecuali Engkau.\n", idSubMenu++, 0));
+                        detailContents.add(new DetailContent(idDetailContent, "Pengertian Shalat Sunnah Tasbih ", idSubMenu, 1));
+                            isiDetailContents.add(new IsiDetailContent(idIsiDetail++, idDetailContent++, "Shalat Tasbih adalah shalat sunnah yang di dalamnya membaca:\n" +
+                                    "سُبْحَانَ اللهِ وَالْحَمْدُ لِلَّهِ وَلاَ إِلَهَ إِلاَّ اللهُ وَاللهُ أَكْبَرُ\n" +
+                                    "\n" +
+                                    "SUBHAANAL-LAAHI WAL-HAMDULIL-LAAHI WA LAA ILAAHA ILLALLAAHU WAL-LAAHU AKBAR\n" +
+                                    "\n" +
+                                    "Dzikir tersebut dibaca sebanyak 300 X dalam empat rakaat, dengan rincian sebagai berikut: \n" +
+                                    "Setelah membaca al-Fatihah & ayat al-Quran 15 kali \n" +
+                                    "a.\tPada saat Ruku\t\t\t\t\t\t\t\t\t\t\t10 kali\n" +
+                                    "b.\tPada saat Itidal\t\t\t\t\t\t\t\t\t\t\t10 kali\n" +
+                                    "c.\tPada saat Sujud pertama\t\t\t\t\t\t\t10 kali\n" +
+                                    "d.\tPada saat duduk di antara kedua sujud\t10 kali\n" +
+                                    "c.\tPada saat sujud yang kedua\t\t\t\t\t\t10 kali\n" +
+                                    "d.\tPada saat duduk Istirahat\t\t\t\t\t\t\t10 kali\n" +
+                                    "Jumlah \t\t\t\t\t\t\t\t\t\t\t\t\t\t\t75 kali\n" +
+                                    "Dan selanjutnya pada rakaat berikutnya sampai empat rakaat. Sehingga jumlah keseluruhan tasbih yang dibaca sebanyak 300 kali.\n" +
+                                    "Shalat Tasbih ini jika dilaksanakan pada malam hari maka dilakukan dua-dua, yakni setiap dua rakaat membaca tahiyyat dan salam. Jika dilakukan pada siang hari maka boleh dikumpulkan menjadi satu kali salam, juga boleh dilakukan dua dua rakaat sebagaimana pada malam hari.\n"));
+
+                        detailContents.add(new DetailContent(idDetailContent, "Niat Shalat Sunnah Tasbih ", idSubMenu, 1));
+                            isiDetailContents.add(new IsiDetailContent(idIsiDetail++, idDetailContent++, "1.\tNiat shatat Tasbih yang dua rakaat\n" +
+                                    "أُصَلِّى سُنَّةَ التَّسْبِيحِ رَكْعَتَيْنِ لِلَّهِ تَعالىَ\n" +
+                                    "USHALLII SUNNATAT TASBIIHI RAKATAINI LIL-LAAHI TAAALAA\n" +
+                                    "Artinya:\n" +
+                                    "Saya niat shalat Tasbih dua rakaat karena Allah.\n" +
+                                    "\n" +
+                                    "2.\tNiat shalat Tasbih yang empat rakaat\n" +
+                                    "أُصَلِّى سُنَّةَ التَّسْبِيحِ أَرْبَعَ رَكَعَاتٍ لِلَّهِ تَعالىَ\n" +
+                                    "USHALLII SUNNATAT TASBIIHI ARBAA RAKAAATIN LIL-LAAHI TAAALAA\n" +
+                                    "Artinya:\n" +
+                                    "Saya niat shalat Tasbih empat rakaat karena Allah.\n" +
+                                    "\n" +
+                                    "Jumlah Rakaat Shalat Tasbih :\n" +
+                                    "Shalat Tasbih ini harus empat rakaat, tidak boleh kurang juga tidak boleh lebih, sebab tasbih yang harus dibaca sebanyak 300x, setiap rakaat 75x.\n"));
+
+                        detailContents.add(new DetailContent(idDetailContent, "Doa Shalat Sunnah Tasbih ", idSubMenu++, 1));
+                            isiDetailContents.add(new IsiDetailContent(idIsiDetail++, idDetailContent++, "a)\tDoa berikut ini dibaca setelah membaca tahiyat akhir sebelum salam.\n" +
+                                    "اَللَّهُمَّ اِنِّيْ اَسْأَلُكَ تَوْفِيْقَ اَهْلِ الْهُدَى وَاَعْمَالَ اَهْلِ الْيَقِيْنِ وَمُنَاصَحَةَ اَهْلِ التَّوْبَةِ وَعَزْمِ اَهْلِ الصَّبْرِ وَجِدَّ اَهْلِ الْخَشْيَةِ وَطَلَبَ اَهْلِ الرَّغْبَةِ وَتَعَبُّدَ اَهْلِ الْوَرَعِ وَعِرْفَانَ اَهْلِ الْعِلْمِ حَتَّ اَخَافَكَ. اَللَّهُمَّ اِنِّيْ اَسْأَلَكَ مَخَافَةً تَحْجُزُ نِيْ عَنْ مَعَاصِيْكَ حَتَّى اَعْمَلَ بِطَاعَتِكَ عَمَلاً اَسْتَحِقُّ بِهِ رِضَاكَ وَحَتَّى اَنَا صِحَكَ فِى التَّوْبَةِ خَوْفًا مِنْكَ وَحَقَّ اَخْلِصَ لَكَ النَّضِيْحَةَ حُبًّا لَكَ وَحَتَّ اَتَوَكَّلَ عَلَيْكَ فِى اْلاُمُوْرِ كُلِّهَا حُسْنَ ظَنٍّ بِكَ سُبْحَانَكَ يَاخَالِقَ النُّوْرِ، رَبَّنَا اَتْمِمْ لَنَا نُوْرَنَا وَاغْفِرْلَنَا اِنَّكَ عَلَى كُلِّ شَيْئٍ قَدِيْرٌ بِرَحْمَتِكَ يَاأَرْحَمَ الرَّاحِمِيْنَ.\n" +
+                                    "Artinya:\n" +
+                                    "Ya Allah, sesungguhnya aku memohon kepada-Mu keberhasilan orang-orang yang mendapatkan petunjuk, amal ibadah orang-orang yang yakin (kepada-Mu), ketulusan orang-orang yang bertaubah, kemauan yang kuat orang-orang yang sabar, kesungguhan orang-orang yang takut (kepada-Mu), permohonan orang-orang yang cinta (kepada-Mu), ibadah orang-orang yang wara, pengetahuan orang-orang yang berilmu, sehingga aku merasa takut kepada-Mu. Ya Allah, sesungguhnya aku memohon kepada-Mu rasa takut yang dapat menghalangi aku dari kemaksiatan, sehingga aku beramal taat kepada-Mu dengan amal di mana aku berhak mendapatkan ridlo-Mu, dan sehingga aku tulus bertaubah kepada-Mu karena perasaan takut kepada-Mu, dan sehingga aku ikhlas karena-Mu dalam memberi nasehat karena cinta kepada-Mu, dan sehingga aku pasrah kepada-Mu dalam segala urusanku, karena berbaik sangka kepada-Mu, Maha Suci Engkau, wahai Dzat Pencipta cahaya. Wahai Tuhan kami sempurnakanlah cahaya kami, ampunilah (dosa-dosa) kami, sesungguhnya Engkau Maha Kuasa terhadap segala sesuatu, dengan rahmat-Mu wahai Yang Maha Pengasih.\n" +
+                                    "\n" +
+                                    "b)\tAdapun setelah salam berdoa sesuai dengan hajat yang diinginkan atau membaca sayyidul istighfar. \n" +
+                                    "(سَيِّدُاْلاِسْتِتِعْفَارُ)\n" +
+                                    "اَللَّهُمَّ اَنْتَ رَبِّيْ لاَاِلَهَ اِلاَّ اَنْتَ خَلَقْتَنِيْ وَاَنَا عَبْدُكَ وَ اَنَا عَلَى عَهْدِكَ وَوَ عْدِكَ مَااسْتَطَعْتُ، اَعُوْذُبِكَ مِنْ شَرِّمَاصَنَعْتُ، أَبُوْءُلَكَ بِنِعْمَتِكَ عََلَيَّ  وَاَبُوْءُ بِذَنْ بِيْ فَاغْفِرْلِيْ فَاِنَّهُ لاَيَغْفِرُ الذُّنُوْبَ اِلاَّاَنْتَ\n" +
+                                    "ALLAAHUMMA ANTA RABBII LAA ILAAHA ILLAA ANTA KHALAQTANII WA ANA ABDUKA WA ANA ALAA AHDIKA WA WATDIKA MASTATHATU, AUUDZU BIKA MIN SYARRI MAA SHANATU ABUU-U LAKA BINITMATIKA ALAYYA WA ABUU-U BI DZANBII FAGHFIR LII FAINNAHUU LAA YAGHFIRUD DZUNUUBA ILLAA ANTA\n" +
+                                    "Artinya:\n" +
+                                    "Ya Allah, Engkau Tuhanku, tidak ada Tuhan selain Engkau yang menciptakanku, aku hamba-Mu dan aku selalu menepati janji-janji-Mu sesuai dengan kekuatanku, aku berlindung kepada-Mu dari jelek-jeleknya sesuatu yang aku lakukan, aku kembali kepada-Mu dengan membawa nimat-Mu dan aku kembali dengan membawa dosa maka mpunilah aku, sesungguhnya tidak ada yang dapat mengampuni dosa kecuali Engkau.\n"));
+
+                    subMenuContents.add(new SubMenuContent(idSubMenu, 3, "Shalat Sunnah Witir"));
+                        detailContents.add(new DetailContent(idDetailContent, "Pengertian Shalat Sunnah Witir", idSubMenu, 1));
+                            isiDetailContents.add(new IsiDetailContent(idIsiDetail++, idDetailContent++, "\tShalat Witir adalah shalat sunnah yang jumlah rakaatnya ganjil. Waktunya adalah sesudah melaksanakan shalat Isya sampai terbitnya fajar. Shalat Witir sunnah bahkan lebih utama dijadikan sebagai shalat malam yang terakhir atau penutup. \n" +
+                                    "\tJumlah Rakaatnya\n" +
+                                    "\tShalat witir maksimum sebelas rakaat, dan minimum satu rakaat. Jika melakukan shalat witir lebih dari satu rakaat maka jumlah rakaatnya harus ganjil, yakni tiga, lima, tujuh, sembilan atau sebelas. Cara pelaksanaannya ada dua macam :\n" +
+                                    "\t-\tPertama, semua rakaat dikumpulkan menjadi satu kali tahiyyat dan salam. Misalnya tiga rakaat, langsung disambung menjadi satu kali salam-an.\n" +
+                                    "\t-\tKedua, dilakukan dua-dua rakaat, yakni setiap dua rakaat membaca tahiyyat dan salam, kemudian diakhiri dengan satu rakaat, sebagai rakaat ganjil penutup.\n"));
+
+                        detailContents.add(new DetailContent(idDetailContent, "Niat Shalat Sunnah Witir", idSubMenu, 1));
+                            isiDetailContents.add(new IsiDetailContent(idIsiDetail++, idDetailContent, "1.\tNiat Untuk Yang Satu Rakaat\n" +
+                                    " اُصَلِّي سُنَّةَ الوِتْرِ رَكَعَةً لِلَّهِ تَعَالىَ. اَللَّهُ أَكْبَرُ\n" +
+                                    "USHALLII SUNNATAL WITRI RAKATAN LIL-LAAHI TAAALAA\n" +
+                                    "Artinya:\n" +
+                                    "Saya niat shalat sunnah Witir satu rakaat karena Allah\n"));
+                            isiDetailContents.add(new IsiDetailContent(idIsiDetail++, idDetailContent, "2.\tNiat Untuk Yang Dua Rakaat\n" +
+                                    "اُصَلِّي سُنَّةَ الوِتْرِ رَكَعَتَيْنِ لِلَّهِ تَعَالىَ. اَللَّهُ أَكْبَرُ\n" +
+                                    "USHALLII SUNNATAN MINAL-WITRI RAKATAINI LIL-LAAHI TAAALAA\n" +
+                                    "Artinya:\n" +
+                                    "Saya niat shalat sunnah Witir dua rakaat karena Allah\n"));
+                            isiDetailContents.add(new IsiDetailContent(idIsiDetail++, idDetailContent++, "3.\tNiat Untuk Yang Tiga Rakaat\n" +
+                                    "اُصَلِّي سُنَّةَ الوِتْرِ رَكَعَا تٍ لِلَّهِ تَعَالىَ. اَللَّهُ أَكْبَرُ\n" +
+                                    "USHALLII SUNNATAL WITRI TSALAATSA RAKAAATIN LIL-LAAHI TAAALAA\n" +
+                                    "Artinya:\n" +
+                                    "Saya niat shalat sunnah Witir tiga rakaat karena Allah\n"));
+
+                        detailContents.add(new DetailContent(idDetailContent, "Do'a Shalat Sunnah Witir", idSubMenu++, 1));
+                            isiDetailContents.add(new IsiDetailContent(idIsiDetail++, idDetailContent++, "سُبْحَانَ الْمَلِكِ الْقُدُّوْسُ 3 ×\n" +
+                                    "سُبُّوْحٌ قُدُّوْسٌ رَبُّناَ وَرَبُّ الْمَلاَ ئِكَةِ وَالرُّوْحِ.3×\n" +
+                                    "اَشْهَدُاَنْ لاَ اِلَهَ اِلاَّاللهُ اَسْتَغْفِرُاللهَ اَسْأَلُكَ رِضَاكَ وَالْجَنَّةَ وَاَعُوْذُبِكَ مِنْ سَخَطِكَ وَالنَّارِ 3×. اَللَّهُمَّ إِنَّكَ عَفُوٌّ كَرِيْمٌ تُحِبُّ الْعَفْوَ فَاعْفُ عَنَّا. 3 × يَا كَرِيْمُ. \n" +
+                                    "SUBHAANAL MALIKIL QUDDUS (3x) SUBBUUHUN QUDDUUSUN RABBUNAA WA RABBUL MALAAIKATI WAR-RUUH (3x) ASYHADU AN LAA ILAAHA ILLA-LAAHU ASTAGHFIRUL-LAAHA AS-ALUKA RIDLAAKA WAL-JANNATA WA AUUDZU BIKA MIN SAKHATHIKA WAN-NAAR (3x) ALLAAHUMMA INNAKA AFUWWUN KARIIMUN TUHIBBUL AFWA FAFU ANNAA (3x)\n" +
+                                    "Artinya:\n" +
+                                    "Maha Suci Dzat Yang Maha Raja lagi Maha Suci. Yang Maha Suci adalah Tuhan kami, para malaikat dan malaikat Jibril. Aku bersaksi tidak ada Tuhan selain Allah. Aku memohon ampun kepada-Nya. Aku memohon ridlo-Mu dan surga, dan aku berlindung kepada-Mu dari murka-Mu dan neraka. Ya Allah, sesungguhnya Engkau Maha Mengampuni, Maha Pemurah dan senang mengampuni, maka ampunilah kami, wahai Yang Maha Pemurah.\n"));
+
+                    subMenuContents.add(new SubMenuContent(idSubMenu, 3, "Shalat Sunnah Hajat"));
+                        detailContents.add(new DetailContent(idDetailContent, "Pengertian Shalat Sunnah Hajat", idSubMenu, 1));
+                            isiDetailContents.add(new IsiDetailContent(idIsiDetail++, idDetailContent++, "Shalat Hajat adalah shalat sunnah yang dilakukan karena ada kebutuhan atau kepentingan, baik kepada Allah maupun kepada sesama manusia. Shalat Hajat boleh dilakukan kapan saja, selain waktu-waktu yang dilarang."));
+
+                        detailContents.add(new DetailContent(idDetailContent, "1.\tShalat Hajat dua rakaat sebagaimana biasa.", idSubMenu, 1));
+                            isiDetailContents.add(new IsiDetailContent(idIsiDetail++, idDetailContent++, "•\tRakaat pertama setelah Al-Fatihah membaca surat al-Kafiruun 10 kali.\n" +
+                                    "•\tRakaat kedua setalah al-Fatihah membaca surat Al-Ikhlas 10 kali.\n" +
+                                    "Setelah shalat memuji Allah, membaca shalawat kepada nabi Muhammad SAW. dan membaca doa sebagaimana tertulis dalam teks hadits di atas atau doa yang tertulis pada point berikut.\n" +
+                                    "Niat Shalat Hajat Dua Rakaat\n" +
+                                    "أُصَلِّى سُنَّةً لِقَضَاءِ الْحَاجَةِ رَكْعَتَيْنِ ِللهِ تَعَالَى. اَللَّهُ أَكْبَرُ\n" +
+                                    "USHALLII SUNNATAN LI QADLAAIL HAAJATI RAKATAINI LIL-LAAHI TAAALAA\n" +
+                                    "Artinya:\n" +
+                                    "Saya niat shalat untuk terpenuhinya hajat dua rakaat karena Allah.\n"));
+
+                        detailContents.add(new DetailContent(idDetailContent, "2.\tShalat Hajat empat rakaat dengan cara sebagai berikut.", idSubMenu, 1));
+                            isiDetailContents.add(new IsiDetailContent(idIsiDetail++, idDetailContent++, "•\tRakaat pertama setelah al-Fatihah membaca surat al-Ikhlas 10 kali\n" +
+                                    "•\tRakaat kedua setelah al-Fatihah membaca surat al-Ikhlas 20 kali\n" +
+                                    "•\tRakaat ketiga setelah al-Fatihah membaca surat al-Ikhlas 30 kali\n" +
+                                    "•\tRakaat keempat setelah al-Fatihah membaca surat al-Ikhlas 40 kali\n" +
+                                    "Niat Shalat Hajat Empat Rakaat\n" +
+                                    "اُصَلِّى سُنَّةً لِقَضَاءِ الْحَاجَةِ مِنْ جَلْبِ النَّعْمَاءِ وَكَشْفِ الْبَلْوَى وَدَفْعِ اْلاَعْدَاءِ خُصُوْصًا .... رَكْعَتَيْنِ/اَرْبَعَ رَكَعَاتٍ  ِللهِ تَعَالَى.\n" +
+                                    "\n" +
+                                    "USHALLII SUNNATAN LI QADLAAIL HAAJATI MIN JALBIN NAMAA-I WA KASYFIL BALWAA WA DAFIL ADAA-I KHUSHUUSHAN……….RAKATAINI/ARBAA RAKAAATIN LIL-LAAHI TAAALAA\n" +
+                                    "Artinya:\n" +
+                                    "Saya niat shalat sunnah untuk dipenuhinya hajat, berupa ditarikkan segala kenikmatan, dihindarkan dari petaka dan jauhkan dari musuh, dua/empat rakaat karena Allah SWT.\n"));
+
+                        detailContents.add(new DetailContent(idDetailContent, "2.\tDzikir ", idSubMenu++, 1));
+                            isiDetailContents.add(new IsiDetailContent(idIsiDetail++, idDetailContent++, "اَللَّهُمَّ صَلِّ عَلَى سَيِّدِيْنَا مُحَمَّدٍ صَلاَّةً تُوَسِّعُ بِهَا عَلَيْنَا اْلاَرْزَاقَ وَتُحَسِّنُ بِهَا لَنَا اْلاَخْلاَقَ وَعَلَى اَلِهِ وَصَحْبِهِ وَسَلِّمْ.\n" +
+                                    "\n" +
+                                    "ALAAHUMMA SHALLI ALAA SAYYIDINAA MUHAMMADIN SHALAATAN TUWASSIU BIHAA ALAINAL ARZAAQA WA TUHASSINU BIHAA LANAL AKHLAAQA WA ALAA AALIHII WA SHAHBIHII WA SALLIM (50 x)\n" +
+                                    "Artinya:\n" +
+                                    "Ya limpahkanlah shalawat dan salam kepada nabi Muhammad, keluarga dan sahabatnya, dengan shalawat yang dapat meluaskan rizki kami dan memperbaiki akhlaq kami.\n" +
+                                    " اَسْتَغْفِرُاللهَ الْعَظِيْمَ لِيْ وَلِوَالِدَيَّ وَلِجَمِيْعِ الْمُسْلِمِيْنَ وَالْمُسْلِمَاتِ وَالْمُؤْمِنِيْنَ وَالْمُؤْمِنَاتِ اَلاَحْيَاءِ مِنْهُمْ وَاْلاَمْوَاتِ.\n" +
+                                    "\n" +
+                                    "ASTAGHFIRUL-LAAHAL ADHIIMA LII WA LIWAALIDAYYA WA LI JAMIIIL MUSLIMIINA WAL MUSLIMAATI WAL MU \"MINIINA. WAL MUMIINAATI AL-AHYAAI MINHUM WAL AMWAATI (50 x)\n" +
+                                    "Artinya:\n" +
+                                    "Aku memohon ampunan kepada Allah, untukku sendiri, kedua orang tuaku, seluruh orang-orang Islam, baik laki-laki maupun perempuan, dan seluruh orang-orang yang beriman, baik laki-laki maupun perempuan, baik yang rnasih hidup maupun yang sudah mati.\n" +
+                                    "\n" +
+                                    "لاَحَوْلاَ وَلاَ قُوَّةَ اِلاَّ بِاللهِ الْعَلِيِّ الْعَظِيْمِ.\n" +
+                                    "LA HAULA WA LAA QUWWATA ILLAA BIL-LAAHIL ALIYYIL ADHIIM\n" +
+                                    "Artinya:\n" +
+                                    "Tidak ada daya dan kekuatan selain pertolongan Allah Yang Maha Tinggi dan Maha Agung.\n" +
+                                    "اَلدُّعَاءُ: \n" +
+                                    "بِسْمِ اللهِ الرَّحْمَنِ الرَّحِيْمِ\n" +
+                                    "وَاَسْأَلُكَ بِاَسْمَائِكَ يَاكَافِيْ يَاوَافِيْ يَاشَافِيْ يَامُعَافِيْ يَامُجِيْبَ دَعْوَةِ الْمُضْطَرِيْنَ يَاقَضِيَ يَارَاضِيَ يَاهَادِيْ يَاعَلِيُّ يَاوَافِيْ سُبْحَانَكَ لاَاِلَهَ اِلاَّ اَنْتَ غَوْثُ الْغَوْثِ خَلِّصْنَا مِنَ النَّارِ يَارَبِّ يَارَبِّ يَامَنْ اَظْهَرَ الْجَمِيْلَ وَسَتَرَ الْقَبِيْحَ يَامَنْ لاَيُؤَاخِذُ الجَرِيْمَةَ وَلاَ تَهْتِكُ السِّتْرَ يَاعَظِيْمَ الْعَفْوِ يَاحَسَنَةَ التَّزَوُّجِ يَاوَاسِعَ الْمَغْفِرَةِ يَابَاصِطَ الْيَدَيْنِ بِرَحْمَتِكَ يَاصَاحِبَ كُلِّ النَّجَواى يَاكَاشِفَ الْبَلْوَى يَامُنْتَهَى كُلِّ الشَّكْوَى يَكَرِيْمَ الصِّفَاتِ يَاعَظِيْمَ الْعَفْوِ سُبْحَانَكَ لاَاِلَهَ اِلاَّ اَنْتَ غَوْثُ الْغَوْثِ خَلِّصْنَا مِنَ النَّارِ 11x\n" +
+                                    "\n" +
+                                    "Artinya:\n" +
+                                    "Aku memohon kepada-Mu dengan nama-nama-Mu, wahai Yang Maha Mencukupi, Yang Maha Menyempurnakan, Yang Maha Menyembuhkan, Yang Maha Menyehatkan, Yang Maha Mengabulkan permohonan orang-orang yang terdesak, Yang Maha Memutuskan, Yang Maha Meridloi, Yang Maha Menunjukkan, Yang Maha Tinggi, Yang Maha Menyempurnakan, Maha Suci Engkau, tidak ada Tuhan selain Engkau, penolong orang-orang yang memohon pertolongan, selamatkan kami dari api neraka, wahai Tuhan kami, wahai Yang Menampakkan kebaikan Dan menutupi kejelekan, Yang Tidak Menyiksa sebab dosa, Yang Tidak Merobek taber, Yang Maha Agung ampunannya, Yang Maha Bagus dalam memberikan pasangan, Yang Maha Luas ampunannya Yang Membentangkan kedua tangan, dengan rahmat-Mu wahai Dzat Yang Memiliki segala bisikan, Yang Maha Penyingkap cobaan, Yang Menjadi akhir setiap pengaduan, Yang Maha Mulia sifat-sifat-Nya, Yang Maha Besar ampunannya, Maha Suci Engkau, tidak ada Tuhan selain Engkau, penolong orang-orang yang memohon pertolongan, selamatkan kami dari neraka, wahai Tuhan kami.\n" +
+                                    "\n" +
+                                    "بِسْمِ اللهِ الرَّحْمَنِ الرَّحِيْمِ\n" +
+                                    "اَلْحَمْدُ ِللهِ رَبِّ الْعَالَمِيْنَ، اَللَّهُمَّ صَلِّ عَلَى سَيِّدِنَا مُحَمَّدٍ وَعَلَى اَلِ سَيِّدِنَا مُحَمَّدٍ وَصَحْبِهِ وَسَلِّمْ، لاَاِلَهَ اِلاَّاللهُ الْعَظِيْمُ الْحَلِيْمُ لاَاِلَهَ اِلاَّ اللهُ رَبُّ الْعَرْشِ الْعِظِيْمُ لاَاِلَهَ اِلاَّاللهُ رَبُّ السَّمَوَاتِ وَرَبُّ اْلاَرْضِ وَرَبُّ الْعَرْشِ الْكَرِيْمِ اَللَّهُمَّ كَاشِفَ الْغَمِّ مُفَرِّجَ الْهَمِّ مُجِيْبَ دَعْوَةِ الْمُضْطَرِّيْنَ اِذَا دَعَوْكَ رَحْمَنَ الدُّنْيَا وَالآخِرَةِ وَرَحِيْمَهُمَا اِرْحَمْنَا فِيْ حَاجَتِنَا هَذِهِ .... بِقَضَائِهَا وَنَجَاحِهَا رَحْمَةً تُغْنِيْنَا بِهَا عَمَّنْ سِوَاكَ، اَللَّهُمَّ اِنَّا نَسْأَلُكَ مُوْجِبَاتِ رَحْمَتِكَ وَعَزَا ائِمَ مَغْفِرَتِكَ وَالْعِصْمَةَ مِنْ كُلِّ ذَنْبٍ وَالْغَنِيْمَةَ مِنْ كُلِّ بِرٍّ وَالسَّلاَمَةَ مِنْ كُلِّ اِثْمٍ لاَتَدَعْ لِيْ ذَنْبًا اِلاَّ غَفَرْتَهُ وَلاَ هَمًّا اِلاَّ فَرَّجْتَهُ وَلاَ مَرَضًا اِلاَّ شَفَيْتَهُ وَلاَ حَاجَةً اِلاَّ قَضَيْتَهَا يَااَرْحَمَ الرَّاحِمِيْنَ 3\n" +
+                                    "\n" +
+                                    "\n" +
+                                    "Artinya:\n" +
+                                    "Dengan menyebut nama Allah Yang Maha Pengasih lagi Maha Penyayang. Segala puji bagi Allah, Tuhan semesta. Ya Allah, limpahkan shalawat dan salam kepada nabi Muhammad, keluarga dan sahabatnya. Tidak ada Tuhan selain Allah Yang Maha Agung dan Yang Maha Pemurah hati. Tidak ada Tuhan selain Allah Yang Memiliki Arasy yang besar. Tidak ada Tuhan selain Allah, Tuhan langit dan bumi dan pemilik Arasy yang mulia. Ya Allah, Maha Penyingkap kesusahan, Melapangkan kecemasan, Mengabulkan permohonan orang-orang yang terdesak jika mereka memohon kepada-Mu, pengasih di dunia dan akhirat lagi penyayang di dunia dan akhirat, kasihanilah kami dalam hajat kami ini…………dengan merealisasikan dan menyukseskannya, dengan kasih sayang yang mencukupkan kami dengannya dari orang selain-Mu. Ya Allah, kami memohon kepada-Mu segala sesuatu yang menyebabkan kasih sayang-Mu dan ampunan-Mu, terjaga dari segala dosa, kaya dari segala kebaikan, selamat dari segala dosa. jangan Engkau tinggalkan bagiku dosa kecuali Engkau ampuni, jangan Engkau tinggalkan bagiku kecemasan kecuali Engkau lapang-kan, jangan Engkau tinggalkan bagiku penyakit kecuali Engkau sembuhkan, jangan Engkau tinggalkan bagiku hajat kecuali Engkau realisasikan. Wahai Yang Maha Pengasih.\n"));
+
+                    subMenuContents.add(new SubMenuContent(idSubMenu, 3, "Shalat Sunnah Dluha"));
+                        detailContents.add(new DetailContent(idDetailContent, "Pengertian Shalat Sunnah Dluha", idSubMenu, 1));
+                            isiDetailContents.add(new IsiDetailContent(idIsiDetail++, idDetailContent++, "Shalat Dluha adalah shalat sunnah yang dilakukan di pagi hari, sejak naiknya matahari dalam ketinggian sepenggalah sampai tengah hari. Shalat Dluha maksimum delapan rakaat. Ada sebagaian ulama yang berpendapat sampai dua belas rakaat, sedangkan batas minimum adalah dua rakaat.\n" +
+                                    "Surat yang dibaca sebagai berikut:\n" +
+                                    "\t-\tRakaat pertama surat Al-Syams atau surat Al-Kafiruun.\n" +
+                                    "\t-\tRakaat kedua surat Al-Dluha atau surat Al-Ikhlas.\n"));
+
+                        detailContents.add(new DetailContent(idDetailContent, "Niat Shalat Sunnah Dluha", idSubMenu, 1));
+                            isiDetailContents.add(new IsiDetailContent(idIsiDetail++, idDetailContent++, "أصَلِّي سُنَّةَ الضُحَى رَكَعَتَيْنِ لِلَّهِ تَعالىَ. اَللَّهُ أَكْبَرُ\n" +
+                                    "USHALLII SUNNATAD DLUHAA RAKATAINI LIL-LAAHI TAAALAA\n" +
+                                    "Artinya:\n" +
+                                    "Saya niat shalat Dluha dua rakaat karena Allah SWT.\n"));
+
+                        detailContents.add(new DetailContent(idDetailContent, "Do'a Shalat Sunnah Dluha", idSubMenu++, 1));
+                            isiDetailContents.add(new IsiDetailContent(idIsiDetail++, idDetailContent++, "\n" +
+                                    " اللَّهُمَّ إِنَّ الضُّحَاءَ ضُحَاءُكَ وَالْبَهَاءَ بَهَائُكَ وَالْجَمَالَ جَمَالُكَ وَالْقُوَّةَ قُوَّتُكَ وَالْقُدْرَةَ قُدْرَتُكَ وَالْعِصْمَةَ عِصْمَتُكَ . اللَّهُمَّ إِنْ كَانَ رِزْقِي فِي الْسَمَاءِ فَأَنْزِلْهُ وَإِنْ كَانَ فِيْ الأَرْضِ فأَخْرِجْهُ وَإِنْ كَانَ مَعْسِرًا فَيَسِّرْهُ وَإِنْ كَانَ حَرَامًا فَطَهِّرْهُ وَإِنْ كَانَ بَعِيْدًا فَقَرِّبْهُ  وَاِنْ كَانَ قَلِيْلاً فَكَثِّرْهُ وَاِنْ كَانَ كَثِيْرًا فَبَارِكْ لِيْ فِيْهِ وَاَوْصِلْهُ اِلَيَّ حَيْثُ كُنْتُ وَلاَ تَنْقُلْنِيْ اِلَيْهِ حَيْثُ كَانَ وَاجْمَلْ يَدَيَّ الْعُلْيَا بِالاِعْطَاءِ وَلاَ تَجْعَلْهُمَا السُّفْلَى بِالاِسْتِعْطَاءِ اِنَّكَ عَلَى كُلِّ شَيْئٍ قَدِيْرٌ بِحَقِّ ضُحَائِكَ وَبَهَائِكَ وَجَمَالِكَ وَقُوَّتِكَ وَقُدْرَتِكَ وَعِصْمَتِكَ وَلاَ حَوْلَ وَلاَقُوَّةَ اِلاَّ بِكَ اَتِنِىْ مَااَتَيْتَ عِبَادَكَ الصَّالِحِيْنَ وَصَلَّى اللهُ عَلَى سَيِّدِنَا مُحَمَّدٍ وَعَلَى اَلِهِ وَصَحْبِهِ وَسَلَّمْ سُبْحَانَ رَبِّكَ رَبِّ الْعِزَّةِ عَمَّايَصِفُوْنَ وَسَلاَمٌ عَلَى الْمُرْسَلِيْنَ وَالْحَمْدُللهِ رَبِّ الْعَالَمِيْنَ.\n" +
+                                    "Artinya:\n" +
+                                    "Ya Allah, sesungguhnya waktu Dluha adalah waktu Dluha-Mu, kecakapan adalah kecakapan-Mu, keindahan adalah keindahan-Mu, kekuatan adalah kekuatan-Mu, kemampuan adalah kemampuan-Mu dan keterpeliharaan adalah keterpeliharaan-Mu. Ya Allah, jika rizkiku berada di langit maka Engkau turunkan, jika berada di dalam bumi maka Engkau keluarkan, jika sulit maka Engkau mudahkan, jika haram maka Engkau bersihkan, jika jauh maka Engkau dekatkan, jika sedikit maka Engkau perbanyak, jika banyak maka Engkau berkahkan, sampaikan rizkiku padaku di mana aku berada, jangan Engkau pindahkan aku ke tempatnya, jadikanlah kedua tanganku berada di atas dengan memberi, jangan Engkau jadikan kedua tanganku berada di bawah dengan meminta, sesungguhnya Engkau Maha Kuasa atas segala sesuatu, dengan kebenaran waktu Dluha-Mu, kecakapan-Mu, keindahan-Mu, kekuatan-Mu, kemampuan-Mu dan keterpeliharaan-Mu. Tidak ada daya dan kekuatan kecuali dengan pertolongan-Mu, berilah aku sesuatu yang telah Engkau berikan kepada hamba-hamba-Mu yang saleh Limpahkan shalawat dan salam kepada nabi Muhammad SAW., keluarga dan para sahabatnya. Segala puji bagi Allah, Tuhan semesta.\n"));
+
+                    subMenuContents.add(new SubMenuContent(idSubMenu, 3, "Shalat Tahiyyatil Masjid"));
+                        detailContents.add(new DetailContent(idDetailContent, "Pengertian Shalat Tahiyyatil Masjid", idSubMenu, 1));
+                            isiDetailContents.add(new IsiDetailContent(idIsiDetail++, idDetailContent++, "Shalat Tahiyyatil Masjid adalah shalat penghormatan kepada masjid. Shalat ini disunnahkan bagi orang yang bermaksud duduk di dalam masjid, kecuali Masjidil Haram. Orang yang masuk Masjidil Haram disunnahkan thawaf kemudian shalat dua rakaat di maqam Ibrahim."));
+
+                        detailContents.add(new DetailContent(idDetailContent, "Niat Shalat Tahiyyatil Masjid", idSubMenu++, 1));
+                            isiDetailContents.add(new IsiDetailContent(idIsiDetail++, idDetailContent++, " أُصَلِّى سُنَّةً لِتَحِيَّةِ الْمَسْجِدِ رَكْعَتَيْنِ للهِ تَعَالَى. اَللَّهُ أَكْبَرُ\n" +
+                                    "USHALLII SUNNATAN LI TAHIYYATIL MASJIDI RAKATAINI LIL-LAAHI TAAALAA\n" +
+                                    "Artinya : \n" +
+                                    "Saya niat shalat sunnah untuk menghormati masjid dua rakaaat karena Allah. \n"));
+
+                    subMenuContents.add(new SubMenuContent(idSubMenu, 3, "Shalat Sunnah Istikharah"));
+                        detailContents.add(new DetailContent(idDetailContent, "Pengertian Shalat Sunnah Istikharah", idSubMenu, 1));
+                            isiDetailContents.add(new IsiDetailContent(idIsiDetail++, idDetailContent++, "Shalat sunnah Istikharah adalah shalat yang dilakukan untuk memohon pilihan yang baik dari sesuatu yang akan dilakukan. "));
+
+                        detailContents.add(new DetailContent(idDetailContent, "Niat Shalat Sunnah Istikharah", idSubMenu, 1));
+                            isiDetailContents.add(new IsiDetailContent(idIsiDetail++, idDetailContent++, "أُصَلِّى سُنَّةَ اْلاِسْتِخَارَةِ رَكْعَتَيْنِ للهِ تَعَالَى\n" +
+                                    "Artinya:\n" +
+                                    "Saya niat shalat sunnah Istikharah dua rakaat karena Allah.\n"));
+
+                        detailContents.add(new DetailContent(idDetailContent, "Do'a Shalat Sunnah Istikharah", idSubMenu++, 1));
+                            isiDetailContents.add(new IsiDetailContent(idIsiDetail++, idDetailContent++, "اَلاَ يَعْلَمُ مَنْ خَلَقَ وَهُوَ الَّطِيْفُ اْلخَبِيْرُ.\n" +
+                                    "ALAA YALAMU MAN KHALAQA WA HUWAL LATHIIFUL KHABIIR, 333X\n" +
+                                    "Artinya:\n" +
+                                    "Ingatlah, Maha Mengetahui Dzat yang Menciptakan, Dia Maha Lembut dan Maha Mengetahui\n" +
+                                    "هُوَاللهُ\n" +
+                                    "HUWAL-LAAH, 1000x-5000x\n" +
+                                    "\n" +
+                                    "Artinya:\n" +
+                                    "Dialah Allah \n" +
+                                    "Kemudian membaca dzikir ini maka berdoa seperti yang tertera dalam hadits di atas. Setelah melakukan shalat, dzikir dan doa maka lakukan sesuatu yang sesuai dengan kelapangan dada.\n"));
 // ======================================================================================================================================
 //                    Sub menu Doa
                     subMenuContents.add(new SubMenuContent(idSubMenu++, 4, "Doa Dalam Perjalanan Keberangkatan"));
