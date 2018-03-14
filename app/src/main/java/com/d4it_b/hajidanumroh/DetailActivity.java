@@ -10,6 +10,8 @@ import android.support.v7.widget.Toolbar;
 import android.widget.TextView;
 
 import com.d4it_b.hajidanumroh.adapter.AdapterDetail;
+import com.d4it_b.hajidanumroh.db.DBHandler;
+import com.d4it_b.hajidanumroh.db.DbQueries;
 
 import java.util.ArrayList;
 
@@ -23,7 +25,7 @@ public class DetailActivity extends AppCompatActivity {
     private RecyclerView.LayoutManager mLayoutManager;
 
     private DBHandler dbHandler;
-
+    DbQueries dbQueries;
     CardView cardView;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,6 +42,7 @@ public class DetailActivity extends AppCompatActivity {
         labelActivity = (TextView)findViewById(R.id.activityLabel);
 
         dbHandler = new DBHandler(this);
+        dbQueries = new DbQueries(getApplicationContext());
 
         listData= new ArrayList<>();
 
@@ -51,10 +54,11 @@ public class DetailActivity extends AppCompatActivity {
         textView.setText(getIntent().getExtras().getString("title"));
         labelActivity.setTypeface(tf);
 
+        dbQueries.open();
         if (getIntent().getIntExtra("isSetIsi", 0) != 0){
-            labelActivity.setText(dbHandler.getTitleAct(getIntent().getIntExtra("idTitle", 0), "tb_sub_menu"));
+            labelActivity.setText(dbQueries.getTitleAct(getIntent().getIntExtra("idTitle", 0), "tb_sub_menu"));
         }else{
-            labelActivity.setText(dbHandler.getTitleAct(getIntent().getIntExtra("idTitle", 0), "tb_utama"));
+            labelActivity.setText(dbQueries.getTitleAct(getIntent().getIntExtra("idTitle", 0), "tb_utama"));
         }
 
         listData = (ArrayList<String>) getIntent().getSerializableExtra("data");

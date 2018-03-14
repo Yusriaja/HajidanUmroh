@@ -3,6 +3,7 @@ package com.d4it_b.hajidanumroh;
 import android.content.Intent;
 import android.graphics.Typeface;
 import android.os.Bundle;
+import android.os.Environment;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -15,13 +16,16 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.widget.TextView;
 
+import com.d4it_b.hajidanumroh.db.DbQueries;
 import com.d4it_b.hajidanumroh.fragment.FragmentSubMenu;
-import com.d4it_b.hajidanumroh.model.ProfileActivity;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class MainAct extends AppCompatActivity{
+
+
+    DbQueries dbQueries;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,12 +37,8 @@ public class MainAct extends AppCompatActivity{
         ViewPager viewPager = (ViewPager) findViewById(R.id.viewpager);
         ViewPagerAdapter adapter = new ViewPagerAdapter(getSupportFragmentManager());
         setupViewPager(viewPager);
-//        adapter.addFragment(new FragmentSubMenu(), "Doa");
-//        adapter.addFragment(new FragmentSubMenu(), "Umroh");
-//        adapter.addFragment(new FragmentSubMenu(), "Hajii");
-//        adapter.addFragment(new FragmentSubMenu(), "Sholat");
-//        adapter.addFragment(new FragmentSubMenu(), "DAM");
-//        viewPager.setAdapter(adapter);
+
+        dbQueries = new DbQueries(this);
 
         TabLayout tabLayout = (TabLayout) findViewById(R.id.tabs);
         tabLayout.setupWithViewPager(viewPager);
@@ -46,6 +46,7 @@ public class MainAct extends AppCompatActivity{
         TextView text = (TextView) findViewById(R.id.activityLabel);
         Typeface tf = Typeface.createFromAsset(getAssets(), "fonts/Honej.ttf");
         text.setTypeface(tf);
+
 
 
 
@@ -121,8 +122,18 @@ public class MainAct extends AppCompatActivity{
                 Intent intent = new Intent(MainAct.this, ProfileActivity.class);
                 startActivity(intent);
                 return true;
+
+
             default:
                 return super.onOptionsItemSelected(item);
+        }
+    }
+
+    private boolean isExternalStrorageWriteable(){
+        if (Environment.MEDIA_MOUNTED.equals(Environment.getExternalStorageState())){
+            return true;
+        }else {
+            return false;
         }
     }
 }

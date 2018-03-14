@@ -9,10 +9,11 @@ import android.view.ViewGroup;
 import android.widget.ExpandableListView;
 import android.widget.Toast;
 
-import com.d4it_b.hajidanumroh.DBHandler;
 import com.d4it_b.hajidanumroh.DetailActivity;
 import com.d4it_b.hajidanumroh.R;
 import com.d4it_b.hajidanumroh.adapter.ExpandableListAdapter;
+import com.d4it_b.hajidanumroh.db.DBHandler;
+import com.d4it_b.hajidanumroh.db.DbQueries;
 import com.d4it_b.hajidanumroh.model.DetailContent;
 import com.d4it_b.hajidanumroh.model.SubMenuContent;
 
@@ -37,6 +38,8 @@ public class FragmentSubMenu extends Fragment{
     HashMap<SubMenuContent, List<DetailContent>> listDataChild;
     ExpandableListAdapter listAdapter;
     ExpandableListView expListView;
+
+    DbQueries dbQueries;
 
     public FragmentSubMenu() {
         // Required empty public constructor
@@ -64,11 +67,16 @@ public class FragmentSubMenu extends Fragment{
         listAdapter = new ExpandableListAdapter(getActivity());
 
         dbHandler = new DBHandler(getActivity());
-        subMenuContents = dbHandler.getAllSubMenu(indexMain);
+        dbQueries = new DbQueries(getActivity().getApplicationContext());
+
+        dbQueries.open();
+
+        subMenuContents = dbQueries.getAllSubMenu(indexMain);
 
         for (SubMenuContent subMenuContent : subMenuContents){
             List<DetailContent> detailContents = new ArrayList<>();
-            detailContents = dbHandler.getAllDetailContent(subMenuContent.getIdSubMenu());
+            dbQueries.open();
+            detailContents = dbQueries.getAllDetailContent(subMenuContent.getIdSubMenu());
             listDataHeader.add(subMenuContent);
             listDataChild.put(subMenuContent, detailContents);
         }
@@ -82,8 +90,9 @@ public class FragmentSubMenu extends Fragment{
             @Override
             public boolean onGroupClick(ExpandableListView parent, View v, int groupPosition, long id) {
                 if(listAdapter.getChildrenCount(groupPosition) == 0){
+                    dbQueries.open();
                     Intent intent = new Intent(getActivity(), DetailActivity.class);
-                    intent.putExtra("data",dbHandler.getTextDetailContent(listAdapter.getIdGroup(groupPosition)));
+                    intent.putExtra("data",dbQueries.getTextDetailContent(listAdapter.getIdGroup(groupPosition)));
                     intent.putExtra("isSetIsi", 0);
                     intent.putExtra("idTitle", indexMain);
                     intent.putExtra("title", listAdapter.getGroup(groupPosition).toString());
@@ -98,8 +107,9 @@ public class FragmentSubMenu extends Fragment{
             @Override
             public boolean onChildClick(ExpandableListView expandableListView, View view, int groupPosition, int childPosition, long l) {
                 Intent intent = new Intent(getActivity(), DetailActivity.class);
-                if(dbHandler.getTextIsiDetailContent(listAdapter.getIdChild(groupPosition, childPosition)).size()!=0){
-                    intent.putExtra("data", dbHandler.getTextIsiDetailContent(listAdapter.getIdChild(groupPosition, childPosition)));
+                dbQueries.open();
+                if(dbQueries.getTextIsiDetailContent(listAdapter.getIdChild(groupPosition, childPosition)).size()!=0){
+                    intent.putExtra("data", dbQueries.getTextIsiDetailContent(listAdapter.getIdChild(groupPosition, childPosition)));
                     intent.putExtra("isSetIsi", 1);
                     intent.putExtra("idTitle", listAdapter.getIdGroup(groupPosition));
                     intent.putExtra("title", listAdapter.getChild(groupPosition,childPosition).toString());
