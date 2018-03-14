@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:id="@+id/profile"
+        android:title="Profile" >
+        <!-- "file" submenu -->
+    </item>
+
+    <item android:id="@+id/exportSubmenu"
+        android:title="Export Sub Menu" >
+        <!-- "file" submenu -->
+    </item>
+
+    <item android:id="@+id/exportDetail"
+        android:title="Export Detail" >
+        <!-- "file" submenu -->
+    </item>
+
+    <item android:id="@+id/exportIsi"
+        android:title="Export Isi" >
+        <!-- "file" submenu -->
+    </item>
+</menu>
