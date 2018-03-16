@@ -41,6 +41,7 @@ public class FragmentSubMenu extends Fragment{
 
     DbQueries dbQueries;
 
+
     public FragmentSubMenu() {
         // Required empty public constructor
     }
@@ -71,6 +72,8 @@ public class FragmentSubMenu extends Fragment{
 
         dbQueries.open();
 
+
+            subMenuContents = dbQueries.getAllSubMenu(indexMain);
         subMenuContents = dbQueries.getAllSubMenu(indexMain);
 
         for (SubMenuContent subMenuContent : subMenuContents){

@@ -33,12 +33,16 @@ public class MainAct extends AppCompatActivity{
         setContentView(R.layout.act_main);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+    }
 
+    @Override
+    protected void onStart() {
+        super.onStart();
         ViewPager viewPager = (ViewPager) findViewById(R.id.viewpager);
         ViewPagerAdapter adapter = new ViewPagerAdapter(getSupportFragmentManager());
-        setupViewPager(viewPager);
 
         dbQueries = new DbQueries(this);
+        setupViewPager(viewPager);
 
         TabLayout tabLayout = (TabLayout) findViewById(R.id.tabs);
         tabLayout.setupWithViewPager(viewPager);
@@ -46,32 +50,33 @@ public class MainAct extends AppCompatActivity{
         TextView text = (TextView) findViewById(R.id.activityLabel);
         Typeface tf = Typeface.createFromAsset(getAssets(), "fonts/Honej.ttf");
         text.setTypeface(tf);
-
-
-
-
     }
 
     private void setupViewPager(ViewPager viewPager){
         ViewPagerAdapter adapter = new ViewPagerAdapter(getSupportFragmentManager());
 
         FragmentSubMenu fragmentHaji = new FragmentSubMenu();
+        fragmentHaji.setRetainInstance(true);
         fragmentHaji.setIndexMain(2);
         adapter.addFragment(fragmentHaji, "HAJI");
 
         FragmentSubMenu fragmentSholat = new FragmentSubMenu();
+        fragmentSholat.setRetainInstance(true);
         fragmentSholat.setIndexMain(3);
         adapter.addFragment(fragmentSholat, "Sholat");
 //
         FragmentSubMenu fragmentUmroh = new FragmentSubMenu();
+        fragmentUmroh.setRetainInstance(true);
         fragmentUmroh.setIndexMain(1);
         adapter.addFragment(fragmentUmroh, "Umroh");
 
         FragmentSubMenu fragmentDoa = new FragmentSubMenu();
+        fragmentDoa.setRetainInstance(true);
         fragmentDoa.setIndexMain(4);
         adapter.addFragment(fragmentDoa, "DOA");
 
         FragmentSubMenu fragmentDAM = new FragmentSubMenu();
+        fragmentDAM.setRetainInstance(true);
         fragmentDAM.setIndexMain(5);
         adapter.addFragment(fragmentDAM, "DAM");
         viewPager.setAdapter(adapter);

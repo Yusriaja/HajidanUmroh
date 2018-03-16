@@ -47,6 +47,7 @@ public class DetailActivity extends AppCompatActivity {
         listData= new ArrayList<>();
 
         mLayoutManager = new LinearLayoutManager(this);
+        mRecyclerView.setNestedScrollingEnabled(false);
         mRecyclerView.setLayoutManager(mLayoutManager);
 
         Typeface tf = Typeface.createFromAsset(getAssets(), "fonts/Honej.ttf");
