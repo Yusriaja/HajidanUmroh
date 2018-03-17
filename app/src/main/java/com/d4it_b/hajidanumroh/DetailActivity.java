@@ -7,11 +7,13 @@ import android.support.v7.widget.CardView;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.widget.TextView;
 
 import com.d4it_b.hajidanumroh.adapter.AdapterDetail;
 import com.d4it_b.hajidanumroh.db.DBHandler;
 import com.d4it_b.hajidanumroh.db.DbQueries;
+import com.d4it_b.hajidanumroh.model.ContentDetailAct;
 
 import java.util.ArrayList;
 
@@ -20,7 +22,7 @@ public class DetailActivity extends AppCompatActivity {
     private RecyclerView mRecyclerView;
     private TextView textView, labelActivity;
     private AdapterDetail adapterDetail;
-    private ArrayList<String> listData;
+    private ArrayList<ContentDetailAct> listData;
 
     private RecyclerView.LayoutManager mLayoutManager;
 
@@ -57,12 +59,16 @@ public class DetailActivity extends AppCompatActivity {
 
         dbQueries.open();
         if (getIntent().getIntExtra("isSetIsi", 0) != 0){
+            listData = dbQueries.getContentDetail(getIntent().getIntExtra("idData", 0),"tb_isi_detail_content");
             labelActivity.setText(dbQueries.getTitleAct(getIntent().getIntExtra("idTitle", 0), "tb_sub_menu"));
+            Log.i("IdData", "onGroupClick: "+"HALOOO");
         }else{
             labelActivity.setText(dbQueries.getTitleAct(getIntent().getIntExtra("idTitle", 0), "tb_utama"));
+            listData = dbQueries.getContentDetail(getIntent().getIntExtra("idData", 0),"tb_detail_content");
+            Log.i("IdData", "onGroupClick: "+"HAIII");
         }
 
-        listData = (ArrayList<String>) getIntent().getSerializableExtra("data");
+//        listData = (ArrayList<String>) getIntent().getSerializableExtra("data");
         adapterDetail.setData(listData);
         mRecyclerView.setAdapter(adapterDetail);
     }

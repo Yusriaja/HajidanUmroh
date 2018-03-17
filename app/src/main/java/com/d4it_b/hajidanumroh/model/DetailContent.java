@@ -8,20 +8,18 @@ public class DetailContent {
     private int idDetailContent;
     private String strDetailConten;
     private int idSubMenuContent;
+    private String arab_detail;
+    private String arti_detail;
+    private String latin_detail;
     private int isSetIsi; // 0 jika tidak ada dan 1 jika ada
 
-    public DetailContent(int idDetailContent, String strDetailConten, int idSubMenuContent, int isSetIsi) {
+    public DetailContent(int idDetailContent, String strDetailConten, int idSubMenuContent, String arab_detail, String arti_detail, String latin_detail, int isSetIsi) {
         this.idDetailContent = idDetailContent;
         this.strDetailConten = strDetailConten;
         this.idSubMenuContent = idSubMenuContent;
-        this.isSetIsi = isSetIsi;
-    }
-
-    public int getIsSetIsi() {
-        return isSetIsi;
-    }
-
-    public void setIsSetIsi(int isSetIsi) {
+        this.arab_detail = arab_detail;
+        this.arti_detail = arti_detail;
+        this.latin_detail = latin_detail;
         this.isSetIsi = isSetIsi;
     }
 
@@ -48,37 +46,36 @@ public class DetailContent {
     public void setIdSubMenuContent(int idSubMenuContent) {
         this.idSubMenuContent = idSubMenuContent;
     }
-    //    private int id_detail_haji;
-//    private String string_detail_haji;
-//    private int id_haji;
-//
-//    public DetailContent(int id_detail_haji, String string_detail_haji, int id_haji) {
-//        this.id_detail_haji = id_detail_haji;
-//        this.string_detail_haji = string_detail_haji;
-//        this.id_haji = id_haji;
-//    }
-//
-//    public int getId_detail_haji() {
-//        return id_detail_haji;
-//    }
-//
-//    public void setId_detail_haji(int id_detail_haji) {
-//        this.id_detail_haji = id_detail_haji;
-//    }
-//
-//    public String getString_detail_haji() {
-//        return string_detail_haji;
-//    }
-//
-//    public void setString_detail_haji(String string_detail_haji) {
-//        this.string_detail_haji = string_detail_haji;
-//    }
-//
-//    public int getId_haji() {
-//        return id_haji;
-//    }
-//
-//    public void setId_haji(int id_haji) {
-//        this.id_haji = id_haji;
-//    }
+
+    public int getIsSetIsi() {
+        return isSetIsi;
+    }
+
+    public void setIsSetIsi(int isSetIsi) {
+        this.isSetIsi = isSetIsi;
+    }
+
+    public String getArab_detail() {
+        return arab_detail;
+    }
+
+    public void setArab_detail(String arab_detail) {
+        this.arab_detail = arab_detail;
+    }
+
+    public String getArti_detail() {
+        return arti_detail;
+    }
+
+    public void setArti_detail(String arti_detail) {
+        this.arti_detail = arti_detail;
+    }
+
+    public String getLatin_detail() {
+        return latin_detail;
+    }
+
+    public void setLatin_detail(String latin_detail) {
+        this.latin_detail = latin_detail;
+    }
 }

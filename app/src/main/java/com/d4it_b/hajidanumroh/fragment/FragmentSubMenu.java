@@ -14,8 +14,8 @@ import com.d4it_b.hajidanumroh.R;
 import com.d4it_b.hajidanumroh.adapter.ExpandableListAdapter;
 import com.d4it_b.hajidanumroh.db.DBHandler;
 import com.d4it_b.hajidanumroh.db.DbQueries;
-import com.d4it_b.hajidanumroh.model.DetailContent;
-import com.d4it_b.hajidanumroh.model.SubMenuContent;
+import com.d4it_b.hajidanumroh.model.ContentDetailAct;
+import com.d4it_b.hajidanumroh.model.ContentSubMenu;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -33,9 +33,10 @@ public class FragmentSubMenu extends Fragment{
     public DBHandler dbHandler;
     public int indexMain;
 
-    List<SubMenuContent> subMenuContents;
-    List<SubMenuContent> listDataHeader;
-    HashMap<SubMenuContent, List<DetailContent>> listDataChild;
+//    List<ContentSubMenu> subMenuContents;
+    List<ContentSubMenu> listDataHeader;
+    List<ContentDetailAct> contentDetailActs;
+    HashMap<ContentSubMenu, List<ContentSubMenu>> listDataChild;
     ExpandableListAdapter listAdapter;
     ExpandableListView expListView;
 
@@ -62,9 +63,8 @@ public class FragmentSubMenu extends Fragment{
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_sub_menu, container, false);
         expListView = (ExpandableListView) view.findViewById(R.id.lvExp);
-        listDataChild = new HashMap<SubMenuContent, List<DetailContent>>();
-        listDataHeader = new ArrayList<SubMenuContent>();
-        subMenuContents = new ArrayList<>();
+        listDataChild = new HashMap<ContentSubMenu, List<ContentSubMenu>>();
+        listDataHeader = new ArrayList<ContentSubMenu>();
         listAdapter = new ExpandableListAdapter(getActivity());
 
         dbHandler = new DBHandler(getActivity());
@@ -72,17 +72,26 @@ public class FragmentSubMenu extends Fragment{
 
         dbQueries.open();
 
+        listDataHeader = dbQueries.getGroup(indexMain);
+        contentDetailActs = new ArrayList<>();
 
-            subMenuContents = dbQueries.getAllSubMenu(indexMain);
-        subMenuContents = dbQueries.getAllSubMenu(indexMain);
-
-        for (SubMenuContent subMenuContent : subMenuContents){
-            List<DetailContent> detailContents = new ArrayList<>();
+        for (ContentSubMenu contentSubMenu : listDataHeader){
+            List<ContentSubMenu> tem = dbQueries.getChild(contentSubMenu.getId());
             dbQueries.open();
-            detailContents = dbQueries.getAllDetailContent(subMenuContent.getIdSubMenu());
-            listDataHeader.add(subMenuContent);
-            listDataChild.put(subMenuContent, detailContents);
+            listDataChild.put(contentSubMenu,tem);
         }
+
+
+//            subMenuContents = dbQueries.getAllSubMenu(indexMain);
+//        subMenuContents = dbQueries.getAllSubMenu(indexMain);
+//
+//        for (SubMenuContent subMenuContent : subMenuContents){
+//            List<DetailContent> detailContents = new ArrayList<>();
+//            dbQueries.open();
+//            detailContents = dbQueries.getAllDetailContent(subMenuContent.getIdSubMenu());
+//            listDataHeader.add(subMenuContent);
+//            listDataChild.put(subMenuContent, detailContents);
+//        }
 
 
         listAdapter.setData(listDataHeader, listDataChild);
@@ -95,7 +104,7 @@ public class FragmentSubMenu extends Fragment{
                 if(listAdapter.getChildrenCount(groupPosition) == 0){
                     dbQueries.open();
                     Intent intent = new Intent(getActivity(), DetailActivity.class);
-                    intent.putExtra("data",dbQueries.getTextDetailContent(listAdapter.getIdGroup(groupPosition)));
+                    intent.putExtra("idData", listAdapter.getIdGroup(groupPosition));
                     intent.putExtra("isSetIsi", 0);
                     intent.putExtra("idTitle", indexMain);
                     intent.putExtra("title", listAdapter.getGroup(groupPosition).toString());
@@ -109,10 +118,10 @@ public class FragmentSubMenu extends Fragment{
         expListView.setOnChildClickListener(new ExpandableListView.OnChildClickListener() {
             @Override
             public boolean onChildClick(ExpandableListView expandableListView, View view, int groupPosition, int childPosition, long l) {
-                Intent intent = new Intent(getActivity(), DetailActivity.class);
                 dbQueries.open();
                 if(dbQueries.getTextIsiDetailContent(listAdapter.getIdChild(groupPosition, childPosition)).size()!=0){
-                    intent.putExtra("data", dbQueries.getTextIsiDetailContent(listAdapter.getIdChild(groupPosition, childPosition)));
+                    Intent intent = new Intent(getActivity(), DetailActivity.class);
+                    intent.putExtra("idData", listAdapter.getIdChild(groupPosition, childPosition));
                     intent.putExtra("isSetIsi", 1);
                     intent.putExtra("idTitle", listAdapter.getIdGroup(groupPosition));
                     intent.putExtra("title", listAdapter.getChild(groupPosition,childPosition).toString());

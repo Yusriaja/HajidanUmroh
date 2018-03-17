@@ -9,8 +9,7 @@ import android.widget.BaseExpandableListAdapter;
 import android.widget.TextView;
 
 import com.d4it_b.hajidanumroh.R;
-import com.d4it_b.hajidanumroh.model.DetailContent;
-import com.d4it_b.hajidanumroh.model.SubMenuContent;
+import com.d4it_b.hajidanumroh.model.ContentSubMenu;
 
 import java.util.HashMap;
 import java.util.List;
@@ -21,15 +20,15 @@ import java.util.List;
 
 public class ExpandableListAdapter extends BaseExpandableListAdapter {
     private Context _context;
-    private List<SubMenuContent> _listDataHeader; // header titles
+    private List<ContentSubMenu> _listDataHeader; // header titles
     // child data in format of header title, child title
-    private HashMap<SubMenuContent, List<DetailContent>> _listDataChild;
+    private HashMap<ContentSubMenu, List<ContentSubMenu>> _listDataChild;
 
     public ExpandableListAdapter(Context context) {
         this._context = context;
     }
 
-    public void setData( List<SubMenuContent> listDataHeader,HashMap<SubMenuContent, List<DetailContent>> listChildData){
+    public void setData(List<ContentSubMenu> listDataHeader, HashMap<ContentSubMenu, List<ContentSubMenu>> listChildData){
         this._listDataHeader = listDataHeader;
         this._listDataChild = listChildData;
         notifyDataSetChanged();
@@ -37,13 +36,13 @@ public class ExpandableListAdapter extends BaseExpandableListAdapter {
 
     public int getIdChild (int groupPosition, int childPosititon){
         return this._listDataChild.get(this._listDataHeader.get(groupPosition))
-                .get(childPosititon).getIdDetailContent();
+                .get(childPosititon).getId();
     }
 
     @Override
     public Object getChild(int groupPosition, int childPosititon) {
         return this._listDataChild.get(this._listDataHeader.get(groupPosition))
-                .get(childPosititon).getStrDetailConten();
+                .get(childPosititon).getStr_();
     }
 
     @Override
@@ -78,7 +77,7 @@ public class ExpandableListAdapter extends BaseExpandableListAdapter {
 
 
     public int getIdGroup(int groupPsotion){
-        return this._listDataHeader.get(groupPsotion).getIdSubMenu();
+        return this._listDataHeader.get(groupPsotion).getId();
     }
     @Override
     public Object getGroup(int groupPosition) {
