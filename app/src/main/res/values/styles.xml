@@ -3,13 +3,18 @@
     <!-- Base application theme. -->
     <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
         <!-- Customize your theme here. -->
-        <item name="colorPrimary">#004D00</item>
-        <item name="colorPrimaryDark">#004D00</item>
-        <item name="colorAccent">@color/colorAccent</item>
+        <item name="colorPrimary">#075e54</item>
+        <item name="colorPrimaryDark">#075e54</item>
+        <item name="colorAccent">#41a290</item>
     </style>
 
     <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
 
     <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+
+    <style name="CustomTabText" parent="TextAppearance.Design.Tab">
+        <item name="android:textSize">40sp</item>
+        <item name="android:textAllCaps">true</item>
+    </style>
 
 </resources>
