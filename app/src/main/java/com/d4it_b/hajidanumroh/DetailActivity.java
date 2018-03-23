@@ -8,6 +8,7 @@ import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
+import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -17,14 +18,17 @@ import com.d4it_b.hajidanumroh.db.DbQueries;
 import com.d4it_b.hajidanumroh.model.ContentDetailAct;
 
 import java.util.ArrayList;
+import java.util.Random;
 
 public class DetailActivity extends AppCompatActivity {
 
 //    private RecyclerView mRecyclerView;
     private ListView listViewContent;
-    private TextView textView, labelActivity;
+    private TextView title;
     private AdapterDetail adapterDetail;
     private ArrayList<ContentDetailAct> listData;
+
+    ImageView img;
 
     private RecyclerView.LayoutManager mLayoutManager;
 
@@ -32,8 +36,10 @@ public class DetailActivity extends AppCompatActivity {
     DbQueries dbQueries;
     CardView cardView;
     CollapsingToolbarLayout collapsingToolbar;
-    int mutedColor = R.attr.colorPrimary;
-    @Override
+
+    int[] res = {R.drawable.img1, R.drawable.img2, R.drawable.img3};
+    Random rand;
+    int rndInt;
     protected void onCreate(Bundle savedInstanceState) {
 
         super.onCreate(savedInstanceState);
@@ -44,24 +50,22 @@ public class DetailActivity extends AppCompatActivity {
         listViewContent= (ListView) findViewById(R.id.listView);
         collapsingToolbar = (CollapsingToolbarLayout) findViewById(R.id.collapsing_toolbar);
         cardView = (CardView)findViewById(R.id.card_view);
-        textView = (TextView)findViewById(R.id.title_detail);
-
+        title = (TextView)findViewById(R.id.title_detail);
+        img = (ImageView) findViewById(R.id.img);
         dbHandler = new DBHandler(this);
         dbQueries = new DbQueries(getApplicationContext());
 
         listData= new ArrayList<>();
         dbQueries.open();
 
-        textView.setText(getIntent().getExtras().getString("title"));
+        title.setText(getIntent().getExtras().getString("title"));
 
         if (getIntent().getIntExtra("isSetIsi", 0) != 0){
             collapsingToolbar.setTitle(dbQueries.getTitleAct(getIntent().getIntExtra("idTitle", 0), "tb_sub_menu"));
             listData = dbQueries.getContentDetail(getIntent().getIntExtra("idData", 0),"tb_isi_detail_content");
-//            labelActivity.setText(dbQueries.getTitleAct(getIntent().getIntExtra("idTitle", 0), "tb_sub_menu"));
             Log.i("IdData", "onGroupClick: "+"HALOOO");
         }else{
             collapsingToolbar.setTitle(dbQueries.getTitleAct(getIntent().getIntExtra("idTitle", 0), "tb_utama"));
-//            labelActivity.setText(dbQueries.getTitleAct(getIntent().getIntExtra("idTitle", 0), "tb_utama"));
             listData = dbQueries.getContentDetail(getIntent().getIntExtra("idData", 0),"tb_detail_content");
             Log.i("IdData", "onGroupClick: "+"HAIII");
         }
@@ -70,15 +74,11 @@ public class DetailActivity extends AppCompatActivity {
         adapterDetail = new AdapterDetail(this, listData);
         Log.i("jumlahData", "onCreate: "+adapterDetail.getCount());
         listViewContent.setAdapter(adapterDetail);
-//        Palette.from( BitmapFactory.decodeResource(getResources(),
-//                R.drawable.header_detail_act)).generate(new Palette.PaletteAsyncListener() {
-//            @Override
-//            public void onGenerated(Palette palette) {
-//                mutedColor = palette.getMutedColor(R.attr.colorPrimary);
-//                collapsingToolbar.setContentScrimColor(mutedColor);
-//            }
-//        });
 
+
+        rand = new Random();
+        rndInt = rand.nextInt(res .length);
+        img.setImageDrawable(getResources().getDrawable(res[rndInt]));
     }
 
 }
