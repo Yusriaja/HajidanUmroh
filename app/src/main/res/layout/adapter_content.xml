@@ -1,35 +1,37 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
+    android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:paddingLeft="10dp"
     android:paddingRight="10dp"
     android:orientation="vertical">
-        <TextView
+        <me.biubiubiu.justifytext.library.JustifyTextView
             android:id="@+id/text_content"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:visibility="invisible"/>
+            android:visibility="gone"
+            android:lineSpacingMultiplier="1.1"/>
 
         <TextView
             android:id="@+id/arab_content"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:fontFamily="@font/amiri"
-            android:visibility="invisible"/>
+            android:visibility="gone"/>
 
-        <TextView
+        <me.biubiubiu.justifytext.library.JustifyTextView
             android:id="@+id/latin_content"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:fontFamily="@font/amiri"
-            android:visibility="invisible"/>
+            android:visibility="gone"
+            android:lineSpacingMultiplier="1.1"/>
 
-        <TextView
+        <me.biubiubiu.justifytext.library.JustifyTextView
             android:id="@+id/arti_content"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:fontFamily="@font/amiri"
-            android:visibility="invisible"/>
+            android:textStyle="italic"
+            android:visibility="gone"
+            android:lineSpacingMultiplier="1.1"/>
 
 </LinearLayout>

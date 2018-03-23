@@ -1,13 +1,14 @@
 package com.d4it_b.hajidanumroh;
 
-import android.graphics.Typeface;
+import android.graphics.Color;
 import android.os.Bundle;
+import android.support.design.widget.CollapsingToolbarLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.CardView;
-import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
+import android.widget.ListView;
 import android.widget.TextView;
 
 import com.d4it_b.hajidanumroh.adapter.AdapterDetail;
@@ -19,7 +20,8 @@ import java.util.ArrayList;
 
 public class DetailActivity extends AppCompatActivity {
 
-    private RecyclerView mRecyclerView;
+//    private RecyclerView mRecyclerView;
+    private ListView listViewContent;
     private TextView textView, labelActivity;
     private AdapterDetail adapterDetail;
     private ArrayList<ContentDetailAct> listData;
@@ -29,48 +31,54 @@ public class DetailActivity extends AppCompatActivity {
     private DBHandler dbHandler;
     DbQueries dbQueries;
     CardView cardView;
+    CollapsingToolbarLayout collapsingToolbar;
+    int mutedColor = R.attr.colorPrimary;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detail_haji);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        mRecyclerView = (RecyclerView) findViewById(R.id.recycler_view);
-        adapterDetail = new AdapterDetail(this);
-        RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getApplicationContext());
+        listViewContent= (ListView) findViewById(R.id.listView);
+        collapsingToolbar = (CollapsingToolbarLayout) findViewById(R.id.collapsing_toolbar);
         cardView = (CardView)findViewById(R.id.card_view);
         textView = (TextView)findViewById(R.id.title_detail);
-        labelActivity = (TextView)findViewById(R.id.activityLabel);
 
         dbHandler = new DBHandler(this);
         dbQueries = new DbQueries(getApplicationContext());
 
         listData= new ArrayList<>();
-
-        mLayoutManager = new LinearLayoutManager(this);
-        mRecyclerView.setNestedScrollingEnabled(false);
-        mRecyclerView.setLayoutManager(mLayoutManager);
-
-        Typeface tf = Typeface.createFromAsset(getAssets(), "fonts/Honej.ttf");
+        dbQueries.open();
 
         textView.setText(getIntent().getExtras().getString("title"));
-        labelActivity.setTypeface(tf);
 
-        dbQueries.open();
         if (getIntent().getIntExtra("isSetIsi", 0) != 0){
+            collapsingToolbar.setTitle(dbQueries.getTitleAct(getIntent().getIntExtra("idTitle", 0), "tb_sub_menu"));
             listData = dbQueries.getContentDetail(getIntent().getIntExtra("idData", 0),"tb_isi_detail_content");
-            labelActivity.setText(dbQueries.getTitleAct(getIntent().getIntExtra("idTitle", 0), "tb_sub_menu"));
+//            labelActivity.setText(dbQueries.getTitleAct(getIntent().getIntExtra("idTitle", 0), "tb_sub_menu"));
             Log.i("IdData", "onGroupClick: "+"HALOOO");
         }else{
-            labelActivity.setText(dbQueries.getTitleAct(getIntent().getIntExtra("idTitle", 0), "tb_utama"));
+            collapsingToolbar.setTitle(dbQueries.getTitleAct(getIntent().getIntExtra("idTitle", 0), "tb_utama"));
+//            labelActivity.setText(dbQueries.getTitleAct(getIntent().getIntExtra("idTitle", 0), "tb_utama"));
             listData = dbQueries.getContentDetail(getIntent().getIntExtra("idData", 0),"tb_detail_content");
             Log.i("IdData", "onGroupClick: "+"HAIII");
         }
+        collapsingToolbar.setExpandedTitleColor(Color.parseColor("#44ffffff"));
+//        collapsingToolbar.setBackgroundColor();
+        adapterDetail = new AdapterDetail(this, listData);
+        Log.i("jumlahData", "onCreate: "+adapterDetail.getCount());
+        listViewContent.setAdapter(adapterDetail);
+//        Palette.from( BitmapFactory.decodeResource(getResources(),
+//                R.drawable.header_detail_act)).generate(new Palette.PaletteAsyncListener() {
+//            @Override
+//            public void onGenerated(Palette palette) {
+//                mutedColor = palette.getMutedColor(R.attr.colorPrimary);
+//                collapsingToolbar.setContentScrimColor(mutedColor);
+//            }
+//        });
 
-//        listData = (ArrayList<String>) getIntent().getSerializableExtra("data");
-        adapterDetail.setData(listData);
-        mRecyclerView.setAdapter(adapterDetail);
     }
 
 }

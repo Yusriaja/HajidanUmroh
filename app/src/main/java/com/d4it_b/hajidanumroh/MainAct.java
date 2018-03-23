@@ -15,10 +15,18 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.d4it_b.hajidanumroh.db.DbQueries;
 import com.d4it_b.hajidanumroh.fragment.FragmentSubMenu;
+import com.d4it_b.hajidanumroh.model.DetailContent;
+import com.d4it_b.hajidanumroh.model.IsiDetailContent;
+import com.d4it_b.hajidanumroh.model.SubMenuContent;
 
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -26,6 +34,9 @@ public class MainAct extends AppCompatActivity{
 
 
     DbQueries dbQueries;
+    ArrayList<SubMenuContent> subMenuContents;
+    ArrayList<DetailContent>detailContents;
+    ArrayList<IsiDetailContent>isiDetailContents;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,6 +44,10 @@ public class MainAct extends AppCompatActivity{
         setContentView(R.layout.act_main);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
+        subMenuContents = new ArrayList<>();
+        detailContents = new ArrayList<>();
+        isiDetailContents = new ArrayList<>();
     }
 
     @Override
@@ -128,7 +143,66 @@ public class MainAct extends AppCompatActivity{
                 startActivity(intent);
                 return true;
 
+            case R.id.exportSubmenu :
+                dbQueries.open();
+                subMenuContents = dbQueries.getAllSubmenu();
+                detailContents = dbQueries.getAllDetailContent();
+                isiDetailContents = dbQueries.getAllIsiDetail();
 
+                String text = null;
+
+                for (SubMenuContent subMenuContent : subMenuContents){
+                    text+="INSERT INTO tb_sub_menu VALUES ('" + subMenuContent.getIdSubMenu()
+                            + "', '" + subMenuContent.getIdTableUtama()
+                            +"', '"+subMenuContent.getStr_()+"');"+"\n";
+                }
+
+                text +="\n";
+
+                for (DetailContent detailContent : detailContents){
+                    text += "INSERT INTO tb_detail_content VALUES('"
+                            + detailContent.getIdDetailContent()+"', '"
+                            + detailContent.getIdSubMenuContent() + "', '"
+                            + detailContent.getStrDetailConten() + "', '"
+                            + detailContent.getArab_detail() + "', '"
+                            + detailContent.getLatin_detail() + "', '"
+                            + detailContent.getArti_detail() + "', '"
+                            +detailContent.getIsSetIsi() +"'); \n";
+                }
+
+                text +="\n";
+
+                for (IsiDetailContent isiDetailContent : isiDetailContents){
+                    text += "INSERT INTO tb_isi_detail_content VALUES('"
+                            + isiDetailContent.getIdIsiDetail() + "', '"
+                            + isiDetailContent.getIdDetailContent() + "', '"
+                            + isiDetailContent.getStr_() + "', '"
+                            + isiDetailContent.getArab_isi() + "', '"
+                            +isiDetailContent.getArti_isi()+"', '"
+                            + isiDetailContent.getLatin_isi()+"');\n";
+                }
+
+                String state = Environment.getExternalStorageState();
+                if (Environment.MEDIA_MOUNTED.equals(state)){
+                    File root = Environment.getExternalStorageDirectory();
+                    File dir = new File(root.getAbsolutePath()+"/hajiUmroh");
+                    if(!dir.exists()){
+                        dir.mkdir();
+                    }
+
+                    File file = new File(dir, "sql.txt");
+                    try {
+                        FileOutputStream fileOutputStream = new FileOutputStream(file);
+                        fileOutputStream.write(text.getBytes());
+                        fileOutputStream.close();
+
+                        Toast.makeText(getApplication(), "SUWIP", Toast.LENGTH_LONG).show();
+                    } catch (FileNotFoundException e) {
+                        e.printStackTrace();
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                }
             default:
                 return super.onOptionsItemSelected(item);
         }

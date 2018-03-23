@@ -50,7 +50,7 @@ public class DBHandler extends SQLiteOpenHelper {
     String divider = "/";
 
     public DBHandler(Context context) {
-        super(context, DB_NAME, null, 1);
+        super(context, DB_NAME, null, 2);
         this.context = context;
         DB_PATH = divider + "data" + divider + "data" + divider + context.getPackageName() + divider + "databases/";
     }

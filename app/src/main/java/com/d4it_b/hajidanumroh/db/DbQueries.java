@@ -201,25 +201,65 @@ public class DbQueries {
         return content;
     }
 
-//    //    mengambil isi-isi dari detailContent
-//    public List<IsiDetailContent> getAllIsiDetail(int idDetail){
-//        List<IsiDetailContent> isiDetailContents = new ArrayList<>();
-//        SQLiteDatabase db = dbHelper.getReadableDatabase();
-//
-//        String query = "SELECT * FROM "+ NAMA_TABLE_ISI_DETAIL_CONTENT + " WHERE " + KEY_ID_DETAIL_CONTENT+ " = " + idDetail+ " ORDER BY " + KEY_ID_ISI_DETAIL+ " ASC";
-//        Cursor res = db.rawQuery(query , null);
-//        res.moveToFirst();
-//
-//        while (!res.isAfterLast()){
-//            isiDetailContents.add(new IsiDetailContent(res.getInt(0),  res.getInt(1), res.getString(2), res.getString(3), res.getString(4), res.getString(5)));
-//            res.moveToNext();
-//        }
-//
-//        res.close();
-//        db.close();
-//
-//        return isiDetailContents;
-//    }
+    //    mengambil isi-isi dari detailContent
+    public ArrayList<IsiDetailContent> getAllIsiDetail(){
+        ArrayList<IsiDetailContent> contents = new ArrayList<>();
+        SQLiteDatabase db = dbHelper.getReadableDatabase();
+
+        String query = "SELECT * FROM "+ NAMA_TABLE_ISI_DETAIL_CONTENT +" ORDER BY " + KEY_ID_ISI_DETAIL+ " ASC";
+        Cursor res = db.rawQuery(query , null);
+        res.moveToFirst();
+
+        while (!res.isAfterLast()){
+            contents.add(new IsiDetailContent(res.getInt(0),  res.getInt(1), res.getString(2), res.getString(3), res.getString(4), res.getString(5)));
+            res.moveToNext();
+        }
+
+        res.close();
+        db.close();
+
+        return contents;
+    }
+
+    public ArrayList<SubMenuContent> getAllSubmenu(){
+        ArrayList<SubMenuContent> contents = new ArrayList<>();
+        SQLiteDatabase db = dbHelper.getReadableDatabase();
+
+        String query = "SELECT * FROM "+ NAMA_TABLE_SUBMENU +" ORDER BY " + KEY_ID_SUB_MENU+ " ASC";
+        Cursor res = db.rawQuery(query , null);
+        res.moveToFirst();
+
+        while (!res.isAfterLast()){
+            contents.add(new SubMenuContent(res.getInt(0), res.getInt(1), res.getString(2)));
+            res.moveToNext();
+        }
+
+        res.close();
+        db.close();
+
+        return contents;
+    }
+
+    public ArrayList<DetailContent> getAllDetailContent(){
+        ArrayList<DetailContent> contents = new ArrayList<>();
+        SQLiteDatabase db = dbHelper.getReadableDatabase();
+
+        String query = "SELECT * FROM "+ NAMA_TABLE_DETAIL_CONTENT +" ORDER BY " + KEY_ID_DETAIL_CONTENT+ " ASC";
+        Cursor res = db.rawQuery(query , null);
+        res.moveToFirst();
+
+        while (!res.isAfterLast()){
+            contents.add(new DetailContent(res.getInt(0), res.getString(2), res.getInt(1), res.getString(3), res.getString(5), res.getString(4), res.getInt(6)));
+            res.moveToNext();
+        }
+
+        res.close();
+        db.close();
+
+        return contents;
+    }
+
+
 //==========================================================
 
     //    Mengambil Text dari Detail Content
