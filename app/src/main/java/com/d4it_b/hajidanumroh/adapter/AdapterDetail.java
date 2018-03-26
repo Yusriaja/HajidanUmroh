@@ -1,6 +1,7 @@
 package com.d4it_b.hajidanumroh.adapter;
 
 import android.content.Context;
+import android.graphics.Typeface;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -56,6 +57,11 @@ public class AdapterDetail extends BaseAdapter{
         textView_arti= (TextView)convertView.findViewById(R.id.arti_content);
         textView_arab= (TextView)convertView.findViewById(R.id.arab_content);
         textView_latin= (TextView)convertView.findViewById(R.id.latin_content);
+
+
+        Typeface tf = Typeface.createFromAsset(context.getAssets(), "fonts/Arabtype.ttf");
+        textView_arab.setTypeface(tf);
+
 
 //        ContentDetailAct content = dataContent.get(position);
 

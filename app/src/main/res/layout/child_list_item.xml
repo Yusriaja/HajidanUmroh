@@ -8,9 +8,11 @@
         android:id="@+id/lbl_list_child"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:textSize="17dip"
-        android:paddingTop="5dp"
+        android:fontFamily="sans-serif-medium"
         android:paddingBottom="5dp"
-        android:paddingLeft="?android:attr/expandableListPreferredChildPaddingLeft" />
+        android:paddingLeft="?android:attr/expandableListPreferredChildPaddingLeft"
+        android:paddingTop="5dp"
+        android:textSize="14sp"
+        android:text="coba coba"/>
 
 </LinearLayout>

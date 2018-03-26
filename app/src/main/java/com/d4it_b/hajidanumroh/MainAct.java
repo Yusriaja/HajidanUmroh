@@ -1,9 +1,10 @@
 package com.d4it_b.hajidanumroh;
 
 import android.content.Intent;
-import android.graphics.Typeface;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.os.Environment;
+import android.support.design.widget.CollapsingToolbarLayout;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -14,7 +15,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
-import android.widget.TextView;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.d4it_b.hajidanumroh.db.DbQueries;
@@ -29,6 +30,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 public class MainAct extends AppCompatActivity{
 
@@ -37,6 +39,8 @@ public class MainAct extends AppCompatActivity{
     ArrayList<SubMenuContent> subMenuContents;
     ArrayList<DetailContent>detailContents;
     ArrayList<IsiDetailContent>isiDetailContents;
+    CollapsingToolbarLayout collapsingToolbar;
+    ImageView img;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,6 +48,14 @@ public class MainAct extends AppCompatActivity{
         setContentView(R.layout.act_main);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
+
+        img = (ImageView) findViewById(R.id.img);
+
+        int[] res = {R.drawable.img1, R.drawable.img2, R.drawable.img3};
+        Random rand = new Random();
+        int rndInt = rand.nextInt(res .length);
+        img.setImageDrawable(getResources().getDrawable(res[rndInt]));
 
         subMenuContents = new ArrayList<>();
         detailContents = new ArrayList<>();
@@ -55,6 +67,9 @@ public class MainAct extends AppCompatActivity{
         super.onStart();
         ViewPager viewPager = (ViewPager) findViewById(R.id.viewpager);
         ViewPagerAdapter adapter = new ViewPagerAdapter(getSupportFragmentManager());
+        collapsingToolbar = (CollapsingToolbarLayout) findViewById(R.id.collapsing_toolbar);
+        collapsingToolbar.setTitle("AN-NUR KARAH AGUNG");
+        collapsingToolbar.setExpandedTitleColor(Color.parseColor("#44ffffff"));
 
         dbQueries = new DbQueries(this);
         setupViewPager(viewPager);
@@ -62,9 +77,9 @@ public class MainAct extends AppCompatActivity{
         TabLayout tabLayout = (TabLayout) findViewById(R.id.tabs);
         tabLayout.setupWithViewPager(viewPager);
 
-        TextView text = (TextView) findViewById(R.id.activityLabel);
-        Typeface tf = Typeface.createFromAsset(getAssets(), "fonts/Honej.ttf");
-        text.setTypeface(tf);
+//        TextView text = (TextView) findViewById(R.id.activityLabel);
+//        Typeface tf = Typeface.createFromAsset(getAssets(), "fonts/Honej.ttf");
+//        text.setTypeface(tf);
     }
 
     private void setupViewPager(ViewPager viewPager){

@@ -1,8 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#3F51B5</color>
-    <color name="colorPrimaryDark">#303F9F</color>
-    <color name="colorAccent">#ECC037</color>
-    <color name="gradientGroupListStart">#D1D1D1</color>
-    <color name="gradientGroupListEnd">#EDEFEE</color>
+    <color name="colorPrimary">#2cb3c5</color>
+    <color name="colorPrimaryDark">#29757F</color>
+    <color name="colorAccent">#06E0FF</color>
+    <color name="colorTextLight">#3DAEBD</color>
+    <color name="colorLightBackground">#43BFD1</color>
+
+
+
+
+
+
+    <!--Whats app color-->
+    <!--<color name="colorPrimary">#128C7E</color>-->
+    <!--<color name="colorPrimaryDark">#075e54</color>-->
+    <!--<color name="colorAccent">#41a290</color>-->
+    <!--<color name="colorTextDark">#128c7e</color>-->
+    <!--<color name="colorLightBackground">#a7e6d7</color>-->
 </resources>

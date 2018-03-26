@@ -7,6 +7,6 @@
     tools:context="com.d4it_b.hajidanumroh.SplashScreenActivity"
     android:orientation="horizontal"
     android:gravity="center_horizontal"
-    android:background="#16A086">
+    android:background="@color/colorPrimary">
 
 </LinearLayout>

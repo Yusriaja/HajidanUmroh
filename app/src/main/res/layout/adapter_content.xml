@@ -2,36 +2,48 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:paddingLeft="10dp"
-    android:paddingRight="10dp"
-    android:orientation="vertical">
-        <me.biubiubiu.justifytext.library.JustifyTextView
-            android:id="@+id/text_content"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:visibility="gone"
-            android:lineSpacingMultiplier="1.1"/>
+    android:gravity="top|center_horizontal"
+    android:orientation="vertical"
+    android:overScrollMode="always"
+    android:paddingBottom="10dp"
+    android:paddingLeft="20dp"
+    android:paddingTop="10dp">
 
-        <TextView
-            android:id="@+id/arab_content"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:fontFamily="@font/amiri"
-            android:visibility="gone"/>
+    <me.biubiubiu.justifytext.library.JustifyTextView
+        android:id="@+id/text_content"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fontFamily="sans-serif-condensed"
+        android:lineSpacingMultiplier="1.1"
+        android:textSize="16sp"
+        android:visibility="gone" />
 
-        <me.biubiubiu.justifytext.library.JustifyTextView
-            android:id="@+id/latin_content"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:visibility="gone"
-            android:lineSpacingMultiplier="1.1"/>
+    <TextView
+        android:id="@+id/arab_content"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingRight="23dp"
+        android:textSize="36sp"
+        android:visibility="gone" />
 
-        <me.biubiubiu.justifytext.library.JustifyTextView
-            android:id="@+id/arti_content"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textStyle="italic"
-            android:visibility="gone"
-            android:lineSpacingMultiplier="1.1"/>
+    <me.biubiubiu.justifytext.library.JustifyTextView
+        android:id="@+id/latin_content"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fontFamily="sans-serif-condensed"
+        android:lineSpacingMultiplier="1.1"
+        android:textSize="16sp"
+        android:visibility="gone" />
 
+    <me.biubiubiu.justifytext.library.JustifyTextView
+        android:id="@+id/arti_content"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fontFamily="sans-serif-condensed"
+        android:lineSpacingMultiplier="1.1"
+        android:textSize="16sp"
+        android:textStyle="italic"
+        android:visibility="gone" />
+
+    <!--android:fontFamily="@font/amiri"-->
 </LinearLayout>

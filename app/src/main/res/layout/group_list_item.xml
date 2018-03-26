@@ -5,7 +5,7 @@
     android:orientation="horizontal"
     android:padding="8dp"
     android:layout_marginBottom="20dp"
-    android:background="@drawable/goup_list_gradient">
+    android:background="@color/cardview_light_background">
 
 
     <TextView
@@ -13,7 +13,7 @@
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:paddingLeft="25dp"
-        android:textSize="17dp"
-        android:textColor="#004D00" />
+        android:textColor="@color/colorPrimaryDark"
+        android:textSize="15sp" />
 
 </LinearLayout>
