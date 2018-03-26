@@ -49,10 +49,14 @@ public class MainAct extends AppCompatActivity{
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
+        collapsingToolbar = (CollapsingToolbarLayout) findViewById(R.id.collapsing_toolbar);
+//        collapsingToolbar.setTitle("AN-NUR KARAH AGUNG");
+//        collapsingToolbar.setExpandedTitleColor(Color.parseColor("#44ffffff"));
+        collapsingToolbar.setExpandedTitleColor(Color.TRANSPARENT);
 
         img = (ImageView) findViewById(R.id.img);
 
-        int[] res = {R.drawable.img1, R.drawable.img2, R.drawable.img3};
+        int[] res = {R.drawable.img1, R.drawable.img2, R.drawable.img3, R.drawable.img4};
         Random rand = new Random();
         int rndInt = rand.nextInt(res .length);
         img.setImageDrawable(getResources().getDrawable(res[rndInt]));
@@ -67,9 +71,6 @@ public class MainAct extends AppCompatActivity{
         super.onStart();
         ViewPager viewPager = (ViewPager) findViewById(R.id.viewpager);
         ViewPagerAdapter adapter = new ViewPagerAdapter(getSupportFragmentManager());
-        collapsingToolbar = (CollapsingToolbarLayout) findViewById(R.id.collapsing_toolbar);
-        collapsingToolbar.setTitle("AN-NUR KARAH AGUNG");
-        collapsingToolbar.setExpandedTitleColor(Color.parseColor("#44ffffff"));
 
         dbQueries = new DbQueries(this);
         setupViewPager(viewPager);

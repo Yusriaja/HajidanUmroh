@@ -2,9 +2,14 @@
 <resources>
     <color name="colorPrimary">#2cb3c5</color>
     <color name="colorPrimaryDark">#29757F</color>
-    <color name="colorAccent">#06E0FF</color>
+    <color name="colorAccent">#bfd6d9</color><!--3DAEBD-->
     <color name="colorTextLight">#3DAEBD</color>
     <color name="colorLightBackground">#43BFD1</color>
+    <color name="phantone311c">#05c3de</color>
+    <color name="colorPrimaryDarkTransparent">#8c29757f</color>
+
+
+
 
 
 

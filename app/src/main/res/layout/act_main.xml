@@ -13,32 +13,68 @@
         android:theme="@style/AppTheme.AppBarOverlay">
 
         <android.support.design.widget.CollapsingToolbarLayout
-        android:layout_width="match_parent"
-        android:layout_height="350dp"
-        app:layout_scrollFlags="scroll|exitUntilCollapsed"
-        app:contentScrim="?attr/colorPrimaryDark"
-        app:expandedTitleTextAppearance="@android:color/transparent"
-        app:navigationIcon="?attr/homeAsUpIndicator"
-        android:id="@+id/collapsing_toolbar"
-        >
-
-        <ImageView
-        app:layout_collapseMode="parallax"
-        android:contentDescription="@string/app_name"
-        android:scaleType="centerCrop"
-        android:layout_width="match_parent"
-        android:layout_height="350dp"
-        android:id="@+id/img"/>
-
-        <android.support.v7.widget.Toolbar
-            android:id="@+id/toolbar"
+            android:id="@+id/collapsing_toolbar"
             android:layout_width="match_parent"
-            android:layout_height="?attr/actionBarSize"
-            android:background="?attr/colorPrimaryDark"
-            app:popupTheme="@style/AppTheme.PopupOverlay">
+            android:layout_height="250dp"
+            android:fitsSystemWindows="true"
+            app:contentScrim="?attr/colorPrimaryDark"
+            app:layout_scrollFlags="scroll|exitUntilCollapsed"
+            app:navigationIcon="?attr/homeAsUpIndicator">
 
+            <ImageView
+                android:id="@+id/img"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:fitsSystemWindows="true"
+                android:foreground="@color/colorPrimaryDarkTransparent"
+                android:scaleType="centerCrop"
+                app:layout_collapseMode="parallax" />
 
-            <!--android:background="?attr/colorPrimary"-->
+            <TextView
+                android:id="@+id/dashboard_txt_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/header"
+                android:layout_marginRight="25dp"
+                android:layout_marginTop="60dp"
+                android:fontFamily="@font/honej"
+                android:gravity="bottom|right"
+                android:text="AN-NUR KARAH AGUNG"
+                android:textColor="@color/cardview_light_background"
+                android:textSize="25dp" />
+
+            <TextView
+                android:id="@+id/dashboard_txt_des"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/dashboard_txt_title"
+                android:layout_marginRight="25dp"
+                android:layout_marginTop="100dp"
+                android:fontFamily="@font/serpentine"
+                android:gravity="bottom|right"
+                android:text="HAJI DAN UMROH"
+                android:textColor="@color/cardview_light_background"
+                android:textSize="18dp" />
+
+            <android.support.v7.widget.Toolbar
+                android:id="@+id/toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                android:layout_below="@+id/dashboard_txt_des"
+                android:gravity="top"
+                android:minHeight="?attr/actionBarSize"
+                app:layout_collapseMode="pin"
+                app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+                app:titleMarginTop="15dp"
+                app:titleTextAppearance="@style/ActionBar.TitleTextStyle" />
+
+            <!--<android.support.v7.widget.Toolbar-->
+            <!--android:id="@+id/toolbar"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="?attr/actionBarSize"-->
+            <!--android:background="?attr/colorPrimaryDark"-->
+            <!--app:popupTheme="@style/AppTheme.PopupOverlay">-->
+
 
             <!--<ImageView-->
             <!--android:id="@+id/imageView"-->
@@ -56,7 +92,8 @@
             <!--android:text="@string/main_act_title"-->
             <!--android:textColor="@android:color/background_light"-->
             <!--android:textSize="18sp" />-->
-        </android.support.v7.widget.Toolbar>
+
+            <!--</android.support.v7.widget.Toolbar>-->
 
 
         </android.support.design.widget.CollapsingToolbarLayout>

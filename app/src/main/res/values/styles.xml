@@ -24,4 +24,10 @@
         <item name="android:textAllCaps">true</item>
     </style>
 
+
+    <style name="ActionBar.TitleTextStyle" parent="@style/TextAppearance.AppCompat.Widget.ActionBar.Title">
+        <item name="android:fontFamily">@font/honej</item>
+        <item name="android:textSize">12sp</item>
+    </style>
+
 </resources>
