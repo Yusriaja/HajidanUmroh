@@ -5,7 +5,7 @@
     android:orientation="horizontal"
     android:padding="8dp"
     android:layout_marginBottom="20dp"
-    android:background="@color/cardview_light_background">
+    android:background="?attr/textWhiteColor">
 
 
     <TextView
@@ -13,7 +13,7 @@
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:paddingLeft="25dp"
-        android:textColor="@color/colorPrimaryDark"
+        android:textColor="?attr/textDarkColor"
         android:textSize="15sp" />
 
 </LinearLayout>

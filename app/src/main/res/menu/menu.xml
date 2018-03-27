@@ -19,4 +19,9 @@
         android:title="Export Isi" >
         <!-- "file" submenu -->
     </item>
+
+    <item android:id="@+id/themeSetting"
+        android:title="Setting" >
+        <!-- "file" submenu -->
+    </item>
 </menu>

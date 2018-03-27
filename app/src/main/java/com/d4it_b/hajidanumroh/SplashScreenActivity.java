@@ -9,6 +9,7 @@ import com.d4it_b.hajidanumroh.db.DbQueries;
 import com.d4it_b.hajidanumroh.model.DetailContent;
 import com.d4it_b.hajidanumroh.model.IsiDetailContent;
 import com.d4it_b.hajidanumroh.model.SubMenuContent;
+import com.d4it_b.hajidanumroh.utils.ThemeUtils;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -30,6 +31,7 @@ public class SplashScreenActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        ThemeUtils.onActivityCreateSetTheme(this);
         setContentView(R.layout.act_splash_screen);
 
         dbHandler=new DBHandler(this);

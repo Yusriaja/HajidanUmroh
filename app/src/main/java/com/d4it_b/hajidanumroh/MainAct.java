@@ -23,6 +23,7 @@ import com.d4it_b.hajidanumroh.fragment.FragmentSubMenu;
 import com.d4it_b.hajidanumroh.model.DetailContent;
 import com.d4it_b.hajidanumroh.model.IsiDetailContent;
 import com.d4it_b.hajidanumroh.model.SubMenuContent;
+import com.d4it_b.hajidanumroh.utils.ThemeUtils;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -33,7 +34,7 @@ import java.util.List;
 import java.util.Random;
 
 public class MainAct extends AppCompatActivity{
-
+    private int SETTINGS_ACTION = 1;
 
     DbQueries dbQueries;
     ArrayList<SubMenuContent> subMenuContents;
@@ -45,6 +46,7 @@ public class MainAct extends AppCompatActivity{
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        ThemeUtils.onActivityCreateSetTheme(this);
         setContentView(R.layout.act_main);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -154,6 +156,9 @@ public class MainAct extends AppCompatActivity{
     public boolean onOptionsItemSelected(MenuItem item) {
         // Handle item selection
         switch (item.getItemId()) {
+            case R.id.themeSetting:
+                startActivity(new Intent(this,SettingsActivity.class));
+                return true;
             case R.id.profile:
                 Intent intent = new Intent(MainAct.this, ProfileActivity.class);
                 startActivity(intent);
@@ -231,4 +236,5 @@ public class MainAct extends AppCompatActivity{
             return false;
         }
     }
+
 }

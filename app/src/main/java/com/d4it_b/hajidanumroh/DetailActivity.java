@@ -14,6 +14,7 @@ import com.d4it_b.hajidanumroh.adapter.AdapterDetail;
 import com.d4it_b.hajidanumroh.db.DBHandler;
 import com.d4it_b.hajidanumroh.db.DbQueries;
 import com.d4it_b.hajidanumroh.model.ContentDetailAct;
+import com.d4it_b.hajidanumroh.utils.ThemeUtils;
 
 import java.util.ArrayList;
 import java.util.Random;
@@ -41,6 +42,7 @@ public class DetailActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
 
         super.onCreate(savedInstanceState);
+        ThemeUtils.onActivityCreateSetTheme(this);
         setContentView(R.layout.activity_detail_haji);
         Toolbar toolbar = (Toolbar) findViewById(R.id.xtoolbar);
         setSupportActionBar(toolbar);
