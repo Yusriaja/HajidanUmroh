@@ -22,7 +22,6 @@
         app:popupTheme="@style/AppTheme.PopupOverlay"
         app:navigationIcon="?attr/homeAsUpIndicator">
 
-
     </android.support.v7.widget.Toolbar>
 
     </android.support.design.widget.AppBarLayout>
