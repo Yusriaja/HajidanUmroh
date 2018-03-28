@@ -1,6 +1,8 @@
 package com.d4it_b.hajidanumroh.fragment;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -94,6 +96,7 @@ public class FragmentSubMenu extends Fragment{
 //        }
 
 
+
         listAdapter.setData(listDataHeader, listDataChild);
         expListView.setAdapter(listAdapter);
 
@@ -102,6 +105,7 @@ public class FragmentSubMenu extends Fragment{
             @Override
             public boolean onGroupClick(ExpandableListView parent, View v, int groupPosition, long id) {
                 if(listAdapter.getChildrenCount(groupPosition) == 0){
+                    saveSelectedTabIndex(indexMain);
                     dbQueries.open();
                     Intent intent = new Intent(getActivity(), DetailActivity.class);
                     intent.putExtra("idData", listAdapter.getIdGroup(groupPosition));
@@ -118,6 +122,7 @@ public class FragmentSubMenu extends Fragment{
         expListView.setOnChildClickListener(new ExpandableListView.OnChildClickListener() {
             @Override
             public boolean onChildClick(ExpandableListView expandableListView, View view, int groupPosition, int childPosition, long l) {
+                saveSelectedTabIndex(indexMain);
                 dbQueries.open();
                 if(dbQueries.getTextIsiDetailContent(listAdapter.getIdChild(groupPosition, childPosition)).size()!=0){
                     Intent intent = new Intent(getActivity(), DetailActivity.class);
@@ -133,6 +138,14 @@ public class FragmentSubMenu extends Fragment{
             }
         });
         return view;
+    }
+
+    public void saveSelectedTabIndex(int selectedIndex){
+
+        SharedPreferences sharedPref = getActivity().getPreferences(Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPref.edit();
+        editor.putInt("SELECTED_TAB", selectedIndex);
+        editor.commit();
     }
 
 }

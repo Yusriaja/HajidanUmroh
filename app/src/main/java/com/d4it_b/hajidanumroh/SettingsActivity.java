@@ -50,5 +50,7 @@ public class SettingsActivity extends AppCompatActivity {
     public void onBackPressed() {
         ThemeUtils.changeToTheme(SettingsActivity.this, spinner.getSelectedItemPosition());
         startActivity(new Intent(SettingsActivity.this, MainAct.class));
+
+
     }
 }

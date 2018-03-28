@@ -24,15 +24,15 @@
         <activity
             android:name=".MainAct"
             android:logo="@drawable/action_bar_icon"
-            android:label="@string/title_act_main"
-            android:launchMode="singleTop"/>
+            android:label="@string/title_act_main"/>
         <activity
             android:name=".DetailActivity"/>
         <activity
             android:name=".ProfileActivity"
             android:label="@string/title_activity_profile"></activity>
         <activity
-            android:name=".SettingsActivity"></activity>
+            android:name=".SettingsActivity"
+            android:noHistory="true"></activity>
 
         <meta-data
             android:name="preloaded_fonts"

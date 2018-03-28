@@ -1,6 +1,9 @@
 package com.d4it_b.hajidanumroh;
 
+import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.os.Environment;
@@ -10,8 +13,10 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -80,23 +85,50 @@ public class MainAct extends AppCompatActivity{
         TabLayout tabLayout = (TabLayout) findViewById(R.id.tabs);
         tabLayout.setupWithViewPager(viewPager);
 
+
+        int selected_tab = getSelectedTab();
+        if (selected_tab != 0) {
+            Log.i("SELECTED_TAB", "selected tab : "+selected_tab);
+            tabLayout.setScrollPosition(selected_tab,0f,true);
+            viewPager.setCurrentItem(selected_tab);
+        }
+
+
 //        TextView text = (TextView) findViewById(R.id.activityLabel);
 //        Typeface tf = Typeface.createFromAsset(getAssets(), "fonts/Honej.ttf");
 //        text.setTypeface(tf);
     }
 
+    public int getSelectedTab(){
+        SharedPreferences sharedPref = this.getPreferences(Context.MODE_PRIVATE);
+        int selected_tab = sharedPref.getInt("SELECTED_TAB", 0);
+        switch (selected_tab){
+            case 3:
+                return 0;
+            case 2:
+                return 1;
+            case 1:
+                return 2;
+            case 4:
+                return 3;
+            case 5:
+                return 4;
+        }
+        return selected_tab;
+    }
+
     private void setupViewPager(ViewPager viewPager){
         ViewPagerAdapter adapter = new ViewPagerAdapter(getSupportFragmentManager());
-
-        FragmentSubMenu fragmentHaji = new FragmentSubMenu();
-        fragmentHaji.setRetainInstance(true);
-        fragmentHaji.setIndexMain(2);
-        adapter.addFragment(fragmentHaji, "HAJI");
 
         FragmentSubMenu fragmentSholat = new FragmentSubMenu();
         fragmentSholat.setRetainInstance(true);
         fragmentSholat.setIndexMain(3);
         adapter.addFragment(fragmentSholat, "Sholat");
+
+        FragmentSubMenu fragmentHaji = new FragmentSubMenu();
+        fragmentHaji.setRetainInstance(true);
+        fragmentHaji.setIndexMain(2);
+        adapter.addFragment(fragmentHaji, "HAJI");
 //
         FragmentSubMenu fragmentUmroh = new FragmentSubMenu();
         fragmentUmroh.setRetainInstance(true);
@@ -157,7 +189,9 @@ public class MainAct extends AppCompatActivity{
         // Handle item selection
         switch (item.getItemId()) {
             case R.id.themeSetting:
+                finish();
                 startActivity(new Intent(this,SettingsActivity.class));
+//                Runtime.getRuntime().exit(0);
                 return true;
             case R.id.profile:
                 Intent intent = new Intent(MainAct.this, ProfileActivity.class);
@@ -237,4 +271,21 @@ public class MainAct extends AppCompatActivity{
         }
     }
 
+    @Override
+    public void onBackPressed() {
+        new AlertDialog.Builder(this)
+                .setIcon(android.R.drawable.ic_dialog_alert)
+                .setTitle("Tutup Aplikasi")
+                .setMessage("Anda yakin ingin keluar dari aplikasi?")
+                .setPositiveButton("Iya", new DialogInterface.OnClickListener()
+                {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        System.exit(0);
+                    }
+
+                })
+                .setNegativeButton("Tidak", null)
+                .show();
+    }
 }
