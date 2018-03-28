@@ -140,6 +140,7 @@ public class FragmentSubMenu extends Fragment{
         return view;
     }
 
+    //seve selected tab on shared preference
     public void saveSelectedTabIndex(int selectedIndex){
 
         SharedPreferences sharedPref = getActivity().getPreferences(Context.MODE_PRIVATE);
