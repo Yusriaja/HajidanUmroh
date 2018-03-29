@@ -10,16 +10,6 @@
         <!-- "file" submenu -->
     </item>
 
-    <item android:id="@+id/exportDetail"
-        android:title="Export Detail" >
-        <!-- "file" submenu -->
-    </item>
-
-    <item android:id="@+id/exportIsi"
-        android:title="Export Isi" >
-        <!-- "file" submenu -->
-    </item>
-
     <item android:id="@+id/themeSetting"
         android:title="Setting" >
         <!-- "file" submenu -->

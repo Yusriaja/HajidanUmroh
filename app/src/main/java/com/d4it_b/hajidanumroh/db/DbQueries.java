@@ -143,6 +143,7 @@ public class DbQueries {
         Cursor res = db.rawQuery(query , null);
         res.moveToFirst();
 
+        Log.i("hahahahaa", "getGroup: "+query);
         while (!res.isAfterLast()){
             content.add(new ContentSubMenu(res.getInt(0), res.getString(2)));
             res.moveToNext();

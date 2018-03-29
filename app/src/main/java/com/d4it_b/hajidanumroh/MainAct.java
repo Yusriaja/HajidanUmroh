@@ -63,7 +63,7 @@ public class MainAct extends AppCompatActivity{
 
         img = (ImageView) findViewById(R.id.img);
 
-        int[] res = {R.drawable.img1, R.drawable.img2, R.drawable.img3, R.drawable.img4};
+        int[] res = {R.drawable.img1, R.drawable.img2, R.drawable.img3};
         Random rand = new Random();
         int rndInt = rand.nextInt(res .length);
         img.setImageDrawable(getResources().getDrawable(res[rndInt]));

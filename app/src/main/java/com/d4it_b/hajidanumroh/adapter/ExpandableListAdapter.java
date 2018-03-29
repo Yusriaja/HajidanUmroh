@@ -2,6 +2,7 @@ package com.d4it_b.hajidanumroh.adapter;
 
 import android.content.Context;
 import android.graphics.Typeface;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -111,8 +112,9 @@ public class ExpandableListAdapter extends BaseExpandableListAdapter {
 
 
         lblListHeader.setTypeface(null, Typeface.BOLD);
-        lblListHeader.setText(headerTitle);
+        lblListHeader.setText(groupPosition + " " +headerTitle);
 
+        Log.i("TextExpandable", "getGroupView: "+headerTitle);
         return convertView;
     }
 
