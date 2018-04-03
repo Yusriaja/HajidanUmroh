@@ -2,18 +2,18 @@
 <resources>
 
 
-    <color name="pantone331c">#05C3DE</color>
+    <color name="pantone331c">#05c3de</color>
 
     <!--pallete one-->
     <color name="pantoneDark331c">#017787</color>
     <color name="pantoneOne">#01B0C8</color><!--3DAEBD-->
     <color name="pantoneTwo">#30CBE1</color>
     <color name="pantoneTree">#5BD4E5</color>
-    <color name="pantoneTransparent">#6605C3DE</color>
+    <color name="pantoneTransparent">#6605c3de</color>
     <color name="pantoneDarkTransparent">#8c017787</color>
 
     <!--pallete two-->
-    <color name="palleteDark">#29757F</color>
+    <color name="palleteDark">#29757f</color>
     <color name="palleteOne">#bfd6d9</color>
     <color name="palleteDarkTransparent">#8c29757F</color>
 
