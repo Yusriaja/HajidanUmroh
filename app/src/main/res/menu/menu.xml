@@ -5,11 +5,6 @@
         <!-- "file" submenu -->
     </item>
 
-    <item android:id="@+id/exportSubmenu"
-        android:title="Export Sub Menu" >
-        <!-- "file" submenu -->
-    </item>
-
     <item android:id="@+id/themeSetting"
         android:title="Setting" >
         <!-- "file" submenu -->
