@@ -10,7 +10,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ExpandableListView;
-import android.widget.Toast;
 
 import com.d4it_b.hajidanumroh.DetailActivity;
 import com.d4it_b.hajidanumroh.R;
@@ -136,8 +135,6 @@ public class FragmentSubMenu extends Fragment{
                     intent.putExtra("idTitle", listAdapter.getIdGroup(groupPosition));
                     intent.putExtra("title", listAdapter.getChild(groupPosition,childPosition).toString());
                     startActivity(intent);
-                }else{
-                    Toast.makeText(getActivity(), "Sorry", Toast.LENGTH_SHORT).show();
                 }
                 return false;
             }

@@ -3,7 +3,6 @@ package com.d4it_b.hajidanumroh.db;
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
-import android.widget.Toast;
 
 import java.io.File;
 import java.io.FileOutputStream;
@@ -50,7 +49,7 @@ public class DBHandler extends SQLiteOpenHelper {
     String divider = "/";
 
     public DBHandler(Context context) {
-        super(context, DB_NAME, null, 1);
+        super(context, DB_NAME, null, 6);
         this.context = context;
         DB_PATH = divider + "data" + divider + "data" + divider + context.getPackageName() + divider + "databases/";
     }
@@ -72,7 +71,7 @@ public class DBHandler extends SQLiteOpenHelper {
         while ((length = myInput.read(buffer)) > 0) {
             myOutput.write(buffer, 0, length);
         }
-        Toast.makeText(context.getApplicationContext(), "Successfully Imported", Toast.LENGTH_SHORT).show();
+
         // Close the streams
         myOutput.flush();
         myOutput.close();

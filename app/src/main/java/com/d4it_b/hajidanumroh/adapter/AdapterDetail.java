@@ -50,6 +50,11 @@ public class AdapterDetail extends BaseAdapter{
     }
 
     @Override
+    public boolean isEnabled(int position) {
+        return false;
+    }
+
+    @Override
     public View getView(int position, View convertView, ViewGroup parent) {
         TextView textView_text, textView_arab,textView_arti, textView_latin;
         convertView = LayoutInflater.from(parent.getContext()).inflate(R.layout.adapter_content, parent,false);

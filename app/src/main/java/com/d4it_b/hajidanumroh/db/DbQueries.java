@@ -139,7 +139,7 @@ public class DbQueries {
         List<ContentSubMenu> content = new ArrayList<>();
         SQLiteDatabase db = dbHelper.getReadableDatabase();
 
-        String query = "SELECT * FROM "+ NAMA_TABLE_SUBMENU + " WHERE " + KEY_ID_TABLE_UTAMA + " = " + idTableUtama + " ORDER BY " + KEY_ID_SUB_MENU + " ASC";
+        String query = "SELECT distinct(id_sub_menu), id_tb_utama, str_sub_menu FROM "+ NAMA_TABLE_SUBMENU + " WHERE " + KEY_ID_TABLE_UTAMA + " = " + idTableUtama + " ORDER BY " + KEY_ID_SUB_MENU + " ASC";
         Cursor res = db.rawQuery(query , null);
         res.moveToFirst();
 
@@ -161,12 +161,12 @@ public class DbQueries {
         List<ContentSubMenu> content= new ArrayList<>();
         SQLiteDatabase db = dbHelper.getReadableDatabase();
 
-        String query = "SELECT * FROM "+ NAMA_TABLE_DETAIL_CONTENT+ " WHERE " + KEY_ID_SUB_MENU+ " = " + idSubMenu+ " AND "+ KEY_ISSET_ISI + " = 1" +" ORDER BY " + KEY_ID_DETAIL_CONTENT+ " ASC";
+        String query = "SELECT distinct(id_detail_content), str_detail_content FROM "+ NAMA_TABLE_DETAIL_CONTENT+ " WHERE " + KEY_ID_SUB_MENU+ " = " + idSubMenu+ " AND "+ KEY_ISSET_ISI + " = 1" +" ORDER BY " + KEY_ID_DETAIL_CONTENT+ " ASC";
         Cursor res = db.rawQuery(query , null);
         res.moveToFirst();
 
         while (!res.isAfterLast()){
-            content.add(new ContentSubMenu(res.getInt(0), res.getString(2)));
+            content.add(new ContentSubMenu(res.getInt(0), res.getString(1)));
             res.moveToNext();
         }
 
@@ -183,11 +183,11 @@ public class DbQueries {
 
         String query;
         if (namaTable.equals(NAMA_TABLE_DETAIL_CONTENT)) {
-            query = " SELECT " + KEY_TEXT_DETAIL_CONTENT + ", " + KEY_ARAB_DETAIL + ", "+ KEY_LATIN_DETAIL + ", "+KEY_ARTI_DETAIL
+            query = " SELECT distinct(" + KEY_TEXT_DETAIL_CONTENT + "), " + KEY_ARAB_DETAIL + ", "+ KEY_LATIN_DETAIL + ", "+KEY_ARTI_DETAIL
                     + " FROM "+ NAMA_TABLE_DETAIL_CONTENT+ " WHERE " + KEY_ID_SUB_MENU + " = " +id;
             Log.i("Halloooo", "getContentDetail: "+query);
         }else{
-            query = " SELECT " + KEY_TEXT_ISI + ", " + KEY_ARAB_ISI + ", "+ KEY_LATIN_ISI + ", "+ KEY_ARTI_ISI
+            query = " SELECT distinct(" + KEY_TEXT_ISI + "), " + KEY_ARAB_ISI + ", "+ KEY_LATIN_ISI + ", "+ KEY_ARTI_ISI
                     + " FROM "+ NAMA_TABLE_ISI_DETAIL_CONTENT + " WHERE " + KEY_ID_DETAIL_CONTENT + " = " +id;
             Log.i("Halloooo", "getContentDetail: "+query);
         }

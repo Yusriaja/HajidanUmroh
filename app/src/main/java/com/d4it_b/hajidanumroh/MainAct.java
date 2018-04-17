@@ -115,30 +115,32 @@ public class MainAct extends AppCompatActivity{
     private void setupViewPager(ViewPager viewPager){
         ViewPagerAdapter adapter = new ViewPagerAdapter(getSupportFragmentManager());
 
-        FragmentSubMenu fragmentSholat = new FragmentSubMenu();
-        fragmentSholat.setRetainInstance(true);
-        fragmentSholat.setIndexMain(3);
-        adapter.addFragment(fragmentSholat, "Sholat");
+        FragmentSubMenu fragmentUmroh = new FragmentSubMenu();
+        fragmentUmroh.setRetainInstance(true);
+        fragmentUmroh.setIndexMain(1);
+        adapter.addFragment(fragmentUmroh, "Umrah");
 
         FragmentSubMenu fragmentHaji = new FragmentSubMenu();
         fragmentHaji.setRetainInstance(true);
         fragmentHaji.setIndexMain(2);
         adapter.addFragment(fragmentHaji, "HAJI");
-//
-        FragmentSubMenu fragmentUmroh = new FragmentSubMenu();
-        fragmentUmroh.setRetainInstance(true);
-        fragmentUmroh.setIndexMain(1);
-        adapter.addFragment(fragmentUmroh, "Umroh");
+
+        FragmentSubMenu fragmentDAM = new FragmentSubMenu();
+        fragmentDAM.setRetainInstance(true);
+        fragmentDAM.setIndexMain(5);
+        adapter.addFragment(fragmentDAM, "DAM");
+
+        FragmentSubMenu fragmentSholat = new FragmentSubMenu();
+        fragmentSholat.setRetainInstance(true);
+        fragmentSholat.setIndexMain(3);
+        adapter.addFragment(fragmentSholat, "Shalat");
 
         FragmentSubMenu fragmentDoa = new FragmentSubMenu();
         fragmentDoa.setRetainInstance(true);
         fragmentDoa.setIndexMain(4);
         adapter.addFragment(fragmentDoa, "DOA");
 
-        FragmentSubMenu fragmentDAM = new FragmentSubMenu();
-        fragmentDAM.setRetainInstance(true);
-        fragmentDAM.setIndexMain(5);
-        adapter.addFragment(fragmentDAM, "DAM");
+
         viewPager.setAdapter(adapter);
     }
 
