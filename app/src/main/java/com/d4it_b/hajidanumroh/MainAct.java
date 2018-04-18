@@ -52,13 +52,12 @@ public class MainAct extends AppCompatActivity{
         setSupportActionBar(toolbar);
 
         collapsingToolbar = (CollapsingToolbarLayout) findViewById(R.id.collapsing_toolbar);
-//        collapsingToolbar.setTitle("AN-NUR KARAH AGUNG");
-//        collapsingToolbar.setExpandedTitleColor(Color.parseColor("#44ffffff"));
+
         collapsingToolbar.setExpandedTitleColor(Color.TRANSPARENT);
 
         img = (ImageView) findViewById(R.id.img);
 
-        int[] res = {R.drawable.img1, R.drawable.img2, R.drawable.img3};
+        int[] res = {R.drawable.gmb1, R.drawable.gmb2, R.drawable.gmb3, R.drawable.gmb4, R.drawable.gmb5, R.drawable.gmb6, R.drawable.gmb7, R.drawable.gmb8, R.drawable.gmb9, R.drawable.gmb10};
         Random rand = new Random();
         int rndInt = rand.nextInt(res .length);
         img.setImageDrawable(getResources().getDrawable(res[rndInt]));
