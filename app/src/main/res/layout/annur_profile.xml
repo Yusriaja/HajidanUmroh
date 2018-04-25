@@ -50,7 +50,7 @@
                 android:layout_alignParentBottom="true"
                 android:layout_centerHorizontal="true"
                 android:fontFamily="@font/serpentine"
-                android:text="HAJI DAN UMROH"
+                android:text="@string/hajiumrah"
                 android:textColor="#fff"
                 android:textSize="18sp" />
         </RelativeLayout>

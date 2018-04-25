@@ -36,7 +36,7 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/header"
                 android:layout_marginRight="25dp"
-                android:layout_marginTop="60dp"
+                android:layout_marginTop="160dp"
                 android:fontFamily="@font/honej"
                 android:gravity="bottom|right"
                 android:text="AN-NUR KARAH AGUNG"
@@ -49,10 +49,10 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/dashboard_txt_title"
                 android:layout_marginRight="25dp"
-                android:layout_marginTop="100dp"
+                android:layout_marginTop="200dp"
                 android:fontFamily="@font/serpentine"
                 android:gravity="bottom|right"
-                android:text="HAJI DAN UMROH"
+                android:text="@string/hajiumrah"
                 android:textColor="?attr/textWhiteColor"
                 android:textSize="18dp" />
 
