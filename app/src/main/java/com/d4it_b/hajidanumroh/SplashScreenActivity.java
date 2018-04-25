@@ -56,7 +56,7 @@ public class SplashScreenActivity extends AppCompatActivity {
 //                        dbQueries.addAllDataSubMenu(subMenuContents);
 //                        dbQueries.addAllDataDetailContent(detailContents);
 //                        dbQueries.addAllIsi(isiDetailContents);
-                    sleep(4000);
+                    sleep(3000);
                 }catch (InterruptedException e){
                     e.printStackTrace();
                 }finally {

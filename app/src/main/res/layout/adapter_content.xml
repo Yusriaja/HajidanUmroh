@@ -1,20 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/adapter_content_linear_layout"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:gravity="top|center_horizontal"
     android:orientation="vertical"
     android:overScrollMode="always"
-    android:paddingBottom="10dp"
     android:paddingLeft="20dp"
     android:paddingTop="10dp">
 
-    <me.biubiubiu.justifytext.library.JustifyTextView
+    <!--    <me.biubiubiu.justifytext.library.JustifyTextView   -->
+    <com.uncopt.android.widget.text.justify.JustifiedTextView
         android:id="@+id/text_content"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:fontFamily="sans-serif-condensed"
         android:lineSpacingMultiplier="1.1"
+        android:paddingRight="18dp"
         android:textSize="16sp"
         android:visibility="gone" />
 
@@ -22,25 +24,31 @@
         android:id="@+id/arab_content"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:paddingRight="23dp"
+        android:paddingRight="26dp"
+        android:paddingTop="10dp"
         android:textSize="36sp"
         android:visibility="gone" />
 
-    <me.biubiubiu.justifytext.library.JustifyTextView
+    <!--    <me.biubiubiu.justifytext.library.JustifyTextView   -->
+    <com.uncopt.android.widget.text.justify.JustifiedTextView
         android:id="@+id/latin_content"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:fontFamily="sans-serif-condensed"
         android:lineSpacingMultiplier="1.1"
+        android:paddingBottom="10dp"
+        android:paddingRight="18dp"
         android:textSize="16sp"
         android:visibility="gone" />
 
-    <me.biubiubiu.justifytext.library.JustifyTextView
+    <!--    <me.biubiubiu.justifytext.library.JustifyTextView   -->
+    <com.uncopt.android.widget.text.justify.JustifiedTextView
         android:id="@+id/arti_content"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:fontFamily="sans-serif-condensed"
         android:lineSpacingMultiplier="1.1"
+        android:paddingRight="18dp"
         android:textSize="16sp"
         android:textStyle="italic"
         android:visibility="gone" />

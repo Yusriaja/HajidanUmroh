@@ -10,6 +10,7 @@ import android.widget.TextView;
 
 import com.d4it_b.hajidanumroh.R;
 import com.d4it_b.hajidanumroh.model.ContentDetailAct;
+import com.uncopt.android.widget.text.justify.JustifiedTextView;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -56,12 +57,20 @@ public class AdapterDetail extends BaseAdapter{
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
-        TextView textView_text, textView_arab,textView_arti, textView_latin;
+//        TextView textView_text, textView_arab,textView_arti, textView_latin;
+        TextView textView_arab;
+        JustifiedTextView textView_text,textView_arti, textView_latin;
         convertView = LayoutInflater.from(parent.getContext()).inflate(R.layout.adapter_content, parent,false);
-        textView_text= (TextView)convertView.findViewById(R.id.text_content);
-        textView_arti= (TextView)convertView.findViewById(R.id.arti_content);
+//        textView_text= (TextView)convertView.findViewById(R.id.text_content);
+//        textView_arti= (TextView)convertView.findViewById(R.id.arti_content);
         textView_arab= (TextView)convertView.findViewById(R.id.arab_content);
-        textView_latin= (TextView)convertView.findViewById(R.id.latin_content);
+//        textView_latin= (TextView)convertView.findViewById(R.id.latin_content);
+        textView_text= (JustifiedTextView)convertView.findViewById(R.id.text_content);
+        textView_arti= (JustifiedTextView)convertView.findViewById(R.id.arti_content);
+//        textView_arab= (JustifiedTextView)convertView.findViewById(R.id.arab_content);
+        textView_latin= (JustifiedTextView)convertView.findViewById(R.id.latin_content);
+
+
 
 
         Typeface tf = Typeface.createFromAsset(context.getAssets(), "fonts/Arabtype.ttf");
@@ -88,8 +97,11 @@ public class AdapterDetail extends BaseAdapter{
             textView_text.setText(dataContent.get(position).getText());
             textView_text.setVisibility(View.VISIBLE);
         }
+
         return convertView;
     }
+
+
 //    @Override
 //    public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
 //        View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.adapter_content, parent, false);
