@@ -58,7 +58,7 @@ public class AdapterDetail extends BaseAdapter{
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
 //        TextView textView_text, textView_arab,textView_arti, textView_latin;
-        TextView textView_arab;
+        TextView textView_arab,test;
         JustifiedTextView textView_text,textView_arti, textView_latin;
         convertView = LayoutInflater.from(parent.getContext()).inflate(R.layout.adapter_content, parent,false);
 //        textView_text= (TextView)convertView.findViewById(R.id.text_content);
@@ -101,7 +101,7 @@ public class AdapterDetail extends BaseAdapter{
         return convertView;
     }
 
-
+//block test//
 //    @Override
 //    public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
 //        View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.adapter_content, parent, false);
