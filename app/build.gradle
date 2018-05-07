@@ -32,6 +32,7 @@ dependencies {
     compile 'de.hdodenhof:circleimageview:2.1.0'
     compile 'com.android.support:palette-v7:22.2.1'
     compile 'me.biubiubiu.justifytext:library:1.1'
+    compile 'com.uncopt:android.justified:1.0'
     compile 'org.jsoup:jsoup:1.8.3'
 
 }

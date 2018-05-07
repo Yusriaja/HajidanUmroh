@@ -98,15 +98,15 @@ public class MainAct extends AppCompatActivity{
         int selected_tab = sharedPref.getInt("SELECTED_TAB", 0);
         switch (selected_tab){
             case 3:
-                return 0;
+                return 3;
             case 2:
                 return 1;
             case 1:
-                return 2;
+                return 0;
             case 4:
-                return 3;
-            case 5:
                 return 4;
+            case 5:
+                return 2;
         }
         return selected_tab;
     }
